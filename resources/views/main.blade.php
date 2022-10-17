@@ -133,4 +133,4 @@
     {{-- END BODY DALEM --}}
     <script src="{{ URL::to('/js/additional.js') }}"></script>
 </body>
-</html>
+</html> 

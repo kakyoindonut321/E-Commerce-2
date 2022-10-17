@@ -32,7 +32,18 @@
 @endforeach
 
 
+{{-- pagination --}}
+<div>
+  <div class="mx-auto container bg-lime p-1 rounded my-5" style="">
+    <button style="display:inline;" onclick="">aa</button>
+    <button style="display:inline;" onclick="">aa</button>
+    <button style="display:inline;" onclick="">aa</button>
+    <button style="display:inline;" onclick="">aa</button>
+    <button style="display:inline;" onclick="">aa</button>
+    <button style="display:inline;" onclick="">aa</button>
 
+  </div>  
+</div>
 
 
 
