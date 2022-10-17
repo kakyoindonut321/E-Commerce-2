@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\pageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productController;
 
@@ -15,3 +16,11 @@ use App\Http\Controllers\productController;
 */
 
 Route::get('/', [productController::class, 'index']);
+
+
+Route::get('/product/{$hehe}', function () {
+    return view( 'rickroll' ,
+        ['rick' => 'hahaha']
+    );
+});
+

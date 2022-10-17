@@ -7,6 +7,12 @@ use App\Models\Product;
 
 class productController extends Controller
 {
+    public function returnGet(Request $request) {
+        $page= $request->page;
+        
+        return $page;
+    }
+
     public function paging($para_A) {
         $i_one = 0;
         $i_two = 0;
@@ -34,14 +40,15 @@ class productController extends Controller
     }
     
 
-    public function index() {
+    public function index(Request $request) {
         $the_array = [
             'the_array' => Product::all(),
             'lenght' => count(Product::all()) 
         ];
 
         $product = [
-            "product" => $this->paging(Product::all())
+            "product" => $this->paging(Product::all()),
+            "getPage" => $this->returnGet($request)
         ];
 
         return view('/product/listing', $product);
