@@ -16,7 +16,13 @@ class ProductSeeder extends Seeder
     {
         $produk = array(
             "bola" => 'bola.jpg', 
-            "bantal" => 'bantal.jpg'
+            "bantal" => 'bantal.jpg',
+            "balon" => 'balon.jpg',
+            "sepatu" => 'sepatu.jpg',
+            "jaket" => 'jaket.jpg',
+            "topi" => 'topi.jpg',
+            "buku" => 'buku.jpg',
+            "lampu" => 'lampu.jpg',
         );
 
         $jumlah = count($produk);

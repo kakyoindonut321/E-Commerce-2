@@ -14,6 +14,4 @@ use App\Http\Controllers\productController;
 |
 */
 
-Route::get('/', function () {
-    return view('/product/listing');
-});
+Route::get('/', [productController::class, 'index']);
