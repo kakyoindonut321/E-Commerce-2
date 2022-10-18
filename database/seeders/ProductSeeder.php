@@ -15,14 +15,26 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $produk = array(
-            "bola" => 'bola.jpg', 
-            "bantal" => 'bantal.jpg',
-            "balon" => 'balon.jpg',
-            "sepatu" => 'sepatu.jpg',
-            "jaket" => 'jaket.jpg',
-            "topi" => 'topi.jpg',
-            "buku" => 'buku.jpg',
-            "lampu" => 'lampu.jpg',
+            "bola" => 'bola.jfif', 
+            "baju" => 'baju.jfif',
+            "garpu" => 'garpu.jfif',
+            "gelas" => 'gelas.jfif',
+            "jaket" => 'jaket.jfif',
+            "celana" => 'celana.jfif',
+            "hoodie" => 'hoodie.jfif',
+            "iphone" => 'iphone.jfif',
+            // "alat-renang" => 'alat-renang.jfif',
+            // "kacamata" => 'kacamata.jfif',
+            // "kenalpot" => 'kenalpot.jfif',
+            // "playstation" => 'playstation.jfif',
+            // "raket" => 'raket.jfif',
+            // "ram" => 'ram.jfif',
+            // "sendok" => 'sendok.jfif',
+            // "sepatu" => 'sepatu.jfif',
+            // "speaker" => 'speaker.jfif',
+            // "spion" => 'spion.jfif',
+            // "tas" => 'tas.jfif',
+            // "vga" => 'vga.jfif'
         );
 
         $jumlah = count($produk);
