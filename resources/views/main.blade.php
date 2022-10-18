@@ -47,7 +47,7 @@
 </head>
 <body>
     {{-- NAVBAR --}}
-    <div class="container-fm p-2 bg-green d-flex justify-space-between">
+    <div class="container-fm p-2 bg-lime d-flex justify-space-between">
         {{-- LOGO WEBSITE DAN NAMA WEBSITE --}}
         <a href="#" class="navbar-brand me-auto">
             <img src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" width="45" alt="" class="d-inline-block align-middle mr-2">
