@@ -25,8 +25,8 @@
   <img src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="<?php $a -> image?>">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{ $a -> name }}</li>
-    <li class="list-group-item">{{ $a -> price }}</li>
-    <li class="list-group-item">{{ $a -> stock }}</li>
+    <li class="list-group-item">harga: {{ $a -> price }}</li>
+    <li class="list-group-item">stock: {{ $a -> stock }}</li>
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">test</a>
