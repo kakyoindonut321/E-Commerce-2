@@ -18,7 +18,7 @@ use App\Http\Controllers\productController;
 Route::get('/', [productController::class, 'index']);
 
 
-Route::get('/product/{$hehe}', function () {
+Route::get('/rickroll', function () {
     return view( 'rickroll' ,
         ['rick' => 'hahaha']
     );
