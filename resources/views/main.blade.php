@@ -55,7 +55,7 @@
           </a>
           {{-- NAMA USER DAN LOGO --}}
           <a href="#" class="navbar-user">
-            <span class="text-uppercase font-weight-bold text-dark navbar-user">Nama User</span>
+            <span class="text-uppercase font-weight-bold text-dark navbar-user">fari</span>
             <img src="{{ URL::to('/image/user.png') }}" width="45" alt="" class="d-inline-block align-middle ">
           </a>
     </div>
