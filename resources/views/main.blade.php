@@ -93,39 +93,12 @@
             </div>
 
         </div>
+        <button onclick="Toggle()" class="toggle-btn"><div class="vr-line1"><div class="vr-line2"><div class="vr-line3"></div></div></button>
         {{-- END SIDEBAR --}}
 
         {{-- CONTENT --}}
-        <button onclick="Toggle()" class="toggle-btn"><div class="vr-line1"><div class="vr-line2"><div class="vr-line3"></div></div></button>
         <div class="d-flex p-2 justify-content-center" style="flex-wrap: wrap;">
-          
-          {{-- SLIDE CAROUSEL --}}
-          <div id="slider" class="carousel slide border mx-5 w-75" data-bs-ride="carousel">
-            <div class="carousel-inner ">
-                <div class="carousel-item bg-dark active">
-                    <img src="{{ URL::to('/image/iklan/iklan.png') }}" class="d-block w-100" alt="1">
-                </div>
-                <div class="carousel-item bg-dark">
-                    <img src="{{ URL::to('/image/iklan/iklan2.png') }}" class="d-block w-100" alt="2">
-                </div>
-                <div class="carousel-item bg-dark">
-                    <img src="{{ URL::to('/image/iklan/iklan3.png') }}" class="d-block w-100" alt="3">
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                  </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-            </div>
-          </div>
-          {{-- END CAROUSEL--}}
-
-          {{-- LISTING PRODUK --}}
             @yield('content')
-          {{-- END PRODUK --}}
         </div>
         {{-- END CONTENT --}}
 

@@ -15,7 +15,14 @@ use App\Http\Controllers\productController;
 |
 */
 
-Route::get('/', [productController::class, 'index']);
+// Route::get('/', [productController::class, 'index']);
+
+Route::get('/', function () {
+    return view( 'product/detail' ,
+        ['adknd' => 'akdnksad']
+    );
+});
+
 
 
 Route::get('/rickroll', function () {

@@ -7070,17 +7070,17 @@ fieldset:disabled .btn {
 
 .vr-line1 {
     border-right: 6px solid white;
-    height: 900px
+    height: auto;
 }
 
 .vr-line2 {
     border-right: 1px solid #D3D3D3;
-    height: 900px
+    height: auto;
 }
 
 .vr-line3 {
     border-right: 6px solid white;
-    height: 900px
+    height: auto;
 }
 
 .toggle-btn:hover {
