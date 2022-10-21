@@ -1,37 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    {{-- 
-        MESSAGE dari kami kelompok 2:
-        hallo, ini bang misalkan bingung, begini struktur dan cara bacanya!
-        
-        cara baca:
-        {{- NAMA BAGIAN -}}
-        <isi>bagian</contoh>
-        {{- END NAMA BAGIAN -}}
-        *kecuali bagian untuk link kyk boostrap
-
-
-
-        STRUKTUR:
-        -head:
-        |-title
-        |-link boostrap dll
-        -/head
-
-        -body:
-        |-navbar
-        |-body dalem:
-        ||-sidebar
-        ||-content:
-        |||-carousel slide
-        |||-listing produk
-        ||-/content
-        |-/body dalem
-        |-
-    --}}
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -93,7 +62,7 @@
             </div>
 
         </div>
-        <button onclick="Toggle()" class="toggle-btn"><div class="vr-line1"><div class="vr-line2"><div class="vr-line3"></div></div></button>
+        <button onclick="Toggle()" class="toggle-btn"></button>
         {{-- END SIDEBAR --}}
 
         {{-- CONTENT --}}

@@ -23,18 +23,18 @@ class ProductSeeder extends Seeder
             "celana" => 'celana.jfif',
             "hoodie" => 'hoodie.jfif',
             "iphone" => 'iphone.jfif',
-            // "alat-renang" => 'alat-renang.jfif',
-            // "kacamata" => 'kacamata.jfif',
-            // "kenalpot" => 'kenalpot.jfif',
-            // "playstation" => 'playstation.jfif',
-            // "raket" => 'raket.jfif',
-            // "ram" => 'ram.jfif',
-            // "sendok" => 'sendok.jfif',
-            // "sepatu" => 'sepatu.jfif',
-            // "speaker" => 'speaker.jfif',
-            // "spion" => 'spion.jfif',
-            // "tas" => 'tas.jfif',
-            // "vga" => 'vga.jfif'
+            "alat-renang" => 'alat-renang.jfif',
+            "kacamata" => 'kacamata.jfif',
+            "kenalpot" => 'kenalpot.jfif',
+            "playstation" => 'playstation.jfif',
+            "raket" => 'raket.jfif',
+            "ram" => 'ram.jfif',
+            "sendok" => 'sendok.jfif',
+            "sepatu" => 'sepatu.jfif',
+            "speaker" => 'speaker.jfif',
+            "spion" => 'spion.jfif',
+            "tas" => 'tas.jfif',
+            "vga" => 'vga.jfif'
         );
 
         $jumlah = count($produk);

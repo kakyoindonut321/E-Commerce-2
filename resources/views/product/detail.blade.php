@@ -7,27 +7,16 @@
           <div class = "product-imgs">
             <div class = "img-display">
               <div class = "img-showcase">
-                <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" alt = "shoe image">
+                <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" alt = "shoe image" width="500">
               </div>
            </div>
            <!-- card right -->
           <div class = "product-content">
             <h2 class = "product-title">nike shoes</h2>
-            <a href = "#" class = "product-link">visit nike store</a>
-            <div class = "product-rating">
-              <i class = "fas fa-star"></i>
-              <i class = "fas fa-star"></i>
-              <i class = "fas fa-star"></i>
-              <i class = "fas fa-star"></i>
-              <i class = "fas fa-star-half-alt"></i>
-              <span>4.7(21)</span>
-            </div>
-      
             <div class = "product-price">
-              <p class = "last-price">Old Price: <span>$257.00</span></p>
-              <p class = "new-price">New Price: <span>$249.00 (5%)</span></p>
+              <p class = "new-price">Price: <span>$249.00</span></p>
             </div>
-      
+            
             <div class = "product-detail">
               <h2>about this item: </h2>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
