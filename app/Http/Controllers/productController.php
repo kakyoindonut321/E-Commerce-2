@@ -21,14 +21,14 @@ class productController extends Controller
         foreach ($para_A as $para_new) {
             $i_one++;
             array_push($ar_first, $para_new);
-            if ($i_one % 4 == 0) {
+            if ($i_one % 8 == 0) {
                 array_push($ar_last, $ar_first);
                 $ar_first = array();
                 $i_two = $i_one;
             }
         }
         $ar_first = array();
-        if (!($i_one % 4 == 0)) {
+        if (!($i_one % 8 == 0)) {
             $new_count = $i_one - $i_two;
             $range = range(0, $new_count -1);
             foreach ($range as $n) {

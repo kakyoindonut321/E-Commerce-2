@@ -46,7 +46,7 @@ class AuthController extends Controller
         if($user){
             if(Hash::check($request->password, $user->password)) {
                 $request->session()->put('loginId', $user->password);
-                return redirect('dashboard');
+                return redirect('product');
             } else {
                 return back()->with('unmatch', 'wrong password');
             }
@@ -55,8 +55,8 @@ class AuthController extends Controller
         }
     }
     
-    public function dashboard() {
-        return view('user.dashboard');
+    public function product() {
+        return view('product.listing');
     }
 
     public function logout() {

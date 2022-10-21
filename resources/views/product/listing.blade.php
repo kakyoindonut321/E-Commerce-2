@@ -49,22 +49,22 @@
   <img src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="<?php $a -> image?>">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{ $a -> name }}</li>
-    <li class="list-group-item">harga: {{ $a -> price }}</li>
+    <li class="list-group-item">harga: ${{ $a -> price }}</li>
     <li class="list-group-item">stock: {{ $a -> stock }}</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">test</a>
-    <a href="#" class="card-link">test</a>
+    <a href="#" class="btn bg-primary text-light">delete</a>
+    <a href="#" class="btn bg-primary text-light">update</a>
   </div>
 </div>
 @endforeach
 
 
 {{-- pagination --}}
-<div class="mx-5" >
+<div class="border" style="padding-left: 20%; padding-right: 20%;">
   <div class="mx-auto container bg-lime p-1 rounded my-5" style="">
     @for($page = 0; $page < $list; $page++)
-    <a href="?page={{ $page }}" style="display:inline;" class="btn">{{ $page + 1}}</a>
+    <a href="?page={{ $page }}" style="display:inline;" class="btn">{{ $page}}</a>
     @endfor
   </div>  
 </div>
