@@ -37,28 +37,31 @@
 @endif
 {{-- END CAROUSEL--}}
 
-
+{{-- CARD --}}
 @foreach($product[$getPage] as $a)
-<a href="/login" class="text-decoration-none">
-  <div class="card  m-2" style="width: 14rem;">
-    <div style="height: 14rem;">
-      <img src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="<?php $a -> image?>" >
+<a href="/login" class="text-decoration-none" >
+  <div class="card  m-2" style="width: 14rem; height: 24rem;" id="card">
+    <div >
+      <img style="height: 14rem;" src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="<?php $a -> image?>" >
     </div>
     <div class="card-body">
       <p class="card-title text-dark">{{ $a -> name }}</p>
       <h5 class="card-text text-danger">harga: ${{ $a -> price }}</h5>
       <p class="card-text text-dark">stock: {{ $a -> stock }}</p>
-      <a href="#" class="btn bg-lime text-light">delete</a>
-      <a href="#" class="btn bg-lime text-light">update</a>
+      {{-- HANYA BISA DILIHAT ADMIN --}}
+      <div class="d-flex justify-content-evenly m-1">
+        <a href="#" class="btn bg-lime text-light">delete</a>
+        <a href="#" class="btn bg-lime text-light">update</a>
+      </div>
+      {{-- END HANYA BISA DILIHAT ADMIN --}}
     </div>
   </div>
 </a>
-
 @endforeach
-
+{{-- END CARD --}}
 
 {{-- pagination --}}
-<div class="border" style="padding-left: 20%; padding-right: 20%;">
+<div class="" style="padding-left: 20%; padding-right: 20%;">
   <div class="mx-auto container bg-lime p-1 rounded my-5" style="">
     @for($page = 0; $page < $list; $page++)
     <a href="?page={{ $page }}" style="display:inline;" class="btn">{{ $page}}</a>
@@ -76,7 +79,7 @@
 
 {{-- nggak kepake --}}
 {{-- <div class="card m-2" style="width: 14rem;" >
-  <img src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="<?php $a -> image?>">
+  <img src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{ $a -> name }}</li>
     <li class="list-group-item">harga: ${{ $a -> price }}</li>

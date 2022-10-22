@@ -4747,6 +4747,10 @@ fieldset:disabled .btn {
     margin-bottom: 0.75rem;
 }
 
+.card:hover {
+    border-color: #dc3545;
+}
+
 @media (min-width: 576px) {
     .card-group {
         display: flex;
