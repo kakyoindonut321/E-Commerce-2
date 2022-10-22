@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\User;
+use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
 
@@ -32,7 +33,7 @@ class AuthController extends Controller
         if($res) {
             return redirect('login');
         } else {
-            return back()->with('deez', 'hah gottem');
+            return back()->with('Wrong', 'something is wrong');
         }
 
     }
@@ -45,13 +46,14 @@ class AuthController extends Controller
         $user = User::where('email', '=', $request->email)->first();
         if($user){
             if(Hash::check($request->password, $user->password)) {
+                $request->session()->regenerate();
                 $request->session()->put('loginId', $user->password);
                 return redirect('product');
             } else {
                 return back()->with('unmatch', 'wrong password');
             }
         }else {
-            return back()->with('deez', 'wtf');
+            return back()->with('emailWrong', 'wrong email');
         }
     }
     

@@ -20,6 +20,8 @@ Route::get('/', function () {
     return '
     <h1 style="text-align: center;">Landing Page</h1>
     <a href="/login"><h3 style="text-align: center;">Login  </h3></a>
+    <p style="text-align: center;">hanya bisa login saat belum login</p>
+    <a href="/logout"><h3 style="text-align: center; margin: 20px;">Logout  </h3></a>
     ';
 });
 
@@ -36,5 +38,6 @@ Route::get('/register', [AuthController::class, 'registration'])->middleware('Al
 
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-user');
-Route::get('/product', [productController::class, 'index'])->middleware('isLoggedIn');
 Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/product', [productController::class, 'index'])->middleware('isLoggedIn');
