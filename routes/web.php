@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\pageController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\productController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\OrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +23,68 @@ use App\Http\Controllers\AuthController;
 Route::get('/', function () {
     return '
     <h1 style="text-align: center;">Landing Page</h1>
-    <a href="/login"><h3 style="text-align: center;">Login  </h3></a>
-    <p style="text-align: center;">hanya bisa login saat belum login</p>
+    <a href="/product"><h2 style="text-align: center;">PRODUCTS</h2></a>
+    <a href="/login"><h3 style="text-align: center;">Login</h3></a>
     <a href="/logout"><h3 style="text-align: center; margin: 20px;">Logout  </h3></a>
     ';
 });
+
+
+
+Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
+Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-user');
+
+
+Route::get('/product', [productController::class, 'index']);
+Route::get('/detail', [productController::class, 'show']);
+
+
+
+Route::middleware("auth")->group(function () {
+    Route::get('/buy', [TransactionController::class, 'transaction']);
+    Route::get('/order', [OrderController::class, 'index']);
+    Route::get('/input-product', [productController::class, 'input']);
+    Route::get('/logout', [AuthController::class, 'logout']);
+});
+
+Route::middleware("AlreadyLogged")->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/register', [AuthController::class, 'registration'])->name('register');
+});
+
+
+
+Route::middleware("isAdmin")->group(function () {
+    Route::get('/report', [productController::class, 'report']);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,12 +93,3 @@ Route::get('/rickroll', function () {
         ['rick' => 'hahaha']
     );
 });
-
-Route::get('/login', [AuthController::class, 'login'])->middleware('AlreadyLogged');;
-Route::get('/register', [AuthController::class, 'registration'])->middleware('AlreadyLogged');
-
-Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
-Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-user');
-Route::get('/logout', [AuthController::class, 'logout']);
-
-Route::get('/product', [productController::class, 'index'])->middleware('isLoggedIn');

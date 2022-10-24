@@ -24,8 +24,8 @@
         New to E-commerce? <a href="/register"><b>Sign Up</b></a>
       </div>
       <form action="{{ route('login-user') }}" method="post">
-        @if(Session::has('sus'))
-          <h1>{{ Session::get('sus') }}</h1>
+        @if(Session::has('registered'))
+          <p class="text-success">{{ Session::get('registered') }}</p>
         @endif
         @csrf
         <div>
@@ -34,11 +34,11 @@
         </div>
         <div>
           <input type="password" placeholder="Password" name="password" value="{{ old('password') }}"/>
-          @if(Session::has('unmatch'))
-          <p style="font-size: 12px; color: red;">{{ Session::get('unmatch') }}</p>
-          @endif
           <p style="font-size: 12px; color: red;">@error('password') {{ $message }} @enderror</p>
         </div>
+        @if(Session::has('wrongAuth'))
+        <p style="font-size: 12px; color: red;">{{ Session::get('wrongAuth') }}</p>
+        @endif
 
         <p class="recover">
           <a href="#">Forgot Password ?</a>

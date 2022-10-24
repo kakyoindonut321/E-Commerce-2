@@ -41,12 +41,8 @@ class productController extends Controller
     
 
     public function index(Request $request) {
-        $the_array = [
-            'the_array' => Product::all(),
-            'lenght' => count(Product::all()) 
-        ];
-
         $product = [
+            "title" => "Products",
             "product" => $this->paging(Product::all()),
             "getPage" => $this->returnGet($request)
         ];
@@ -54,5 +50,20 @@ class productController extends Controller
         return view('/product/listing', $product);
     }
 
+    public function report() {
+        return view('admin.report', [
+            'title' => 'Report'
+        ]);
+    }
+
+    public function input() {
+        return view('admin.InputProduct', [
+            'title' => 'Input Produk'
+        ]);
+    }
+
+    public function show() {
+        return view('product.detail');
+    }
 
 }

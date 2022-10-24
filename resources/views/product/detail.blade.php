@@ -1,6 +1,10 @@
 @extends('main')
+
+@section('css')
+    <link rel="stylesheet" href={{ URL::to('/css/detail.css') }}>
+@endsection
+
 @section('content')
-<!-- KERJAIN DISINI -->
 <div class = "card-wrapper">
         <div class = "card">
           <!-- card left -->

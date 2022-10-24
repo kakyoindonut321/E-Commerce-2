@@ -4747,7 +4747,7 @@ fieldset:disabled .btn {
     margin-bottom: 0.75rem;
 }
 
-.card:hover {
+.product-card:hover {
     border-color: #dc3545;
 }
 
@@ -8053,6 +8053,10 @@ fieldset:disabled .btn {
 
 .bg-lime {
     background-color: #4BFF9F !important;
+}
+
+.bg-darklime {
+    background-color: #3bbf79 !important;
 }
 
 .bg-green {

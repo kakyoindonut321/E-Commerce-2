@@ -39,8 +39,8 @@
 
 {{-- CARD --}}
 @foreach($product[$getPage] as $a)
-<a href="/login" class="text-decoration-none" >
-  <div class="card  m-2" style="width: 14rem; height: 24rem;" id="card">
+<a href="/detail" class="text-decoration-none" >
+  <div class="product-card card  m-2" style="width: 14rem; height: 24rem;" id="card">
     <div >
       <img style="height: 14rem;" src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="<?php $a -> image?>" >
     </div>
@@ -62,16 +62,12 @@
 
 {{-- pagination --}}
 <div class="" style="padding-left: 20%; padding-right: 20%;">
-  <div class="mx-auto container bg-lime p-1 rounded my-5" style="">
+  <div class="mx-auto p-0 rounded  bg-lime" style="">
     @for($page = 0; $page < $list; $page++)
-    <a href="?page={{ $page }}" style="display:inline;" class="btn">{{ $page}}</a>
+    <a href="?page={{ $page }}" style="display:inline-block;" class="btn @if($page == $getPage) bg-darklime @endif">{{ $page}} </a>
     @endfor
   </div>  
 </div>
-
-@if(Session()->has('loginId'))
-
-@endif
 @endsection
 
 

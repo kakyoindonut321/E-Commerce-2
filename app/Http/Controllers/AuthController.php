@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\models\User;
 use Illuminate\Support\Facades\Auth;
 use Hash;
@@ -19,42 +20,35 @@ class AuthController extends Controller
     }
 
     public function registerUser(Request $request) {
-        $request->validate([
+        $userForm = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:5|max: 20'
         ]);
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $res = $user->save();
+        $userForm['password'] = Hash::make($request->password);
 
-        if($res) {
-            return redirect('login');
-        } else {
-            return back()->with('Wrong', 'something is wrong');
-        }
+        $user = User::create($userForm);
 
+        auth()->login($user);
+
+        return redirect('/');
     }
 
     public function loginUser(Request $request) {
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:5|max: 20'
+            "email" => "required|email",
+            "password" => "required"
         ]);
-        $user = User::where('email', '=', $request->email)->first();
-        if($user){
-            if(Hash::check($request->password, $user->password)) {
-                $request->session()->regenerate();
-                $request->session()->put('loginId', $user->password);
-                return redirect('product');
-            } else {
-                return back()->with('unmatch', 'wrong password');
-            }
-        }else {
-            return back()->with('emailWrong', 'wrong email');
+
+        $credential = $request->all();
+        unset($credential["_token"]);
+
+        if (Auth::attempt($credential)) {
+            $request->session()->regenerate();
+            return redirect('/product');
         }
+
+        return back()->with("wrongAuth", "Email atau Password salah");
     }
     
     public function product() {
@@ -62,10 +56,8 @@ class AuthController extends Controller
     }
 
     public function logout() {
-        if (Session::has('loginId')) {
-            Session::pull('loginId');
-            return redirect('login');
-        }
+        auth()->logout();
+        return redirect()->to("/login");
     }
 }
  
