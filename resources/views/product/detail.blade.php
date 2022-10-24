@@ -5,40 +5,39 @@
 @endsection
 
 @section('content')
-<div class = "card-wrapper">
-        <div class = "card">
+<div class = "carddd-wrapper">
+        <div class = "carddd">
           <!-- card left -->
           <div class = "product-imgs">
             <div class = "img-display">
               <div class = "img-showcase">
-                <img src = "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" alt = "shoe image" width="500">
+                <img class="detail-img" src = "{{ URL::to('/image/produk/' . $product -> image) }}" alt = "{{ $product -> image }}">
               </div>
            </div>
            <!-- card right -->
           <div class = "product-content">
-            <h2 class = "product-title">nike shoes</h2>
+            <h2 class = "product-title">{{ $product->name }}</h2>
             <div class = "product-price">
-              <p class = "new-price">Price: <span>$249.00</span></p>
+              <h4 class = "new-price">Price: <span>${{ $product->price }}</span></h4>
             </div>
             
             <div class = "product-detail">
-              <h2>about this item: </h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-              <ul>
+              <h3>about this item: </h3>
+              <p>{{ $product->description }}</p>
+              {{-- <ul>
                 <li>Color: <span>Black</span></li>
                 <li>Available: <span>in stock</span></li>
                 <li>Category: <span>Shoes</span></li>
                 <li>Shipping Area: <span>All over the world</span></li>
                 <li>Shipping Fee: <span>Free</span></li>
-              </ul>
+              </ul> --}}
             </div>
       
             <div class = "purchase-info">
-              <input type = "number" min = "0" value = "1">
               <button type = "button" class = "btn">
                 Add to Cart <i class = "fas fa-shopping-cart"></i>
               </button>
-              <button type = "button" class = "btn">Compare</button>
+              <a type = "button" href="/buy" class = "btn">BUY</a>
             </div>
       
             <div class = "social-links">
@@ -63,3 +62,6 @@
         </div>
       </div>
 @endsection
+
+
+{{-- https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg --}}

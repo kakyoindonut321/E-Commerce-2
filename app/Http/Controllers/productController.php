@@ -62,8 +62,11 @@ class productController extends Controller
         ]);
     }
 
-    public function show() {
-        return view('product.detail');
+    public function show(Product $product) {
+        return view('product.detail', [
+            'title' => 'show',
+            'product' => $product
+        ]);
     }
 
 }

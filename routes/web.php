@@ -36,7 +36,7 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-us
 
 
 Route::get('/product', [productController::class, 'index']);
-Route::get('/detail', [productController::class, 'show']);
+Route::get('/product/{product}', [productController::class, 'show']);
 
 
 

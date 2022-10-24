@@ -13,10 +13,10 @@
 
 {{-- SLIDE CAROUSEL --}}
 @if ($getPage  == 0)
-<div id="slider" class="carousel slide border mx-5 w-75" data-bs-ride="carousel">
+<div id="slider" class="carousel slide border mx-5 w-75 border" data-bs-ride="carousel">
   <div class="carousel-inner ">
       <div class="carousel-item bg-dark active">
-          <img src="{{ URL::to('/image/iklan/iklan.png') }}" class="d-block w-100" alt="1">
+          <img src="{{ URL::to('/image/iklan/iklan.jpg') }}" class="d-block w-100" alt="1">
       </div>
       <div class="carousel-item bg-dark">
           <img src="{{ URL::to('/image/iklan/iklan2.png') }}" class="d-block w-100" alt="2">
@@ -39,7 +39,7 @@
 
 {{-- CARD --}}
 @foreach($product[$getPage] as $a)
-<a href="/detail" class="text-decoration-none" >
+<a href="/product/{{ $a->id }}" class="text-decoration-none" >
   <div class="product-card card  m-2" style="width: 14rem; height: 24rem;" id="card">
     <div >
       <img style="height: 14rem;" src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="<?php $a -> image?>" >
