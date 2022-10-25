@@ -4747,6 +4747,10 @@ fieldset:disabled .btn {
     margin-bottom: 0.75rem;
 }
 
+.product-card:hover {
+    border-color: #dc3545;
+}
+
 @media (min-width: 576px) {
     .card-group {
         display: flex;
@@ -7061,31 +7065,18 @@ fieldset:disabled .btn {
 }
 
 .toggle-btn {
-    border-left: 1px solid #D3D3D3;
-    border-right: 1px solid #D3D3D3;
+    background-color: #f4f4f4;
+    border-left: 2px solid #D3D3D3;
+    border-right: 2px solid #D3D3D3;
     border-bottom: none;
     border-top: none;
-    padding: 0;
-}
-
-.vr-line1 {
-    border-right: 6px solid white;
-    height: 900px
-}
-
-.vr-line2 {
-    border-right: 1px solid #D3D3D3;
-    height: 900px
-}
-
-.vr-line3 {
-    border-right: 6px solid white;
-    height: 900px
+    padding: 7px;
 }
 
 .toggle-btn:hover {
-    border-left: 2px solid #4BFF9F;
-    border-right: 2px solid #4BFF9F;
+    background-color: #f0f0f0;
+    border-left: 2px solid #D3D3D3;
+    /* border-right: 5px solid #4BFF9F; */
 }
 
 .border {
@@ -8062,6 +8053,10 @@ fieldset:disabled .btn {
 
 .bg-lime {
     background-color: #4BFF9F !important;
+}
+
+.bg-darklime {
+    background-color: #3bbf79 !important;
 }
 
 .bg-green {

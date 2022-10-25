@@ -21,14 +21,14 @@ class productController extends Controller
         foreach ($para_A as $para_new) {
             $i_one++;
             array_push($ar_first, $para_new);
-            if ($i_one % 4 == 0) {
+            if ($i_one % 8 == 0) {
                 array_push($ar_last, $ar_first);
                 $ar_first = array();
                 $i_two = $i_one;
             }
         }
         $ar_first = array();
-        if (!($i_one % 4 == 0)) {
+        if (!($i_one % 8 == 0)) {
             $new_count = $i_one - $i_two;
             $range = range(0, $new_count -1);
             foreach ($range as $n) {
@@ -41,12 +41,8 @@ class productController extends Controller
     
 
     public function index(Request $request) {
-        $the_array = [
-            'the_array' => Product::all(),
-            'lenght' => count(Product::all()) 
-        ];
-
         $product = [
+            "title" => "Products",
             "product" => $this->paging(Product::all()),
             "getPage" => $this->returnGet($request)
         ];
@@ -54,5 +50,23 @@ class productController extends Controller
         return view('/product/listing', $product);
     }
 
+    public function report() {
+        return view('admin.report', [
+            'title' => 'Report'
+        ]);
+    }
+
+    public function input() {
+        return view('admin.InputProduct', [
+            'title' => 'Input Produk'
+        ]);
+    }
+
+    public function show(Product $product) {
+        return view('product.detail', [
+            'title' => 'show',
+            'product' => $product
+        ]);
+    }
 
 }
