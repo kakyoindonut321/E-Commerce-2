@@ -16,10 +16,10 @@
 <div id="slider" class="carousel slide border mx-5 w-75 border" data-bs-ride="carousel">
   <div class="carousel-inner ">
       <div class="carousel-item bg-dark active">
-          <img src="{{ URL::to('/image/iklan/iklan.jpg') }}" class="d-block w-100" alt="1">
+          <img src="{{ URL::to('/image/iklan/iklan.png') }}" class="d-block w-100" alt="1">
       </div>
       <div class="carousel-item bg-dark">
-          <img src="{{ URL::to('/image/iklan/iklan2.png') }}" class="d-block w-100" alt="2">
+          <img src="{{ URL::to('/image/iklan/iklan2.jpg') }}" class="d-block w-100" alt="2">
       </div>
       <div class="carousel-item bg-dark">
           <img src="{{ URL::to('/image/iklan/iklan3.png') }}" class="d-block w-100" alt="3">

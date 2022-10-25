@@ -8,8 +8,8 @@
 <div class = "carddd-wrapper">
         <div class = "carddd">
           <!-- card left -->
-          <div class = "product-imgs">
-            <div class = "img-display">
+          <div class = "product-imgs ">
+            <div class = " img-display">
               <div class = "img-showcase">
                 <img class="detail-img" src = "{{ URL::to('/image/produk/' . $product -> image) }}" alt = "{{ $product -> image }}">
               </div>
