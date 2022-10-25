@@ -16,8 +16,8 @@ class AlreadyLogged
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Session()->has('loginId') && (url('login') == $request->url() || url('registration') == $request->url())) {
-            return back();
+        if(auth()->check()){
+            return redirect()->to("/");
         }
         return $next($request);
     }
