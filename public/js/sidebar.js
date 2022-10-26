@@ -1,12 +1,21 @@
+let sidebar = document.querySelector(".sidebar-sb");
+let closeBtn = document.querySelector("#btn");
+
+closeBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+});
+
 function Toggle() {
-    var sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+}
 
-    if (sidebar.className.match(/(?:^|\s)d-flex(?!\S)/)) {
-        sidebar.className = sidebar.className.replace(/(?:^|\s)d-flex(?!\S)/g, 'd-none');
-
-    } else if (sidebar.className.match(/(?:^|\s)d-none(?!\S)/)) {
-        sidebar.className = sidebar.className.replace(/(?:^|\s)d-none(?!\S)/g, 'd-flex');
-
+// following are the code to change sidebar button(optional)
+function menuBtnChange() {
+    if (sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
+    } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
     }
-
 }

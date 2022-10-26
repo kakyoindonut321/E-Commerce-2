@@ -18,7 +18,7 @@
     {{-- END NAVBAR --}}
 
     {{-- BODY DALEM --}}
-    <div class="d-flex">
+    <div class="home-section-sb">
 
         {{-- SIDEBAR --}}
         @include('partial.sidebar')
