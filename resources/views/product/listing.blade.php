@@ -49,10 +49,12 @@
       <h5 class="card-text text-danger">harga: ${{ $a -> price }}</h5>
       <p class="card-text text-dark">stock: {{ $a -> stock }}</p>
       {{-- HANYA BISA DILIHAT ADMIN --}}
+      @if (auth()->user()->privilege == "admin")
       <div class="d-flex justify-content-evenly m-1">
         <a href="#" class="btn bg-lime text-light">delete</a>
         <a href="#" class="btn bg-lime text-light">update</a>
       </div>
+      @endif
       {{-- END HANYA BISA DILIHAT ADMIN --}}
     </div>
   </div>
@@ -68,6 +70,7 @@
     @endfor
   </div>  
 </div>
+
 @endsection
 
 
