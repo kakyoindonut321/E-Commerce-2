@@ -1,10 +1,13 @@
         {{-- SIDEBAR --}}
+        <div class="dim" id="btn">
+
+        </div>
         <div class="sidebar-sb">
         <div class="border-sb">
             <div class="logo-details">
                 <img src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" alt="" style="padding-right: 7px;" width="55px" class='bx bxl-c-plus-plus icon'>
                 <div class="logo_name">Commerce</div>
-                <i class='bx bx-menu' id="btn"></i>
+                <i class='bx bx-menu' id="btn" onclick="Toggle()"></i>
             </div>
             <ul class="nav-list-sb">
                 <li>

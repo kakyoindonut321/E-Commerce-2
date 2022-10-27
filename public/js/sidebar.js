@@ -1,13 +1,16 @@
 let sidebar = document.querySelector(".sidebar-sb");
+let dim = document.querySelector(".dim");
 let closeBtn = document.querySelector("#btn");
 
 closeBtn.addEventListener("click", () => {
     sidebar.classList.toggle("open");
+    dim.classList.toggle("open");
     menuBtnChange(); //calling the function(optional)
 });
 
 function Toggle() {
     sidebar.classList.toggle("open");
+    dim.classList.toggle("open");
     menuBtnChange(); //calling the function(optional)
 }
 

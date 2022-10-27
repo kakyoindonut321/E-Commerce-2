@@ -25,7 +25,7 @@
         {{-- END SIDEBAR --}}
         
         {{-- CONTENT --}}
-        <div class="d-flex p-2 justify-content-center" style="flex-wrap: wrap;">
+        <div class=" p-2 " >
             @yield('content')
         </div>
         {{-- END CONTENT --}}
