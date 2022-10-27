@@ -43,7 +43,6 @@ Route::get('/product/{product}', [productController::class, 'show']);
 Route::middleware("auth")->group(function () {
     Route::get('/buy', [TransactionController::class, 'transaction']);
     Route::get('/order', [OrderController::class, 'index']);
-    Route::get('/input-product', [productController::class, 'input']);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
 
@@ -56,6 +55,8 @@ Route::middleware("AlreadyLogged")->group(function () {
 
 Route::middleware("isAdmin")->group(function () {
     Route::get('/report', [productController::class, 'report']);
+    Route::get('/input-product', [productController::class, 'input']);
+
 });
 
 

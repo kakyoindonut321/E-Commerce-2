@@ -18,20 +18,20 @@
     {{-- END NAVBAR --}}
 
     {{-- BODY DALEM --}}
-    <div class="d-flex">
+    <div class="home-section-sb">
 
         {{-- SIDEBAR --}}
         @include('partial.sidebar')
         {{-- END SIDEBAR --}}
         
         {{-- CONTENT --}}
-        <div class="d-flex p-2 justify-content-center" style="flex-wrap: wrap;">
+        <div class=" p-2 " >
             @yield('content')
         </div>
         {{-- END CONTENT --}}
 
     </div>
     {{-- END BODY DALEM --}}
-    <script src="{{ URL::to('/js/additional.js') }}"></script>
+    <script src="{{ URL::to('/js/sidebar.js') }}"></script>
 </body>
 </html>

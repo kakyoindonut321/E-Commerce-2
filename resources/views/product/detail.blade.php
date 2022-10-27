@@ -42,10 +42,10 @@
       
             <div class = "social-links">
               <p>Share At: </p>
-              <a href = "#">
+              <a href = "https://www.facbook.com">
                 <i class = "fab fa-facebook-f"></i>
               </a>
-              <a href = "#">
+              <a href = "https:www.twitter.com">
                 <i class = "fab fa-twitter"></i>
               </a>
               <a href = "#">
