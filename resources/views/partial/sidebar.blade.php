@@ -11,25 +11,25 @@
             </div>
             <ul class="nav-list-sb">
                 <li>
-                    <a href="#">
+                    <a href="/product">
                         <i class='bx bx-grid-alt'></i>
                         <span class="links_name-sb">Product</span>
                     </a>
-                    <span class="tooltip-sb">Dashboard</span>
+                    {{-- <span class="tooltip-sb">Product</span> --}}
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/order">
                         <i class='bx bx-cart-alt'></i>
                         <span class="links_name-sb">Order</span>
                     </a>
-                    <span class="tooltip-sb">Order</span>
+                    {{-- <span class="tooltip-sb">Order</span> --}}
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/report">
                         <i class='bx bx-pie-chart-alt-2'></i>
-                        <span class="links_name-sb">Analytics</span>
+                        <span class="links_name-sb">Report</span>
                     </a>
-                    <span class="tooltip-sb">Analytics</span>
+                    {{-- <span class="tooltip-sb">Report</span> --}}
                 </li>
             </ul>
         </div>

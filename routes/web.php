@@ -20,15 +20,19 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return '
-    <h1 style="text-align: center;">Landing Page</h1>
-    <a href="/product"><h2 style="text-align: center;">PRODUCTS</h2></a>
-    <a href="/login"><h3 style="text-align: center;">Login</h3></a>
-    <a href="/logout"><h3 style="text-align: center; margin: 20px;">Logout  </h3></a>
-    ';
-});
+// Route::get('/', function () {
+//     return '
+//     <h1 style="text-align: center;">Landing Page</h1>
+//     <a href="/product"><h2 style="text-align: center;">PRODUCTS</h2></a>
+//     <a href="/login"><h3 style="text-align: center;">Login</h3></a>
+//     <a href="/logout"><h3 style="text-align: center; margin: 20px;">Logout  </h3></a>
+//     ';
+// });
 
+
+Route::get('/', function () {
+    return view( 'landing-page');
+});
 
 
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');

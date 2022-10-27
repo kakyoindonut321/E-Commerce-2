@@ -8,25 +8,28 @@ body {
 }
 
 .top-menu {
-display: flex;
-justify-content: space-between;
-
-/* align-items: center; */
-
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
 }
 
-.navbar{
+.navbar {
     margin: 5%;
     top: 0;
-    
 }
 
-.hero{
+.logo {
+    width: 10%;
+    height: 10%;
+}
+
+.hero {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.img-hero{
+
+.img-hero {
     margin: auto;
 }
 
@@ -37,7 +40,6 @@ justify-content: space-between;
     border-radius: 10px;
     List-style-type: none;
     text-decoration: none;
-    
 }
 
 .login {
@@ -54,12 +56,8 @@ justify-content: space-between;
     font-family: Roboto;
 }
 
-
-.login li a{
+.login li a {
     text-decoration: none;
     color: black;
     font-family: Roboto;
 }
-
-
-
