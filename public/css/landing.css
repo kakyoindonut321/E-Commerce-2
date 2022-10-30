@@ -4,7 +4,11 @@
 }
 
 body {
-    background-color: white;
+    height: 100%;
+    background-color: #7ED957;                                                                          
+    background-repeat: repeat-y;
+    background-size: 50% auto;
+    background-position: 100%;
 }
 
 .top-menu {
@@ -52,12 +56,12 @@ body {
 
 .start-now li a {
     text-decoration: none;
-    color: black;
+    color: rgb(14, 13, 13);
     font-family: Roboto;
 }
 
 .login li a {
     text-decoration: none;
-    color: black;
+    color:black;
     font-family: Roboto;
 }
