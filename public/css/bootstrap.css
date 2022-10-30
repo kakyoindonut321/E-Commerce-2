@@ -7,10 +7,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 .font-kita {
     font-family: ABeeZee;
 }
@@ -8082,7 +8080,7 @@ fieldset:disabled .btn {
 }
 
 .bg-darklime {
-    background-color: #3bbf79 !important;
+    background-color: #66b346 !important;
 }
 
 .bg-green {
