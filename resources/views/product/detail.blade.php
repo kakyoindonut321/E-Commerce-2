@@ -34,9 +34,15 @@
             </div>
       
             <div class = "purchase-info">
-              <button type = "button" class = "btn">
-                Add to Cart <i class = "fas fa-shopping-cart"></i>
-              </button>
+              <form action="{{ route('create-order') }}" method="post" style="display: inline-block;">
+                @csrf
+                <input type="hidden" id="produk" name="produk" value="{{ $product->id }}">
+                @auth
+                <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}">
+                @endauth
+                <button type="submit" class = "btn">Add to Order<i class = "fas fa-shopping-cart"></i></button>
+              </form>
+
               <a type = "button" href="/buy" class = "btn">BUY</a>
             </div>
       

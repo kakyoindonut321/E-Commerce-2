@@ -10,4 +10,5 @@ class Product extends Model
     protected $guarded = ['id'];
     protected $fillable = ['name', 'image', 'description', 'stock'];
     use HasFactory;
+
 }
