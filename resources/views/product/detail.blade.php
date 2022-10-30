@@ -6,6 +6,7 @@
 
 @section('content')
 <div class = "carddd-wrapper">
+  <p style="font-size: 12px; color: red;">@error('product_id') {{ $message }} @enderror</p>
         <div class = "carddd">
           <!-- card left -->
           <div class = "product-imgs ">
@@ -36,7 +37,7 @@
             <div class = "purchase-info">
               <form action="{{ route('create-order') }}" method="post" style="display: inline-block;">
                 @csrf
-                <input type="hidden" id="produk" name="produk" value="{{ $product->id }}">
+                <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}">
                 @auth
                 <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}">
                 @endauth

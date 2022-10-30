@@ -53,7 +53,7 @@
 <body>
         <h1 class="rainbow rainbow_text_animated">NEVER GONNA GIVE YOU UP</h1>
         {{-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" width="100%" height="1000"></iframe> --}}
-        <iframe width="100%" height="800" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {{-- <iframe width="100%" height="800" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
 
 </body>
 </html>

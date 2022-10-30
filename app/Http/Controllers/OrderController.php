@@ -15,14 +15,21 @@ class OrderController extends Controller
     }
 
     public function create(Request $request) {
+        // $orderan = $request->validate([
+        //     'product_id' => 'required|unique:orders'
+        // ]);
         ORDER::insert(
             array(
                    'id'     =>   null, 
-                   'user_id'   =>   $request->user,
-                   'product_id'   =>   $request->produk,
+                   'user_id'   =>   $request->user  ,
+                   'product_id'   =>   $request->product_id,
                    'status' => 'order'
             )
        );
        return redirect()->to("/product");
+        // return view('rickroll', [
+        //     'title' => 'rickroll',
+        //     'orderan' => $orderan
+        // ]);
     }
 }
