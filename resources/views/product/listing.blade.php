@@ -44,21 +44,21 @@
   <a href="/product/{{ $a->id }}" class="text-decoration-none" >
     <div class="product-card card  m-2" style="width: 14rem; height: 24rem;" id="card">
       <div >
-        <img style="height: 14rem;" src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="<?php $a -> image?>" >
+        <img style="height: 14rem;" src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="{{ URL::to('/image/produk/' . $a -> image) }}" >
       </div>
       <div class="card-body">
         <p class="card-title text-dark">{{ $a -> name }}</p>
         <h5 class="card-text text-danger">harga: ${{ $a -> price }}</h5>
         <p class="card-text text-dark">stock: {{ $a -> stock }}</p>
         {{-- HANYA BISA DILIHAT ADMIN --}}
-        @if (Auth::check())
+        @auth
         @if (auth()->user()->privilege == "admin")
         <div class="d-flex justify-content-evenly m-1">
           <a href="#" class="btn bg-lime text-light">delete</a>
           <a href="#" class="btn bg-lime text-light">update</a>
         </div>
         @endif
-        @endif
+        @endauth
         {{-- END HANYA BISA DILIHAT ADMIN --}}
       </div>
     </div>

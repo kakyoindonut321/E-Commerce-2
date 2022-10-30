@@ -46,6 +46,7 @@ Route::get('/product/{product}', [productController::class, 'show']);
 
 Route::middleware("auth")->group(function () {
     Route::get('/buy', [TransactionController::class, 'transaction']);
+    Route::post('/create-order', [OrderController::class, 'create'])->name('create-order');
     Route::get('/order', [OrderController::class, 'index']);
     Route::get('/logout', [AuthController::class, 'logout']);
 });

@@ -64,7 +64,7 @@ class productController extends Controller
 
     public function show(Product $product) {
         return view('product.detail', [
-            'title' => 'show',
+            'title' => $product->name,
             'product' => $product
         ]);
     }
