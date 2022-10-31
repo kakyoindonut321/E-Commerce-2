@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\pageController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\productController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\OrderController;
+
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 
 /*
@@ -20,15 +23,19 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return '
-    <h1 style="text-align: center;">Landing Page</h1>
-    <a href="/product"><h2 style="text-align: center;">PRODUCTS</h2></a>
-    <a href="/login"><h3 style="text-align: center;">Login</h3></a>
-    <a href="/logout"><h3 style="text-align: center; margin: 20px;">Logout  </h3></a>
-    ';
-});
+// Route::get('/', function () {
+//     return '
+//     <h1 style="text-align: center;">Landing Page</h1>
+//     <a href="/product"><h2 style="text-align: center;">PRODUCTS</h2></a>
+//     <a href="/login"><h3 style="text-align: center;">Login</h3></a>
+//     <a href="/logout"><h3 style="text-align: center; margin: 20px;">Logout  </h3></a>
+//     ';
+// });
 
+
+Route::get('/', function () {
+    return view( 'landing-page');
+});
 
 
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
@@ -41,9 +48,9 @@ Route::get('/product/{product}', [productController::class, 'show']);
 
 
 Route::middleware("auth")->group(function () {
-    Route::get('/buy', [TransactionController::class, 'transaction']);
+    Route::post('/buy', [TransactionController::class, 'transaction'])->name('buy');
+    Route::post('/create-order', [OrderController::class, 'create'])->name('create-order');
     Route::get('/order', [OrderController::class, 'index']);
-    Route::get('/input-product', [productController::class, 'input']);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
 
@@ -56,10 +63,27 @@ Route::middleware("AlreadyLogged")->group(function () {
 
 Route::middleware("isAdmin")->group(function () {
     Route::get('/report', [productController::class, 'report']);
+    Route::get('/input-product', [productController::class, 'input']);
+    Route::post('/create-product', [productController::class, 'store'])->name('create-product');
+    Route::delete('/product/{product}', [productController::class, 'delete']);
 });
 
 
-
+Route::get('/image/produk/{path}', function ($path) {
+    $path = storage_path('app/image/produk' . $path);
+ 
+    if (!File::exists($path)) {
+        abort(404);
+    }
+ 
+    $file = File::get($path);
+    $type = File::mimeType($path);
+ 
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+ 
+    return $response; ;
+});
 
 
 

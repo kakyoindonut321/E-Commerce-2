@@ -51,12 +51,12 @@ button {
   outline: none;
   border: none;
   width: 85%;
-  background: #47fda5;
+  background: #7ED957;
   color: #fff;
   cursor: pointer;
 }
 button:hover {
-  background: #54e293;
+  background:#7ED957;
 }
 .or {
   font-size: 0.8rem;
@@ -76,7 +76,7 @@ button:hover {
 }
 .icons i:hover {
   color: #fff !important;
-  background: #54e293;
+  background: #7ED957;
   transition: 0.5s;
 }
 .icons i:first-child {
@@ -92,7 +92,7 @@ button:hover {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .not-member a {
-  color: #54e293;
+  color: #7ED957;
   text-decoration: none;
 }
 a:hover {

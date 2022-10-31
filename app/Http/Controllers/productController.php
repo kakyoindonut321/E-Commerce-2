@@ -7,7 +7,14 @@ use App\Models\Product;
 
 class productController extends Controller
 {
+    public function variable() {
+        return $listing = count($this->paging(Product::all())) - 1;
+    }
+
     public function returnGet(Request $request) {
+        if ($this->variable() < $request->page) {
+            return abort(404);
+        }
         $page= $request->page;
         
         return $page;
@@ -21,14 +28,14 @@ class productController extends Controller
         foreach ($para_A as $para_new) {
             $i_one++;
             array_push($ar_first, $para_new);
-            if ($i_one % 8 == 0) {
+            if ($i_one % 10 == 0) {
                 array_push($ar_last, $ar_first);
                 $ar_first = array();
                 $i_two = $i_one;
             }
         }
         $ar_first = array();
-        if (!($i_one % 8 == 0)) {
+        if (!($i_one % 10 == 0)) {
             $new_count = $i_one - $i_two;
             $range = range(0, $new_count -1);
             foreach ($range as $n) {
@@ -46,7 +53,6 @@ class productController extends Controller
             "product" => $this->paging(Product::all()),
             "getPage" => $this->returnGet($request)
         ];
-
         return view('/product/listing', $product);
     }
 
@@ -62,11 +68,46 @@ class productController extends Controller
         ]);
     }
 
+    public function store(Request $request) {
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required',
+        //     'stock' => 'required',
+        //     'price' => 'required',
+        //     'file' => 'required'
+        // ]);
+        $input = new Product;
+        $input->name = $request-> name;
+        $input->description = $request-> description;
+        $input->stock = $request-> stock;
+        $input->price = $request-> price;
+        $input->category_id = 1;
+        
+        if($request->file("cover_image")){
+            $name_file = $request->file("cover_image")->Hashname();
+            // Storage::put("coverImg/$name_file" , $request->file("cover_image") , "public");
+            $request->file("cover_image")->storePubliclyAs("image/produk" , $name_file);
+            $input ->image = $name_file;
+        }
+
+        $input ->save();
+
+        return redirect()->to("/product")->with('message-success', 'produk baru telah dibuat');
+    }
+
+    public function delete(Product $listing) {
+        $listing->delete();
+        return redirect('/product')->with('message-success', $listing);
+
+    }
+
     public function show(Product $product) {
         return view('product.detail', [
-            'title' => 'show',
+            'title' => $product->name,
             'product' => $product
         ]);
     }
+
+
 
 }

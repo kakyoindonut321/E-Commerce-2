@@ -1,0 +1,411 @@
+[33mcommit cf1e8d929ffcd92982684f18d5c2c0092ee09941[m[33m ([m[1;36mHEAD -> [m[1;32mbackend[m[33m, [m[1;31morigin/backend[m[33m)[m
+Merge: e20c0d9 1c03c67
+Author: kakyoindonut321 <72019640+kakyoindonut321@users.noreply.github.com>
+Date:   Mon Oct 31 11:49:51 2022 +0700
+
+    Merge pull request #7 from kakyoindonut321/frontend
+    
+    Frontend
+
+[33mcommit e20c0d922549f31e5142f560e383ac4cb4899c0c[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Mon Oct 31 11:47:04 2022 +0700
+
+    pencet buy sekarang ngurangin stock
+
+[33mcommit 1c03c67836ad3ce4039117d19ca1fad5f5aa7fdb[m[33m ([m[1;31morigin/frontend[m[33m, [m[1;32mfrontend[m[33m)[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sun Oct 30 22:01:11 2022 +0700
+
+    ubah iklan
+
+[33mcommit c5b1cf6e66897ae8b7d251564def334dc898f157[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sun Oct 30 20:44:28 2022 +0700
+
+    slideshow clean up
+
+[33mcommit e154c717d8260ebcdc5333e1bca1b8edc649db87[m
+Merge: 587b206 cbc25a4
+Author: kakyoindonut321 <72019640+kakyoindonut321@users.noreply.github.com>
+Date:   Sun Oct 30 17:59:44 2022 +0700
+
+    Merge pull request #6 from kakyoindonut321/backend
+    
+    Backend
+
+[33mcommit cbc25a4fcaf36b1b17db9855366022e4089f9dbc[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sun Oct 30 17:27:06 2022 +0700
+
+    konfigurasi tambahan
+
+[33mcommit 587b2066b7db6fa016a87122a43aa05086491ebe[m
+Author: rifkirmdn1 <rmrifkir84@gmail.com>
+Date:   Sun Oct 30 17:06:23 2022 +0700
+
+    ubah landing page
+
+[33mcommit c78ca04801e60c3f1b11ef20aa99fbf40c419d4b[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sun Oct 30 12:59:11 2022 +0700
+
+    fungsionalitas order udh selesai, tampilan blm
+
+[33mcommit 4b7aee120d5462199441d3688ac8270e780b18de[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Fri Oct 28 09:38:57 2022 +0700
+
+    nambah kategori
+
+[33mcommit 7f43e4351f24f579fdb7066e047715bb4caf7a6e[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Thu Oct 27 20:21:47 2022 +0700
+
+    fix landing page
+
+[33mcommit 2672bad35a623dbee9c1b82b41967d7ceeff75a6[m
+Merge: af80ee8 fc6b6e8
+Author: rifkirmdn1 <rmrifkir84@gmail.com>
+Date:   Thu Oct 27 19:12:22 2022 +0700
+
+    Merge branch 'frontend' of https://github.com/kakyoindonut321/E-Commerce-2 into frontend
+
+[33mcommit af80ee81fef76efeec257127b71db308c387b3b8[m
+Author: rifkirmdn1 <rmrifkir84@gmail.com>
+Date:   Thu Oct 27 19:11:19 2022 +0700
+
+    nambah landing page
+
+[33mcommit fc6b6e8507601723f3570c43c9d7fddda19b4acd[m
+Merge: caba693 550697f
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Thu Oct 27 17:55:32 2022 +0700
+
+    Merge branch 'frontend' of github.com:kakyoindonut321/E-Commerce-2 into frontend
+
+[33mcommit caba6938b623a6a89b7c7113a5290d96dc0f630d[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Thu Oct 27 17:53:29 2022 +0700
+
+    nambah data dan gambar
+
+[33mcommit 550697f4eb42ab9f815955478b3365855376be5f[m
+Author: muhamadtaufikurrahman21 <muhamadtaufikurrahman21@gmail.com>
+Date:   Thu Oct 27 11:12:29 2022 +0700
+
+    mengubah tampilan sidebar menggunakan hamburger menu
+
+[33mcommit 74f7db64a9c394a04a2b3869c7062b571ac84f41[m
+Author: Nats34 <zakharianatanael@gmail.com>
+Date:   Wed Oct 26 13:27:48 2022 +0700
+
+    sidebar kedua pake hamburger memu
+
+[33mcommit 51e8453bae37eafd68b9acbb0f533e6eb6a4a42b[m
+Author: Nats34 <zakharianatanael@gmail.com>
+Date:   Wed Oct 26 12:37:34 2022 +0700
+
+    fix privilege check
+
+[33mcommit 7fc1b76b7b0b2e153c87b347f614c06ba443a808[m
+Merge: 8382466 0ac3c61
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Wed Oct 26 12:25:34 2022 +0700
+
+    Merge branch 'frontend' of github.com:kakyoindonut321/E-Commerce-2 into frontend
+
+[33mcommit 8382466323e5da61aa4d9b89a9732b18bb93b860[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Wed Oct 26 12:24:56 2022 +0700
+
+    hilangkan delete dan update jika bukan admin
+
+[33mcommit 0ac3c61ab9628d881485e6233c03125e9e718929[m
+Author: rifkirmdn1 <rmrifkir84@gmail.com>
+Date:   Tue Oct 25 13:34:44 2022 +0700
+
+    mengedit link sosial media
+
+[33mcommit 40afd2eea69ef413551f05a63584f55cf38050dc[m
+Merge: 4a6edbb a539a07
+Author: fariharitsyah <112367146+fariharitsyah@users.noreply.github.com>
+Date:   Tue Oct 25 10:31:17 2022 +0700
+
+    Merge pull request #5 from kakyoindonut321/frontend
+    
+    nambah halaman error
+
+[33mcommit a539a07ea4ec7724583746319ca0b3ab1d7326a3[m
+Author: fariharitsyah <afriyanihanifah@gmail.com>
+Date:   Tue Oct 25 10:18:05 2022 +0700
+
+    nambah halaman error
+
+[33mcommit 4a6edbbdd5fb765d0588900479956695706c8ed1[m
+Author: Febriyyy <112383283+Febriyyy@users.noreply.github.com>
+Date:   Tue Oct 25 10:07:26 2022 +0700
+
+    logo
+
+[33mcommit 4aa30a0273d7d4f495e01cf529f38fd705d5e6de[m
+Merge: 81b6196 7854e9d
+Author: kakyoindonut321 <72019640+kakyoindonut321@users.noreply.github.com>
+Date:   Tue Oct 25 09:54:30 2022 +0700
+
+    Merge pull request #4 from kakyoindonut321/backend
+    
+    fix already logged in
+
+[33mcommit 7854e9d61e4218a4a38c99d38d437c016a036e9e[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Tue Oct 25 09:53:03 2022 +0700
+
+    fix already logged in
+
+[33mcommit 81b6196ab22915cdcfa9a0266d4bc23a276a358d[m
+Merge: 7df2591 d0df629
+Author: kakyoindonut321 <72019640+kakyoindonut321@users.noreply.github.com>
+Date:   Tue Oct 25 09:11:22 2022 +0700
+
+    Merge pull request #3 from kakyoindonut321/backend
+    
+    Backend
+
+[33mcommit d0df629b7f38f56427515fa4cdd39cceffea5701[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Tue Oct 25 09:07:27 2022 +0700
+
+    merge ke main dan iklan
+
+[33mcommit 3286283fe4bebc44274de8425e886abf2b75f741[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Mon Oct 24 21:06:34 2022 +0700
+
+    functionality show produk selesai
+
+[33mcommit 3cb867bc4c876735f1778b7a346223fc758246a2[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Mon Oct 24 18:33:53 2022 +0700
+
+    working dengan show product
+
+[33mcommit 7df2591dac7f6b1b504c4d30fcf7106875772056[m
+Author: Raka_HD <112483521+rakaxirpl19@users.noreply.github.com>
+Date:   Mon Oct 24 10:26:01 2022 +0700
+
+    Add files via upload
+    
+    Menambahkan Web app desain admin
+
+[33mcommit 41dcbe0e014629d889759951d5dcaf41a74fbe7b[m
+Author: Raka_HD <112483521+rakaxirpl19@users.noreply.github.com>
+Date:   Mon Oct 24 00:20:51 2022 -0300
+
+    Delete PROJEK DESAIN..fig
+
+[33mcommit b1b0c5b69ca8ec82f7ac140d3987cbf5e9b30296[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sat Oct 22 09:31:40 2022 +0700
+
+    betulin card
+
+[33mcommit 924351f4ec000c687c29fef802518c43e305ac80[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sat Oct 22 08:42:06 2022 +0700
+
+    login and navbar separation
+
+[33mcommit 4484c0bb99798d73e6923e1a3ea541375c70825a[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Fri Oct 21 08:22:41 2022 +0700
+
+    fix tampilan
+
+[33mcommit 09791ec8abe99f78bf794a9813a6e3cb56639064[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Fri Oct 21 07:52:53 2022 +0700
+
+    login test dulu
+
+[33mcommit de084aaac1fc92037963a71628a3f9d525384191[m
+Merge: 8e0744c 5f02f9a
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Thu Oct 20 15:14:34 2022 +0700
+
+    Merge branch 'frontend' of github.com:kakyoindonut321/E-Commerce-2 into backend
+
+[33mcommit 5f02f9a45a2388ad2ddbb274681631d6a687ed65[m
+Merge: 359d1ca 635d291
+Author: Febriyyy <febritk98@gmail.com>
+Date:   Thu Oct 20 07:54:42 2022 +0700
+
+    Merge branch 'main' of https://github.com/kakyoindonut321/E-Commerce-2
+
+[33mcommit 359d1caed0f424d933daf83d53cec6b93bd4c54c[m
+Merge: d50ff59 04c2853
+Author: Febriyyy <febritk98@gmail.com>
+Date:   Thu Oct 20 07:54:19 2022 +0700
+
+    Merge branch 'frontend' of https://github.com/kakyoindonut321/E-Commerce-2
+
+[33mcommit 8e0744c6ade0f03904225a49b4723668eccff633[m
+Merge: d50ff59 04c2853
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Wed Oct 19 18:00:59 2022 +0700
+
+    Merge branch 'frontend' of github.com:kakyoindonut321/E-Commerce-2 into backend
+
+[33mcommit 04c2853d33cbfba2ea86f07781a1fce4fcb309fa[m
+Author: Nats34 <zakharianatanael@gmail.com>
+Date:   Wed Oct 19 10:48:57 2022 +0700
+
+    nambah file sign up dan login
+
+[33mcommit 80e723253af4de615ed07a22d7539f156ab02926[m
+Author: muhamadtaufikurrahman21 <muhamadtaufikurrahman21@gmail.com>
+Date:   Wed Oct 19 10:15:33 2022 +0700
+
+    menambahkan produk detail
+
+[33mcommit 635d2912ddd6c4cc9fd992cc5553d11290438638[m
+Author: Raka_HD <112483521+rakaxirpl19@users.noreply.github.com>
+Date:   Wed Oct 19 10:13:01 2022 +0700
+
+    Add files via upload
+    
+    Menambahkan Projek desain
+
+[33mcommit 1c182152f1ca7138f470dff998f190b89657371c[m
+Merge: ba9ecdb d50ff59
+Author: HannanCalonProgrammer <112366580+HannanCalonProgrammer@users.noreply.github.com>
+Date:   Tue Oct 18 11:25:27 2022 +0700
+
+    Merge pull request #2 from kakyoindonut321/backend
+    
+    intregasi fitur user
+
+[33mcommit d50ff59c448caf07d7196fd1dac44dc5ab7ab37e[m
+Merge: 8baa1c5 b601ff3
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Tue Oct 18 11:21:58 2022 +0700
+
+    Merge branch 'backend' of github.com:kakyoindonut321/E-Commerce-2 into backend
+
+[33mcommit b601ff339ca3db2d3dacb6f8e7323ad90bb17ebc[m
+Author: HannanCalonProgrammer <hannankoes@gmail.com>
+Date:   Tue Oct 18 11:18:21 2022 +0700
+
+    Hannan
+
+[33mcommit 8baa1c5e39e506289f53b67e74ff50bbe2af6baa[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Tue Oct 18 11:18:12 2022 +0700
+
+    test
+
+[33mcommit ba9ecdb4ca1b405d7d115077213e52294dcdcf20[m
+Merge: 0212cc5 b8df460
+Author: fariharitsyah <112367146+fariharitsyah@users.noreply.github.com>
+Date:   Tue Oct 18 11:13:09 2022 +0700
+
+    Merge pull request #1 from kakyoindonut321/frontend
+    
+    menambahkan harga dan stock
+
+[33mcommit b8df460eec3805615df9101b193429d3000fadee[m
+Author: Nats34 <zakharianatanael@gmail.com>
+Date:   Tue Oct 18 11:07:27 2022 +0700
+
+    menambahkan harga dan stock
+
+[33mcommit 0212cc5fff6667877dbb38fa26be0cdda6a19a5f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Tue Oct 18 10:54:38 2022 +0700
+
+    ubah warna
+
+[33mcommit f82ea3b00ed39b8fac45c5ce69654f78dcbd423d[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Tue Oct 18 10:18:36 2022 +0700
+
+    test ubah warna navbar
+
+[33mcommit 9ccfff8fbcdcf6d76d2666ee1894525ad5edc8d7[m
+Author: kakyoindonut321 <72019640+kakyoindonut321@users.noreply.github.com>
+Date:   Tue Oct 18 10:15:08 2022 +0700
+
+    goodbye
+
+[33mcommit 7c1ebc1ae1d92d3c7c17513f9d9d5632b54618f4[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Tue Oct 18 10:14:26 2022 +0700
+
+    nambah composer.lock di gitignore
+
+[33mcommit 64e11b05b08e5bb48401c68f3eef71c1e9300aeb[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Tue Oct 18 09:56:00 2022 +0700
+
+    implementasi gambar, gambarnya download sendiri
+
+[33mcommit 0dd83dbcf0d141ace7ad3417e91a34ad32eb870e[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Mon Oct 17 21:38:12 2022 +0700
+
+    PAGINATION SELESAI WOOHOO
+
+[33mcommit e74c37c74cb184bd452b931697512332d2d2a895[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Mon Oct 17 09:01:15 2022 +0700
+
+    pagination 80% ulang
+
+[33mcommit 78f55444f91aa3b4b12d2e09d6ff7eda2b43afec[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Mon Oct 17 08:57:59 2022 +0700
+
+    folder design
+
+[33mcommit f01d90241c1ec12f9c9e989d2cda82a10ac07807[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Mon Oct 17 08:49:19 2022 +0700
+
+    pagination half way complete
+
+[33mcommit 92f4d665e819ce93a9eef1b85153237f769a019c[m
+Merge: 4436e6e 418402a
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sun Oct 16 14:58:44 2022 +0700
+
+    Merge branch 'main' of github.com:kakyoindonut321/E-Commerce-2
+
+[33mcommit 4436e6e3c63d182726f015a43b548503aab45468[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sun Oct 16 14:51:30 2022 +0700
+
+    setup factory dan seeder step 1 done
+
+[33mcommit 418402a4a42b633d4396410cef26784f1c97a92f[m
+Author: kakyoindonut321 <72019640+kakyoindonut321@users.noreply.github.com>
+Date:   Sun Oct 16 08:58:56 2022 +0700
+
+    tambah
+
+[33mcommit 2bb274a2d4aba7f68c1923575231d5b82285b07e[m
+Author: kakyoindonut321 <72019640+kakyoindonut321@users.noreply.github.com>
+Date:   Sun Oct 16 08:51:48 2022 +0700
+
+    pindahan dari repo sebelumnya
+
+[33mcommit a167927e5efe59722dcda46a9c9fcdaa6008768e[m
+Author: kakyoindonut321 <forbiddenikki@gmail.com>
+Date:   Sun Oct 16 08:42:16 2022 +0700
+
+    commit mindahin file
+
+[33mcommit 80b9843f9a0325f8ba9afcd9190170441c465711[m
+Author: kakyoindonut321 <72019640+kakyoindonut321@users.noreply.github.com>
+Date:   Sun Oct 16 08:33:03 2022 +0700
+
+    Initial commit

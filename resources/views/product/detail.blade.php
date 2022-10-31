@@ -6,6 +6,7 @@
 
 @section('content')
 <div class = "carddd-wrapper">
+  <p style="font-size: 12px; color: red;">@error('product_id') {{ $message }} @enderror</p>
         <div class = "carddd">
           <!-- card left -->
           <div class = "product-imgs ">
@@ -19,6 +20,7 @@
             <h2 class = "product-title">{{ $product->name }}</h2>
             <div class = "product-price">
               <h4 class = "new-price">Price: <span>${{ $product->price }}</span></h4>
+              <h5 class = "old-price">stock: <span>{{ $product->stock }}</span></h5>
             </div>
             
             <div class = "product-detail">
@@ -34,18 +36,31 @@
             </div>
       
             <div class = "purchase-info">
-              <button type = "button" class = "btn">
-                Add to Cart <i class = "fas fa-shopping-cart"></i>
-              </button>
-              <a type = "button" href="/buy" class = "btn">BUY</a>
+              <form action="{{ route('create-order') }}" method="post" style="display: inline-block;">
+                @csrf
+                <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}">
+                @auth
+                <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}">
+                @endauth
+                <button type="submit" class = "btn">Add to Order<i class = "fas fa-shopping-cart"></i></button>
+              </form>
+              
+              <form action="{{ route('buy') }}" method="post" style="display: inline-block;">
+                @csrf
+                <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}">
+                @auth
+                <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}">
+                @endauth
+                <button type="submit" class = "btn">BUY</button>
+              </form>
             </div>
       
             <div class = "social-links">
               <p>Share At: </p>
-              <a href = "#">
+              <a href = "https://www.facbook.com">
                 <i class = "fab fa-facebook-f"></i>
               </a>
-              <a href = "#">
+              <a href = "https:www.twitter.com">
                 <i class = "fab fa-twitter"></i>
               </a>
               <a href = "#">
@@ -61,6 +76,9 @@
           </div>
         </div>
       </div>
+
+
+      <x-message />
 @endsection
 
 

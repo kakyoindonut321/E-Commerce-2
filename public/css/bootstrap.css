@@ -7,6 +7,18 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+.font-kita {
+    font-family: ABeeZee;
+}
+
+.font-poppin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
 :root {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
@@ -4259,6 +4271,15 @@ fieldset:disabled .btn {
     padding-bottom: 0.5rem;
 }
 
+.navbar-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
 .navbar>.container,
 .navbar>.container-fluid,
 .navbar>.container-sm,
@@ -8052,11 +8073,15 @@ fieldset:disabled .btn {
 /* pilihnya yang ini testes */
 
 .bg-lime {
-    background-color: #4BFF9F !important;
+    background-color: #7ED957 !important;
+}
+
+.text-lime {
+    color: #00791b;
 }
 
 .bg-darklime {
-    background-color: #3bbf79 !important;
+    background-color: #66b346 !important;
 }
 
 .bg-green {
