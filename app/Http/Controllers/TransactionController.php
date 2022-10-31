@@ -12,11 +12,11 @@ class TransactionController extends Controller
         if ($product_dec->stock < 1) {
             $product_dec->stock = 0;
             $product_dec->save();
-            return redirect()->to("/product/$request->product_id")->with('message', 'barangnya sudah habis');
+            return redirect()->to("/product/$request->product_id")->with('message-error', 'barangnya sudah habis');
         }
         --$product_dec->stock;
  
         $product_dec->save();
-        return redirect()->to("/product");
+        return redirect()->to("/product")->with('message-success', 'barang berhasil dibeli');
     }
 }

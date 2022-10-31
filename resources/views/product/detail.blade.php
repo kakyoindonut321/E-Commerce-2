@@ -76,6 +76,9 @@
           </div>
         </div>
       </div>
+
+
+      <x-message />
 @endsection
 
 

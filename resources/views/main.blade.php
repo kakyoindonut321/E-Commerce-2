@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@if(isset($title)) {{ $title }} @else {{ $title = 'page' }} @endif</title>
+    {{-- jquery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {{-- css --}}
     @yield('css')
     {{-- fontawesome etc. --}}
     @include('partial.css')
+
 
 
 </head>
@@ -32,7 +35,8 @@
 
     </div>
     {{-- END BODY DALEM --}}
-    <script src="{{ URL::to('/js/sidebar.js') }}"></script>
     @yield('js')
+    @include('partial.js')
+
 </body>
 </html>
