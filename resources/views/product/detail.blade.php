@@ -20,6 +20,7 @@
             <h2 class = "product-title">{{ $product->name }}</h2>
             <div class = "product-price">
               <h4 class = "new-price">Price: <span>${{ $product->price }}</span></h4>
+              <h5 class = "old-price">stock: <span>{{ $product->stock }}</span></h5>
             </div>
             
             <div class = "product-detail">
@@ -43,8 +44,15 @@
                 @endauth
                 <button type="submit" class = "btn">Add to Order<i class = "fas fa-shopping-cart"></i></button>
               </form>
-
-              <a type = "button" href="/buy" class = "btn">BUY</a>
+              
+              <form action="{{ route('buy') }}" method="post" style="display: inline-block;">
+                @csrf
+                <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}">
+                @auth
+                <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}">
+                @endauth
+                <button type="submit" class = "btn">BUY</button>
+              </form>
             </div>
       
             <div class = "social-links">
