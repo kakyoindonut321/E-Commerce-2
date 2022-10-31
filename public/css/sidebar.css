@@ -47,7 +47,7 @@
     top: 0;
     height: 100%;
     width: 0;
-    background: #4BFF9F;
+    background: #7ED957;
     padding: 6px 14px;
     z-index: 99;
     transition: all 0.5s ease;
@@ -204,7 +204,7 @@
     align-items: center;
     text-decoration: none;
     transition: all 0.4s ease;
-    background: #4BFF9F;
+    background: #7ED957;
 }
 
 .sidebar-sb li a:hover {
@@ -286,7 +286,7 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    background: #4BFF9F;
+    background: #7ED957;
     width: 100%;
     height: 60px;
     line-height: 60px;
