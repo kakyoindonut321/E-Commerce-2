@@ -81,8 +81,7 @@
 </div>
 
 
-
-
+<x-message />
 
 @endsection
 

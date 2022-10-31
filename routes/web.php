@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\pageController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\productController;
@@ -45,7 +45,7 @@ Route::get('/product/{product}', [productController::class, 'show']);
 
 
 Route::middleware("auth")->group(function () {
-    Route::get('/buy', [TransactionController::class, 'transaction']);
+    Route::post('/buy', [TransactionController::class, 'transaction'])->name('buy');
     Route::post('/create-order', [OrderController::class, 'create'])->name('create-order');
     Route::get('/order', [OrderController::class, 'index']);
     Route::get('/logout', [AuthController::class, 'logout']);

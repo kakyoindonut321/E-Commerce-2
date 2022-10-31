@@ -1,1 +1,1 @@
-<h1>error</h1>
+<h1>error 405</h1>
