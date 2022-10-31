@@ -24,6 +24,8 @@
                     </a>
                     {{-- <span class="tooltip-sb">Order</span> --}}
                 </li>
+                @auth
+                @if (auth()->user()->privilege == "admin")
                 <li>
                     <a href="/report">
                         <i class='bx bx-pie-chart-alt-2'></i>
@@ -31,6 +33,15 @@
                     </a>
                     {{-- <span class="tooltip-sb">Report</span> --}}
                 </li>
+                @endif
+                @endauth
+                @auth
+                <li class="profile">
+                    <a href="/logout" class="a-profile">
+                        <div>LOGOUT<i class='bx bx-log-out' id="log_out" ></i></div>
+                    </a>
+                </li>       
+                @endauth
             </ul>
         </div>
 

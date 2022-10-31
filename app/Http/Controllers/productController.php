@@ -7,7 +7,14 @@ use App\Models\Product;
 
 class productController extends Controller
 {
+    public function variable() {
+        return $listing = count($this->paging(Product::all())) - 1;
+    }
+
     public function returnGet(Request $request) {
+        if ($this->variable() < $request->page) {
+            return abort(404);
+        }
         $page= $request->page;
         
         return $page;
@@ -46,7 +53,6 @@ class productController extends Controller
             "product" => $this->paging(Product::all()),
             "getPage" => $this->returnGet($request)
         ];
-
         return view('/product/listing', $product);
     }
 
@@ -62,11 +68,46 @@ class productController extends Controller
         ]);
     }
 
+    public function store(Request $request) {
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required',
+        //     'stock' => 'required',
+        //     'price' => 'required',
+        //     'file' => 'required'
+        // ]);
+        $input = new Product;
+        $input->name = $request-> name;
+        $input->description = $request-> description;
+        $input->stock = $request-> stock;
+        $input->price = $request-> price;
+        $input->category_id = 1;
+        
+        if($request->file("cover_image")){
+            $name_file = $request->file("cover_image")->Hashname();
+            // Storage::put("coverImg/$name_file" , $request->file("cover_image") , "public");
+            $request->file("cover_image")->storePubliclyAs("image/produk" , $name_file);
+            $input ->image = $name_file;
+        }
+
+        $input ->save();
+
+        return redirect()->to("/product")->with('message-success', 'produk baru telah dibuat');
+    }
+
+    public function delete(Product $listing) {
+        $listing->delete();
+        return redirect('/product')->with('message-success', $listing);
+
+    }
+
     public function show(Product $product) {
         return view('product.detail', [
             'title' => $product->name,
             'product' => $product
         ]);
     }
+
+
 
 }

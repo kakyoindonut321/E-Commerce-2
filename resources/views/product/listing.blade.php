@@ -1,7 +1,6 @@
 @extends('main')
 
 @section('content')
-
 {{-- variable --}}
 <div class="d-none">
   {{ $list = count($product) }}
@@ -46,8 +45,8 @@
   @foreach($product[$getPage] as $a)
   <a href="/product/{{ $a->id }}" class="text-decoration-none" >
     <div class="product-card card  m-2" style="width: 14rem; height: 24rem;" id="card">
-      <div >
-        <img style="height: 14rem;" src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="{{ URL::to('/image/produk/' . $a -> image) }}" >
+      <div style="height: 14rem;">
+        <img style="height: 14rem; " src="{{ 'image/produk/' . $a->image }}" class="card-img-top" alt="{{ 'image/produk/' . $a->image }}" >
       </div>
       <div class="card-body">
         <p class="card-title text-dark">{{ $a -> name }}</p>
@@ -57,7 +56,12 @@
         @auth
         @if (auth()->user()->privilege == "admin")
         <div class="d-flex justify-content-evenly m-1">
-          <a href="#" class="btn bg-lime text-light">delete</a>
+          <form action="/product/{{ $a->id }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn bg-lime text-light">delete</button>
+          </form>
+          
           <a href="#" class="btn bg-lime text-light">update</a>
         </div>
         @endif
@@ -69,20 +73,19 @@
   @endforeach
   {{-- END CARD --}}
 
+
+</div>
 {{-- pagination --}}
-<div class="" style="padding-left: 20%; padding-right: 20%;">
+<div class="d-flex p-5" >
   <div class="mx-auto p-0 rounded  bg-lime" style="">
     @for($page = 0; $page < $list; $page++)
-    <a href="?page={{ $page }}" style="display:inline-block;" class="btn @if($page == $getPage) bg-darklime @endif">{{ $page}} </a>
+    <a href="?page={{ $page }}" style="display:inline-block;" class="btn @if($page == $getPage) bg-darklime @endif">{{ $page }} </a>
     @endfor
   </div>  
 </div>
 {{-- end pagination --}}
-</div>
 
-
-<x-message />
-
+{{-- <x-message /> --}}
 @endsection
 
 

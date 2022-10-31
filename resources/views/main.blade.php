@@ -35,6 +35,8 @@
 
     </div>
     {{-- END BODY DALEM --}}
+    <x-message />
+
     @yield('js')
     @include('partial.js')
 

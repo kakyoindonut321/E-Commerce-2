@@ -8,6 +8,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\OrderController;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,11 +64,26 @@ Route::middleware("AlreadyLogged")->group(function () {
 Route::middleware("isAdmin")->group(function () {
     Route::get('/report', [productController::class, 'report']);
     Route::get('/input-product', [productController::class, 'input']);
-
+    Route::post('/create-product', [productController::class, 'store'])->name('create-product');
+    Route::delete('/product/{product}', [productController::class, 'delete']);
 });
 
 
-
+Route::get('/image/produk/{path}', function ($path) {
+    $path = storage_path('app/image/produk' . $path);
+ 
+    if (!File::exists($path)) {
+        abort(404);
+    }
+ 
+    $file = File::get($path);
+    $type = File::mimeType($path);
+ 
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+ 
+    return $response; ;
+});
 
 
 
