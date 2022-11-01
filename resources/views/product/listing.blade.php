@@ -46,10 +46,10 @@
   <a href="/product/{{ $a->id }}" class="text-decoration-none" >
     <div class="product-card card  m-2" style="width: 14rem; height: 24rem;" id="card">
       <div style="height: 14rem;">
-        <img style="height: 14rem; " src="{{ 'image/produk/' . $a->image }}" class="card-img-top" alt="{{ 'image/produk/' . $a->image }}" >
+        <img style="height: 14rem; " src="{{ asset('storage/' . $a->image) }}" class="card-img-top" alt="{{ asset('storage/' . $a->image) }}" >
       </div>
       <div class="card-body">
-        <p class="card-title text-dark">{{ $a -> name }}</p>
+        <p class="card-title text-dark">@if(strlen($a -> name) > 25) {{ substr( $a -> name, 0,20) . '.....' }} @else {{ $a -> name }} @endif</p>
         <h5 class="card-text text-danger">harga: Rp{{ $a -> price }}</h5>
         <p class="card-text text-dark">stock: {{ $a -> stock }}</p>
         {{-- HANYA BISA DILIHAT ADMIN --}}

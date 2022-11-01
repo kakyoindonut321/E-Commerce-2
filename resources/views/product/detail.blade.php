@@ -12,7 +12,7 @@
           <div class = "product-imgs ">
             <div class = " img-display">
               <div class = "img-showcase">
-                <img class="detail-img" src = "{{ URL::to('/image/produk/' . $product -> image) }}" alt = "{{ $product -> image }}">
+                <img class="detail-img" src = "{{ asset('storage/' . $product->image) }}" alt = "{{ asset('storage/' . $product->image) }}">
               </div>
            </div>
            <!-- card right -->

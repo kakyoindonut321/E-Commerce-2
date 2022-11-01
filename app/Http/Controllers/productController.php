@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Str;
 
 class productController extends Controller
 {
@@ -83,11 +84,14 @@ class productController extends Controller
         $input->price = $request-> price;
         $input->category_id = 1;
         
-        if($request->file("cover_image")){
-            $name_file = $request->file("cover_image")->Hashname();
-            // Storage::put("coverImg/$name_file" , $request->file("cover_image") , "public");
-            $request->file("cover_image")->storePubliclyAs("image/produk" , $name_file);
-            $input ->image = $name_file;
+        // if($request->file("cover_image")){
+        //     $name_file = $request->file("cover_image")->Hashname();
+        //     // Storage::put("coverImg/$name_file" , $request->file("cover_image") , "public");
+        //     $request->file("cover_image")->storePubliclyAs("image/produk" , $name_file);
+        //     $input ->image = $name_file;
+        // }
+        if ($request->hasFile('cover_image')) {
+            $input->image = $request->file('cover_image')->store('image/produk', 'public');
         }
 
         $input ->save();
@@ -96,8 +100,9 @@ class productController extends Controller
     }
 
     public function delete(Product $listing) {
+        dd($listing);
         $listing->delete();
-        return redirect('/product')->with('message-success', $listing);
+        return redirect('/product')->with('message-success', 'produk telah di hapus');
 
     }
 
