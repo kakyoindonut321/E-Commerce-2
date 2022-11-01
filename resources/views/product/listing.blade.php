@@ -50,7 +50,7 @@
       </div>
       <div class="card-body">
         <p class="card-title text-dark">{{ $a -> name }}</p>
-        <h5 class="card-text text-danger">harga: ${{ $a -> price }}</h5>
+        <h5 class="card-text text-danger">harga: Rp{{ $a -> price }}</h5>
         <p class="card-text text-dark">stock: {{ $a -> stock }}</p>
         {{-- HANYA BISA DILIHAT ADMIN --}}
         @auth
