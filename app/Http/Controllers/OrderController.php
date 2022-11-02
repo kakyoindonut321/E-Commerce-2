@@ -26,7 +26,7 @@ class OrderController extends Controller
                    'status' => 'order'
             )
        );
-       return redirect()->to("/product")->with('message-success', 'barang berhasil ditambah');
+       return redirect()->to("/product/$request->product_id")->with('message-success', 'barang berhasil ditambah');
         // return view('rickroll', [
         //     'title' => 'rickroll',
         //     'orderan' => $orderan

@@ -1,6 +1,9 @@
 @extends('main')
 
 @section('content')
+
+{{-- {{ dd($product) }} --}}
+
 {{-- variable --}}
 <div class="d-none">
   {{ $list = count($product) }}
@@ -42,7 +45,7 @@
 
 <div class="d-flex justify-content-center" style="flex-wrap: wrap;">
   {{-- CARD --}}
-  @foreach($product[$getPage] as $a)
+  @foreach($product as $a)
   <a href="/product/{{ $a->id }}" class="text-decoration-none" >
     <div class="product-card card  m-2" style="width: 14rem; height: 24rem;" id="card">
       <div style="height: 14rem;">
@@ -52,7 +55,6 @@
         <p class="card-title text-dark">@if(strlen($a -> name) > 25) {{ substr( $a -> name, 0,20) . '.....' }} @else {{ $a -> name }} @endif</p>
         <h5 class="card-text text-danger">harga: Rp{{ $a -> price }}</h5>
         <p class="card-text text-dark">stock: {{ $a -> stock }}</p>
-        {{-- HANYA BISA DILIHAT ADMIN --}}
         @auth
         @if (auth()->user()->privilege == "admin")
         <div class="d-flex justify-content-evenly m-1">
@@ -66,7 +68,6 @@
         </div>
         @endif
         @endauth
-        {{-- END HANYA BISA DILIHAT ADMIN --}}
       </div>
     </div>
   </a>
@@ -75,32 +76,21 @@
 
 
 </div>
+
+
+@include('pagination.default', ['paginator' => $product])
+
+
+@endsection
+
+
+
 {{-- pagination --}}
-<div class="d-flex p-5" >
+{{-- <div class="d-flex p-5" >
   <div class="mx-auto p-0 rounded  bg-lime" style="">
     @for($page = 0; $page < $list; $page++)
     <a href="?page={{ $page }}" style="display:inline-block;" class="btn @if($page == $getPage) bg-darklime @endif">{{ $page }} </a>
     @endfor
   </div>  
-</div>
-{{-- end pagination --}}
-
-{{-- <x-message /> --}}
-@endsection
-
-
-
-
-{{-- nggak kepake --}}
-{{-- <div class="card m-2" style="width: 14rem;" >
-  <img src="{{ URL::to('/image/produk/' . $a -> image) }}" class="card-img-top" alt="">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{ $a -> name }}</li>
-    <li class="list-group-item">harga: ${{ $a -> price }}</li>
-    <li class="list-group-item">stock: {{ $a -> stock }}</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="btn bg-lime text-light">delete</a>
-    <a href="#" class="btn bg-lime text-light">update</a>
-  </div>
 </div> --}}
+{{-- end pagination --}}
