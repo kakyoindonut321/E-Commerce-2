@@ -14,7 +14,7 @@
 
 
 {{-- SLIDE CAROUSEL --}}
-@if ($getPage  == 0)
+@if ($product->currentPage() == 1)
 <div style="height: 360px">
   <div id="slider" class="carousel slide border mx-auto w-50 border" data-bs-ride="carousel">
     <div class="carousel-inner ">
@@ -77,7 +77,7 @@
 
 </div>
 
-
+<form action=""><input type="text" placeholder="search" name="search"><button type="submit">submit</button></form>
 @include('pagination.default', ['paginator' => $product])
 
 

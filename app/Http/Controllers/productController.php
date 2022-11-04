@@ -4,13 +4,97 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class productController extends Controller
 {
-    public function variable() {
-        return $listing = count($this->paging(Product::all())) - 1;
+    public function index(Request $request) {
+        $product = [
+            "title" => "Products",
+            "product" => Product::latest()->filter(request(['search']))->paginate(10)
+        ];
+        return view('/product/listing', $product);
     }
+
+    public function report() {
+        return view('admin.report', [
+            'title' => 'Report'
+        ]);
+    }
+
+    public function input() {
+        return view('admin.InputProduct', [
+            'title' => 'Input Produk'
+        ]);
+    }
+
+    public function edit() {
+        return view('admin.UpdateProduk', [
+            'title' => 'Input Produk'
+        ]);
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'stock' => 'required',
+            'price' => 'required',
+            'cover_image' => 'required'
+        ]);
+        $input = new Product;
+        $input->name = $request-> name;
+        $input->description = $request-> description;
+        $input->stock = $request-> stock;
+        $input->price = $request-> price;
+        $input->category_id = 1;
+        
+
+        if ($request->hasFile('cover_image')) {
+            $input->image = $request->file('cover_image')->store('image/produk', 'public');
+        }
+
+        $input ->save();
+
+        return redirect()->to("/product")->with('message-success', 'produk baru telah dibuat');
+    }
+
+    public function delete(Product $product) {
+        $product->delete();
+        return redirect('/product')->with('message-success', 'produk telah di hapus');
+
+    }
+
+    public function show(Product $product) {
+        return view('product.detail', [
+            'title' => $product->name,
+            'product' => $product
+        ]);
+    }
+
+
+    public function update(Request $request, Product $product) {
+        $formUpdate =  $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'stock' => 'required',
+            'price' => 'required',
+            'cover_image' => 'required'
+        ]);
+
+        if ($request->hasFile('cover_image')) {
+            $product->image = $request->file('cover_image')->store('image/produk', 'public');
+        }
+
+
+        $product->update($formUpdate);
+        return redirect()->to("/product")->with('message-success', 'produk berhasil di update');
+    }
+}
+
+
+// not used
     // public function paging($para_A) {
     //     $i_one = 0;
     //     $i_two = 0;
@@ -36,73 +120,11 @@ class productController extends Controller
     //     }
     //     return $ar_last;
     // }
-    
 
-    public function index(Request $request) {
-        $product = [
-            "title" => "Products",
-            "product" => Product::latest()->paginate(10),
-            "latest" => Product::latest()->paginate(5)
-        ];
-        return view('/product/listing', $product);
-    }
 
-    public function report() {
-        return view('admin.report', [
-            'title' => 'Report'
-        ]);
-    }
-
-    public function input() {
-        return view('admin.InputProduct', [
-            'title' => 'Input Produk'
-        ]);
-    }
-
-    public function store(Request $request) {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'description' => 'required',
-        //     'stock' => 'required',
-        //     'price' => 'required',
-        //     'file' => 'required'
-        // ]);
-        $input = new Product;
-        $input->name = $request-> name;
-        $input->description = $request-> description;
-        $input->stock = $request-> stock;
-        $input->price = $request-> price;
-        $input->category_id = 1;
-        
-        // if($request->file("cover_image")){
+            // if($request->file("cover_image")){
         //     $name_file = $request->file("cover_image")->Hashname();
         //     // Storage::put("coverImg/$name_file" , $request->file("cover_image") , "public");
         //     $request->file("cover_image")->storePubliclyAs("image/produk" , $name_file);
         //     $input ->image = $name_file;
         // }
-        if ($request->hasFile('cover_image')) {
-            $input->image = $request->file('cover_image')->store('image/produk', 'public');
-        }
-
-        $input ->save();
-
-        return redirect()->to("/product")->with('message-success', 'produk baru telah dibuat');
-    }
-
-    public function delete(Product $listing) {
-        dd($listing);
-        $listing->delete();
-        return redirect('/product')->with('message-success', 'produk telah di hapus');
-
-    }
-
-    public function show(Product $product) {
-        return view('product.detail', [
-            'title' => $product->name,
-            'product' => $product
-        ]);
-    }
-
-
-
-}
