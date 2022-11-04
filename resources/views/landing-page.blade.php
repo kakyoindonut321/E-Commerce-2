@@ -6,18 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={{ URL::to('/css/landing.css') }}>
     <style>
-        body {
-            background-image: url("{{ URL::to('/image/Ellipse 1.png') }}");
+        .bgland {
+            background-image: url("{{ URL::to('/image/landing-page.png') }}");
         }
     </style>
     <title>E-commerce</title>
 </head>
 <body>
     <nav>
-        <div class="top-menu">
-            <img class="logo" src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" alt="Logo" >
-
-            <ul class="navbar">
+        <div class="logo">
+            <img src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" width="45" alt="" class=".menu-icon align-middle mr-2 text-lime">
+         </div>
+         <form action="#">
+            <input type="search" class="search-data" placeholder="Search" required>
+            <button type="submit" class="fas fa-search">🔍</button>
+         </form>
+         <ul class="navbar">
                 <div class="start-now">
                     <li><a href="/product"><b>START NOW</b></a></li>
                 </div>
@@ -25,12 +29,12 @@
                     <li><a href="/login"><b>LOGIN</b></a></li>
                 </div>
             </ul>
-        </div>
-    </nav>
-    <div class="hero">
-        <img src="{{ URL::to('/image/modem 1.png') }}" alt="modem" class="img-hero">
-        
-    </div>
+
+      </nav>
+
+    <!-- <div class="bgland">
+        &Snbsp;
+    </div> -->
 
     <div class="category">
         <h2>Product Category</h2>
