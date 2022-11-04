@@ -32,6 +32,33 @@
         
     </div>
 
+    <div class="category">
+        <h2>Product Category</h2>
+        <div class="flexing">
+            <div class="card">
+                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <h4>category</h4>
+            </div>
+            <div class="card">
+                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <h4>category</h4>
+            </div>
+            <div class="card">
+                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <h4>category</h4>
+            </div>
+            <div class="card">
+                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <h4>category</h4>
+            </div>
+            <div class="card">
+                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <h4>category</h4>
+            </div>
+        </div>
+
+    </div>
+
      
 
 
