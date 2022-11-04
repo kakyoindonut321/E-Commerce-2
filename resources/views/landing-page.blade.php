@@ -33,9 +33,6 @@
         <img src="{{ URL::to('/image/modem 1.png') }}" alt="modem" class="img-hero">
         
     </div>
-
-     
-
-
+<x-message />
 </body>
 </html>
