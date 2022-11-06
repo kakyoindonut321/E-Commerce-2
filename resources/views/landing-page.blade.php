@@ -41,26 +41,12 @@
     <div class="category">
         <h2>Product Category</h2>
         <div class="flexing">
+            @foreach($category as $cat)
             <div class="card">
                 <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
-                <h4>category</h4>
+                <h4>{{ $cat->category }}</h4>
             </div>
-            <div class="card">
-                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
-                <h4>category</h4>
-            </div>
-            <div class="card">
-                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
-                <h4>category</h4>
-            </div>
-            <div class="card">
-                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
-                <h4>category</h4>
-            </div>
-            <div class="card">
-                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
-                <h4>category</h4>
-            </div>
+            @endforeach
         </div>
 
     </div>

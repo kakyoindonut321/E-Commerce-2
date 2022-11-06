@@ -11,17 +11,20 @@
             <form action="/product/{{ $product->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @METHOD('put')
-                <input type="text" name="name" placeholder="Product Name" required>
-                <input type="text" name="description" placeholder="Description Product" required>
-                <input type="number" name="stock" placeholder="stock" required>
+                <input type="text" name="name" placeholder="Product Name" value="{{ $product->name }}" required>
+                <input type="text" name="description" placeholder="Description Product" value="{{ $product->description }}" required>
+                <input type="number" name="stock" placeholder="stock" value="{{ $product->stock }}" required>
                 <div class="form-row">
-                    <input type="number" name="price" placeholder="Price" required>
+                    <input type="number" name="price" placeholder="Price" value="{{ $product->price }}" required>
                     <select id="category" name="category" placeholder="category">
                         <option disabled selected hidden>Category</option>
-                        <option value="baju">baju</option>
+                        @foreach($category as $c)
+                        <option value="{{ $c->id }}">{{ $c->category }}</option>
+                        @endforeach
+                        {{-- <option value="baju">baju</option>
                         <option value="hp">hp</option>
                         <option value="jam">jam</option>
-                        <option value="celana">celana</option>
+                        <option value="celana">celana</option> --}}
                     </select>
                 </div>
                 <div class="fileinp-wrapper">

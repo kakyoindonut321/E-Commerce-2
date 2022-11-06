@@ -4,15 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Str;
 
 class productController extends Controller
 {
+    public function main() {
+        $product = [
+            "title" => "E-Commerce",
+            "category" => Category::all(),
+            "products" => Product::with('category')->latest()->filter(request(['search']))->paginate(10)->withQueryString()
+        ];
+        return view('landing-page', $product);
+    }
+
     public function index(Request $request) {
         $product = [
             "title" => "Products",
-            "product" => Product::latest()->filter(request(['search']))->paginate(10)->withQueryString()
+            "products" => Product::with('category')->latest()->filter(request(['search']))->paginate(10)->withQueryString()
         ];
         return view('/product/listing', $product);
     }
@@ -32,7 +42,8 @@ class productController extends Controller
     public function edit(Product $product) {
         return view('admin.EditProduct', [
             'title' => 'Input Produk',
-            'product' => $product
+            'product' => $product,
+            'category' => Category::all()
         ]);
     }
 
@@ -88,6 +99,15 @@ class productController extends Controller
             $product->image = $request->file('cover_image')->store('image/produk', 'public');
         }
 
+        if (
+            $product->name == $request->name and
+            $product->description == $request->description and 
+            $product->stock == $request->stock and 
+            $product->price == $request->price
+            ) 
+        {
+            return redirect()->to("/product")->with('message-warning', 'data produk tidak berubah');
+        }
 
         $product->update($formUpdate);
         return redirect()->to("/product")->with('message-success', 'produk berhasil di update');

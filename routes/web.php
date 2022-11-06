@@ -33,9 +33,7 @@ use Illuminate\Support\Facades\Response;
 // });
 
 
-Route::get('/', function () {
-    return view( 'landing-page');
-});
+Route::get('/', [productController::class, 'main']);
 
 
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
