@@ -42,6 +42,7 @@
 @endif
 {{-- END CAROUSEL--}}
 
+@unless(count($product) == 0)
 
 <div class="d-flex justify-content-center" style="flex-wrap: wrap;">
   {{-- CARD --}}
@@ -73,7 +74,9 @@
   </a>
   @endforeach
   {{-- END CARD --}}
-
+@else 
+<h4>produk tidak ditemukan</h4>
+@endunless
 
 </div>
 
