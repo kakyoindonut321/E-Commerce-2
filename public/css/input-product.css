@@ -114,3 +114,16 @@ select,
     display: flex;
     gap: 10px;
 }
+
+.form-i .form-row #category {
+    display: flex;
+    /* border: 1px solid; */
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.form-i .form-row input {
+    display: flex;
+    /* border: 1px solid; */
+    gap: 10px;
+}

@@ -7,9 +7,10 @@
 @section('content')
     <div class="product-page" class="">
         <div class="form-i">
-            <h3>Input Product</h3>
-            <form action="{{ route('create-product') }}" method="post" enctype="multipart/form-data">
+            <h3>Update Product</h3>
+            <form action="/product/{{ $product->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @METHOD('put')
                 <input type="text" name="name" placeholder="Product Name" required>
                 <input type="text" name="description" placeholder="Description Product" required>
                 <input type="number" name="stock" placeholder="stock" required>

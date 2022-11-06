@@ -14,7 +14,7 @@
 
 
 {{-- SLIDE CAROUSEL --}}
-@if ($product->currentPage() == 1)
+@if ($product->currentPage() == 1 and request('search') == '')
 <div style="height: 360px">
   <div id="slider" class="carousel slide border mx-auto w-50 border" data-bs-ride="carousel">
     <div class="carousel-inner ">
@@ -65,7 +65,7 @@
             <button class="btn bg-lime text-light">delete</button>
           </form>
           
-          <a href="#" class="btn bg-lime text-light">update</a>
+          <a href="/product/{{ $a->id }}/edit" class="btn bg-lime text-light">update</a>
         </div>
         @endif
         @endauth
@@ -80,7 +80,7 @@
 
 </div>
 
-<form action=""><input type="text" placeholder="search" name="search"><button type="submit">submit</button></form>
+{{-- <form action="{{ route('search') }}"><input type="text" placeholder="search" name="search"><button type="submit">submit</button></form> --}}
 @include('pagination.default', ['paginator' => $product])
 
 

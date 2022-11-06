@@ -44,6 +44,7 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-us
 
 Route::get('/product', [productController::class, 'index']);
 Route::get('/product/{product}', [productController::class, 'show']);
+Route::get('/product', [productController::class, 'index'])->name('search');
 
 
 
@@ -59,13 +60,13 @@ Route::middleware("AlreadyLogged")->group(function () {
     Route::get('/register', [AuthController::class, 'registration'])->name('register');
 });
 
-
-
 Route::middleware("isAdmin")->group(function () {
     Route::get('/report', [productController::class, 'report']);
     Route::get('/input-product', [productController::class, 'input']);
     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
     Route::delete('/product/{product}', [productController::class, 'delete']);
+    Route::put('/product/{product}', [productController::class, 'update']);
+    Route::get('/product/{product}/edit', [productController::class, 'edit']);
 });
 
 

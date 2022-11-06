@@ -15,4 +15,4 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     {{-- ICON --}}
-    <link rel="icon" href="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}">
+    <link rel="icon" href="{{ URL::to('/image/icon.png') }}">

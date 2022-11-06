@@ -29,9 +29,10 @@ class productController extends Controller
         ]);
     }
 
-    public function edit() {
-        return view('admin.UpdateProduk', [
-            'title' => 'Input Produk'
+    public function edit(Product $product) {
+        return view('admin.EditProduct', [
+            'title' => 'Input Produk',
+            'product' => $product
         ]);
     }
 
@@ -41,7 +42,7 @@ class productController extends Controller
             'description' => 'required',
             'stock' => 'required',
             'price' => 'required',
-            'cover_image' => 'required'
+            // 'cover_image' => 'required'
         ]);
         $input = new Product;
         $input->name = $request-> name;
@@ -80,7 +81,7 @@ class productController extends Controller
             'description' => 'required',
             'stock' => 'required',
             'price' => 'required',
-            'cover_image' => 'required'
+            // 'cover_image' => 'required'
         ]);
 
         if ($request->hasFile('cover_image')) {
