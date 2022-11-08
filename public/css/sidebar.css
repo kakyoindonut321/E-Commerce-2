@@ -307,7 +307,7 @@
 .home-section-sb {
     position: relative;
     /* background: #E4E9F7; */
-    background: white;
+    background: rgb(239, 239, 239);
     min-height: 100vh;
     top: 0;
     left: 0;

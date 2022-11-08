@@ -1,52 +1,71 @@
 @extends('main')
 
 @section('css')
-<style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-    </style>
+<link rel="stylesheet" href={{ URL::to('/css/order.css') }}>
 @endsection
 
 @section('content')
-@if ($order->isEmpty() == 1)
-    <h3 class="text-center text-danger">anda belum membuat order</h3>
-@else
-<table class="">
-    <tr>
-        <th>Product</th>
-        <th>Price(IDR)</th>
-        <th>Amount</th>
-        <th>Image</th>
-        <th>Total</th>
-        <th>Date</th>
-        <th>Payment</th>
-        <th>Status</th>
-    </tr>
-    @foreach($order as $od)
-        <tr>
-            <td>{{ $od->product->name }}</td>
-            <td>{{ $od->product->price }}</td>
-            <td>1</td>
-            <td class="border "><img style="height: 5rem; width: 5rem;" src="{{ asset('storage/' . $od->product->image) }}" ></td>
-            <td>{{ $od->product->price }}</td>
-            <td>8 December 1980</td>
-            <td>E-Wallet-kelompok1</td>
-            <td>{{ $od->status }}</td>
-        </tr>   
-    @endforeach
-@endif
+<div class="header-table">
+  <div class="header1" style="text-align: left; padding-left: 10px;">
+      <p>Produk</p>
+  </div>
+  <div>
+      <p>Harga</p>
+  </div>
+  <div>
+      <p>Jumlah</p>
+  </div>
+  <div>
+      <p>
+          Total Harga
+      </p>
+  </div>
+  <div>
+      <p>Action</p>
+  </div>
+</div>
 
+
+<form action="">
+  <div class="product">
+      <div class="top-product">
+          <input type="checkbox" style="display: inline;">
+          <h5 style="display: inline;">penjual</h5>
+      </div>
+      <hr>
+      <div class="product-table">
+          <div class="pr1">
+              <div class="img-product">
+                  <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="" width="180" style="margin-bottom: 5%;">
+              </div>
+              <div class="title-product">
+                  <h6>Nama Produk</h6>
+              </div>
+          </div>
+
+          <div class="pr2">
+              <div>
+                  <p>100.000</p>
+              </div>
+              <div>
+                <input type="number" min="1" name="" id="">
+              </div>
+              <div>
+                  <p>
+                      200.000
+                  </p>
+              </div>
+              <div>
+                  <p>Action</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <footer>
+      <div class="checkout">
+          <button type="submit">CHECKOUT</button>
+      </div>
+  </footer>
+</form>
 @endsection
