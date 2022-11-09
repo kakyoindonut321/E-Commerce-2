@@ -175,11 +175,11 @@ body {
 }
 
 .purchase-info .btn:first-of-type {
-    background: #256eff;
+    background: #4CAF50;
 }
 
 .purchase-info .btn:last-of-type {
-    background: #f64749;
+    background: #4CAF50;
 }
 
 .purchase-info .btn:hover {
