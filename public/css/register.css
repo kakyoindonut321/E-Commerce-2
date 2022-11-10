@@ -46,6 +46,17 @@ form input {
     border-radius: 10px;
 }
 
+form select {
+    color: grey;
+    width: 85%;
+    outline: none;
+    border: none;
+    background: #dfe9f5;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
 .recover {
     text-align: right;
     font-size: 0.8rem;

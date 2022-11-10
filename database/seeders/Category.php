@@ -14,7 +14,20 @@ class Category extends Seeder
      */
     public function run()
     {
-        $category = array('Pakaian','Elektronik','Furnitur');
+        $category = array(
+            'Elektronik',
+            'Hp & aksesori',
+            'Komputer & aksesori', 
+            "Pakaian laki-laki", 
+            "Pakaian perempuan", 
+            "Tas laki-laki", 
+            "Tas perempuan", 
+            "Sepatu laki-laki", 
+            "Tas perempuan",
+            "Otomotif",
+            "peralatan olahraga",
+            "peralatan rumah tangga"
+        );
         
         foreach ($category as $c) {
             \App\Models\Category::factory()->create([

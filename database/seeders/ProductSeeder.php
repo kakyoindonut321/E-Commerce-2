@@ -72,7 +72,7 @@ class ProductSeeder extends Seeder
         foreach ($produk as $p => $img) {
             \App\Models\Product::factory()->create([
                 'name' => $p,
-                'image' => $img
+                'image' => "image/produk/" . $img
             ]);
         }
     }

@@ -20,7 +20,8 @@ return new class extends Migration
             $table->decimal('price', $precision = 12, $scale = 2);
             $table->longText('description');
             $table->integer('stock');
-            $table->foreignId("category_id");
+            $table->string('user');
+            $table->foreignId("category_id")->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

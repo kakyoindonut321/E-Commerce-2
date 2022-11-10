@@ -19,4 +19,17 @@ class TransactionController extends Controller
         $product_dec->save();
         return redirect()->to("/product")->with('message-success', 'barang berhasil dibeli');
     }
+
+    public function orderTransaction($transaction, $jumlah) {
+        for ($x = 0; $x <= count($transaction) - 1; $x++) {
+            if ($transaction[$x]->stock < 1) {
+                $transaction[$x]->stock = 0;
+                $transaction[$x]->save();
+                return $orderError = true;
+            }
+
+            $transaction[$x]->stock -= $jumlah[$x];
+            $transaction[$x]->save();
+        }
+    }
 }

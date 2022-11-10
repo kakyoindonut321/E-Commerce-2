@@ -33,9 +33,7 @@ use Illuminate\Support\Facades\Response;
 // });
 
 
-Route::get('/', function () {
-    return view( 'landing-page');
-});
+Route::get('/', [productController::class, 'main']);
 
 
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
@@ -44,12 +42,16 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-us
 
 Route::get('/product', [productController::class, 'index']);
 Route::get('/product/{product}', [productController::class, 'show']);
+Route::get('/product', [productController::class, 'index'])->name('search');
 
 
 
 Route::middleware("auth")->group(function () {
     Route::post('/buy', [TransactionController::class, 'transaction'])->name('buy');
     Route::post('/create-order', [OrderController::class, 'create'])->name('create-order');
+    Route::post('/order/buy', [OrderController::class, 'buy']);
+    Route::get('/user/{user}', [AuthController::class, 'user']);
+    Route::delete('/order/{order}', [OrderController::class, 'delete']);
     Route::get('/order', [OrderController::class, 'index']);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
@@ -59,15 +61,19 @@ Route::middleware("AlreadyLogged")->group(function () {
     Route::get('/register', [AuthController::class, 'registration'])->name('register');
 });
 
-
-
 Route::middleware("isAdmin")->group(function () {
     Route::get('/report', [productController::class, 'report']);
+
+});
+
+
+Route::middleware("isSellerAndAdmin")->group(function () {
     Route::get('/input-product', [productController::class, 'input']);
     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
     Route::delete('/product/{product}', [productController::class, 'delete']);
-});
-
+    Route::put('/product/{product}', [productController::class, 'update']);
+    Route::get('/product/{product}/edit', [productController::class, 'edit']);
+  });
 
 Route::get('/image/produk/{path}', function ($path) {
     $path = storage_path('app/image/produk' . $path);
@@ -105,7 +111,7 @@ Route::get('/image/produk/{path}', function ($path) {
 
 
 
-
+// raka
 
 
 
