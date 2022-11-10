@@ -49,6 +49,9 @@ Route::get('/product', [productController::class, 'index'])->name('search');
 Route::middleware("auth")->group(function () {
     Route::post('/buy', [TransactionController::class, 'transaction'])->name('buy');
     Route::post('/create-order', [OrderController::class, 'create'])->name('create-order');
+    Route::post('/order/buy', [OrderController::class, 'buy']);
+    Route::get('/user/{user}', [AuthController::class, 'user']);
+    Route::delete('/order/{order}', [OrderController::class, 'delete']);
     Route::get('/order', [OrderController::class, 'index']);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
@@ -60,13 +63,17 @@ Route::middleware("AlreadyLogged")->group(function () {
 
 Route::middleware("isAdmin")->group(function () {
     Route::get('/report', [productController::class, 'report']);
+
+});
+
+
+Route::middleware("isSellerAndAdmin")->group(function () {
     Route::get('/input-product', [productController::class, 'input']);
     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
     Route::delete('/product/{product}', [productController::class, 'delete']);
     Route::put('/product/{product}', [productController::class, 'update']);
     Route::get('/product/{product}/edit', [productController::class, 'edit']);
-});
-
+  });
 
 Route::get('/image/produk/{path}', function ($path) {
     $path = storage_path('app/image/produk' . $path);

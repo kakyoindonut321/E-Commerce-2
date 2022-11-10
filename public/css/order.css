@@ -1,9 +1,3 @@
-body {
-    background-color: lightgray;
-    padding: 0;
-    margin: 0;
-}
-
 .header-table {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto;
@@ -44,10 +38,17 @@ body {
     margin-top: 20px;
 }
 
-.product-table div {
+.product-table .inputs {
     text-align: center;
     /* border: 1px solid; */
     font-size: 100%;
+    width: 500px;
+}
+
+.total {
+    max-width: 400px;
+    width: 400px;
+    overflow-x: hidden;
 }
 
 .header1 {
@@ -56,11 +57,13 @@ body {
 
 .checkout {
     background-color: white;
-    /* border: 1px solid; */
+    border-top: 1px solid;
     padding: 0;
     position: fixed;
     width: 100%;
     bottom: 0px;
+    left: 0px;
+    z-index: 2;
 }
 
 .checkout button {
@@ -68,6 +71,11 @@ body {
     border: none;
     padding: 20px;
     float: right;
+}
+
+.checkout h3 {
+    padding-top: 15px;
+    float: left;
 }
 
 .checkout button:hover {
@@ -81,24 +89,47 @@ body {
 
 .pr1 {
     display: grid;
-    grid-template-columns: auto;
+    display: flex;
     flex-grow: 1;
 }
 
 .pr2 {
     flex-grow: 1;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
 }
 
 .pr2 div p {
     margin-top: 50%;
 }
 
-.pr2 div input {
+.pr2 div .insideput {
     margin-top: 25%;
 }
 
 .pr1 div h6 {
     margin-top: 25%;
+}
+
+.input-group {
+    margin-top: 40%;
+    /* margin-left: 15%; */
+}
+
+#jumlah {
+    width: 50px;
+    align-items: center;
+    padding-left: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
 }

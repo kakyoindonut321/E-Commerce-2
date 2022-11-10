@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sign Up</title>
-    <link rel="stylesheet" href="{{ URL::to('/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ URL::to('/css/register.css') }}" />
     <!-- Font Awesome Cdn Link -->
     <link
       rel="stylesheet"
@@ -39,6 +39,12 @@
         <div>
           <input type="password" name="password" placeholder="Password" value="{{ old('password') }}"/>
           <p style="font-size: 12px; color: red;">@error('password') {{ $message }} @enderror</p>
+        </div>
+        <div>
+          <select id="select" name="privilege">
+            <option value="user">User</option>
+            <option value="seller">Penjual</option>
+          </select>
         </div>
 
         <div class="not-member">

@@ -23,11 +23,13 @@ class AuthController extends Controller
         $userForm = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:5|max: 20'
+            'password' => 'required|min:5|max: 20',
+            'privilege' => 'required',
         ]);
         $userForm['password'] = Hash::make($request->password);
 
         $user = User::create($userForm);
+
 
         auth()->login($user);
 
@@ -53,6 +55,10 @@ class AuthController extends Controller
     
     public function product() {
         return view('product.listing');
+    }
+
+    public function user(User $user) {
+        return view('user.user');
     }
 
     public function logout() {

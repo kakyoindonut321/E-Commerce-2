@@ -27,9 +27,11 @@
                 <div class="start-now">
                     <li><a href="/product"><b>START NOW</b></a></li>
                 </div>
+                @if (!auth()->check())
                 <div class="login">
                     <li><a href="/login"><b>LOGIN</b></a></li>
-                </div>
+                </div>      
+                @endif
             </ul>
 
       </nav>

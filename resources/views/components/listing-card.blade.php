@@ -14,7 +14,7 @@
           <form action="/product/{{ $product->id }}" method="POST">
             @csrf
             @method('DELETE')
-            <button class="btn bg-lime text-light">delete</button>
+            <button type="submit" class="btn bg-lime text-light">delete</button>
           </form>
           
           <a href="/product/{{ $product->id }}/edit" class="btn bg-lime text-light">update</a>

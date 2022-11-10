@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Login</title>
-    <link rel="stylesheet" href="{{ URL::to('/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ URL::to('/css/register.css') }}" />
     <!-- Font Awesome Cdn Link -->
     <link
       rel="stylesheet"

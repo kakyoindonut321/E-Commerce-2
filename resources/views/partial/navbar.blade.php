@@ -16,7 +16,7 @@
 
           {{-- NAMA USER DAN LOGO --}}
           @if(Auth::check())
-          <a href="#" class="navbar-user">
+          <a href="/user/{{ auth()->user()->id }}" class="navbar-user">
             <span class="text-uppercase font-weight-bold text-dark navbar-user">{{ auth()->user()->name }}</span>
             <img src="{{ URL::to('/image/user.png') }}" width="45" alt="" class="d-inline-block align-middle ">
           </a>

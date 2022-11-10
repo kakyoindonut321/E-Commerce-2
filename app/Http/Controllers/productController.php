@@ -61,6 +61,7 @@ class productController extends Controller
         $input->stock = $request-> stock;
         $input->price = $request-> price;
         $input->category_id = 1;
+        $input->user = $request-> user;
         
 
         if ($request->hasFile('cover_image')) {

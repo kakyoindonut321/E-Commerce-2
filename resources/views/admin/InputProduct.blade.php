@@ -10,6 +10,7 @@
             <h3>Input Product</h3>
             <form action="{{ route('create-product') }}" method="post" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="user" value="{{ auth()->user()->name }}">
                 <input type="text" name="name" placeholder="Product Name" required>
                 <input type="text" name="description" placeholder="Description Product" required>
                 <input type="number" name="stock" placeholder="stock" required>
