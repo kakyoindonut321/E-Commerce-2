@@ -45,7 +45,7 @@
         <div class="flexing">
             @foreach($category as $cat)
             <div class="card">
-                <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <img src="{{ URL::to('/image/category/' . $cat->image ) }}" alt="">
                 <h4>{{ $cat->category }}</h4>
             </div>
             @endforeach
