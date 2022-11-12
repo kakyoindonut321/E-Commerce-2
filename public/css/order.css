@@ -106,19 +106,20 @@
     margin-top: 25%;
 }
 
-.pr1 div h6 {
-    margin-top: 25%;
-}
+.pr1 div h6 {}
 
 .input-group {
     margin-top: 40%;
     /* margin-left: 15%; */
 }
 
-#jumlah {
+.jumlah {
     width: 50px;
     align-items: center;
     padding-left: 20px;
+    border: solid;
+    border-width: 1px;
+    border-color: grey;
 }
 
 input::-webkit-outer-spin-button,
@@ -132,4 +133,14 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+.img-order {
+    /* margin-top: 10px; */
+    height: 180px;
+    width: 180px;
+}
+
+.border-op {
+    opacity: 0.5;
 }

@@ -4,9 +4,12 @@
     <link rel="stylesheet" href={{ URL::to('/css/detail.css') }}>
 @endsection
 
+@error('product_id') {{ session()->flash('message-error', 'Barang telah dimasukan ke keranjang') }} @enderror
+
+
 @section('content')
 <div class = "carddd-wrapper">
-  <p style="font-size: 12px; color: red;">@error('product_id') {{ $message }} @enderror</p>
+  {{-- <p style="font-size: 12px; color: red;">@error('product_id') {{ $key }} @enderror</p> --}}
         <div class = "carddd">
           <!-- card left -->
           <div class = "product-imgs ">

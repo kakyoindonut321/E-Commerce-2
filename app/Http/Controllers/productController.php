@@ -14,7 +14,7 @@ class productController extends Controller
         $product = [
             "title" => "E-Commerce",
             "category" => Category::all(),
-            "products" => Product::with('category')->latest()->filter(request(['search']))->paginate(10)->withQueryString()
+            "products" => Product::with('category')->latest()->filter(request(['category', 'search']))->paginate(10)->withQueryString()
         ];
         return view('landing-page', $product);
     }
