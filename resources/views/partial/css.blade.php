@@ -1,6 +1,9 @@
     {{-- BOOTSTRAP --}}
     <link rel="stylesheet" href={{ URL::to('/css/bootstrap.css') }}>
 
+    {{-- RESPONSIVE --}}
+    <link rel="stylesheet" href={{ URL::to('/css/responsive.css') }}>
+
     <!-- SIDEBAR -->
     <link rel="stylesheet" href={{ URL::to('/css/sidebar.css') }}>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>

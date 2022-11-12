@@ -4,7 +4,11 @@
     <link rel="stylesheet" href={{ URL::to('/css/detail.css') }}>
 @endsection
 
-@error('product_id') {{ session()->flash('message-error', 'Barang telah dimasukan ke keranjang') }} @enderror
+{{-- @if (session()->has('message-error'))
+    
+@endif --}}
+
+@error('product_id') {{ session()->now('message-error', 'Barang telah dimasukan ke keranjang') }} @enderror
 
 
 @section('content')

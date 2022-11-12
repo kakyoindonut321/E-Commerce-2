@@ -13,7 +13,7 @@ class Product extends Model
     public function scopeFilter($query, array $filters)
     {
         if($filters['category'] ?? false) {
-            $query->where('category', 'like', '%' . request('category') . '%');
+            $query->where('category_id', 'like', request('category'));
         }
 
         if($filters['search'] ?? false) {

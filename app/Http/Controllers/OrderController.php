@@ -11,7 +11,8 @@ class OrderController extends Controller
     public function index() {
         return view('user.order', [
             'title' => 'Order',
-            'orders' => Order::with('product', 'user')->where('user_id', auth()->user()->id)->get()    
+            'orders' => Order::with('product', 'user')->where('user_id', auth()->user()->id)->get(),
+            "orderCount" => $this->orderCount   
         ]);
     }
 

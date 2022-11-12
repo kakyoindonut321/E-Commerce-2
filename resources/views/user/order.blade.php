@@ -1,6 +1,6 @@
 @extends('main')
 
-@error('table') {{ session()->flash('message-error', 'Pilih produk yang ingin dibeli') }} @enderror
+@error('table') {{ session()->now('message-error', 'Pilih produk yang ingin dibeli') }} @enderror
 
 @section('css')
 <link rel="stylesheet" href={{ URL::to('/css/order.css') }}>
