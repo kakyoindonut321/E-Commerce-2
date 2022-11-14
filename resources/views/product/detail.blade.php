@@ -94,6 +94,138 @@
 KODENYA TARO DIBAWAH SINI 
 | 
 v
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>css  model 1</title>
+        <style >
+           .container {
+            justify-content: space-between;
+              /* width: 1000px; height: 500px; borde r: 1px solid red; margin: auto; */
+                display: grid;
+                grid-template-columns: 33% 30% 33%;
+                grid-template-rows: auto;
+           }
+           .col {
+                 /* width: 100px;  */
+                 height: 90%;
+                 overflow-y: scroll; 
+                 border: 0px solid #7ED957; 
+                 padding: 15px;
+                 /* margin: 10px; */
+           } 
+           
+           button {
+                color: rgb(255, 255, 255);
+                margin: 5px;
+                display: inline-block;
+                background-color: #7ED957;
+                border-radius: 40px;
+                border: 0px;
+                cursor: pointer;
+                width: 100%;
+
+           }
+
+           .col p {
+            overflow: hidden;
+           }
+
+           button:hover {
+            background-color:rgb(13, 196, 13);
+           }
+
+           button:active {
+            background-color:#7ED957;
+           }
+
+           .col img {
+            width: 100%;
+           }
+
+           @media only screen and (max-width: 900px) {
+          .col img {
+                width: 200px;
+            }
+                .container {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                .col {
+                    width: 100%;
+                }
+            }
+            /* button {
+                border-radius: 30px;
+                border: 0;
+                font-size: 1.8rem;
+                font-weight: 10;
+                margin: 1rem ;
+                padding: 2rem 3rem;
+                text-transform: uppercase;
+                white-space: nowrap;
+
+
+
+            } */
+        </style>
+    </head>
+    <body>
+         
+        <div class="container">
+            <div class="col">
+                <img src="bola.jfif" alt="" srcset="">
+
+            </div>
+            <div class="col"> 
+                <h1>BOLA ortus</h1>
+                <h2>price: Rp50.000
+                    stock:110
+                </h2>
+                <h3>Deskripsi</h3>
+                <p>
+                    Kondisi: Baru
+                    Berat Satuan: 1 kg
+                    Kategori: Bola Sepak
+                    Etalase: BOLA SEPAK
+                    Bola sepak original ORTUS fifa world cup qatar 2022 official match ball
+                    
+                   
+                    
+                </p>
+            </div>
+            <div class="col">
+                <div class="css-1q2nbwe" data-testid="quantityOrder">
+                    <!-- <div class="css-h82t6w-unf-quantity-editor">
+                        <button aria-label="Kurangi 1" class="css-199ul1b" disabled="" tabindex="-1">
+                            <svg class="unf-icon" viewBox="0 0 24 24" width="18px" height="18px" fill="var(--NN300, #BFC9D9)" style="display: inline-block; vertical-align: middle;">
+                                <path d="M20 12.75H4a.75.75 0 110-1.5h16a.75.75 0 110 1.5z"></path></svg></button>
+                                <input id="qty-editor-atc" aria-valuenow="1" aria-valuemin="1" aria-valuemax="99949" class="css-197wjuk-unf-quantity-editor__input" data-unify="QuantityEditor" role="spinbutton" type="text" value="1">
+                                <button aria-label="Tambah 1" class="css-199ul1b" tabindex="-1">
+                                    <svg class="unf-icon" viewBox="0 0 24 24" width="18px" height="18px" fill="var(--GN500, #00AA5B)" style="display: inline-block; vertical-align: middle;">
+                                        <path d="M20 11.25h-7.25V4a.75.75 0 10-1.5 0v7.25H4a.75.75 0 100 1.5h7.25V20a.75.75 0 101.5 0v-7.25H20a.75.75 0 100-1.5z"></path></svg></button></div>
+                                        <label class="css-1ngblhr" for="qty-editor-atc">Total</label>
+                                        <p data-unify="Typography" data-testid="stock-label" class="css-1hhh2ha-unf-heading  -->
+
+                <h3>Total: 3493498</h3>
+                <button onclick="doSomething()" >Add to order</button>               
+                <button onclick="doSomething()" >BUY</button>                
+            </div>
+            
+        </div>
+        
+
+
+    </body>
+
+</html>
+
+
+
 
 
 
