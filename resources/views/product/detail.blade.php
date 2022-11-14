@@ -88,3 +88,14 @@
 
 
 {{-- https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg --}}
+
+
+{{-- 
+KODENYA TARO DIBAWAH SINI 
+| 
+v
+
+
+
+
+--}}
