@@ -4,7 +4,7 @@
 
 @switch($type['type'])
     @case(1)
-    <div style="height: 360px">
+    {{-- <div style="height: 100x;"> --}}
         <div id="slider" class="carousel slide border mx-auto w-ads border" data-bs-ride="carousel">
           <div class="carousel-inner ">
               <div class="carousel-item bg-dark active">
@@ -26,8 +26,7 @@
                 </button>
           </div>
       </div>
-      
-      </div>
+    {{-- </div> --}}
         @break
         
     @case(2)

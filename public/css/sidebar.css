@@ -126,7 +126,7 @@
     z-index: 0;
 }
 
-.right-i:active {
+.right-i:hover {
     color: white;
 }
 
@@ -255,10 +255,17 @@
     pointer-events: auto;
 }
 
-.sidebar-sb li a:hover .links_name-sb,
 .sidebar-sb li a:hover i {
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
+    font-size: 20px;
+    --fa-rotate-angle: 15deg;
     color: #11101D;
+}
+
+.sidebar-sb li a:hover .links_name-sb {
+    font-size: 17px;
+    color: #11101D;
+    transition: all 0.3s ease;
 }
 
 .sidebar-sb li i {

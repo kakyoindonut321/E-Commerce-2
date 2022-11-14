@@ -40,6 +40,7 @@ class productController extends Controller
     public function input() {
         return view('admin.InputProduct', [
             'title' => 'Input Produk',
+            'category' => Category::all(),
             "orderCount" => $this->orderCount
         ]);
     }
@@ -66,7 +67,7 @@ class productController extends Controller
         $input->description = $request-> description;
         $input->stock = $request-> stock;
         $input->price = $request-> price;
-        $input->category_id = 1;
+        $input->category_id = $request->category;
         $input->user = $request-> user;
         
 
@@ -100,8 +101,10 @@ class productController extends Controller
             'description' => 'required',
             'stock' => 'required',
             'price' => 'required',
-            // 'cover_image' => 'required'
+            'category_id' => 'required'
         ]);
+
+        // dd($formUpdate);
 
         if ($request->hasFile('cover_image')) {
             $product->image = $request->file('cover_image')->store('image/produk', 'public');
@@ -111,12 +114,12 @@ class productController extends Controller
             $product->name == $request->name and
             $product->description == $request->description and 
             $product->stock == $request->stock and 
-            $product->price == $request->price
+            $product->price == $request->price and
+            $product->category_id == $request->category_id
             ) 
         {
             return redirect()->to("/product")->with('message-warning', 'data produk tidak berubah');
         }
-
         $product->update($formUpdate);
         return redirect()->to("/product")->with('message-success', 'produk berhasil di update');
     }

@@ -12,7 +12,7 @@ class OrderController extends Controller
         return view('user.order', [
             'title' => 'Order',
             'orders' => Order::with('product', 'user')->where('user_id', auth()->user()->id)->get(),
-            "orderCount" => $this->orderCount   
+            "orderCount" => $this->orderCount
         ]);
     }
 

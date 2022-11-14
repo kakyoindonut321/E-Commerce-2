@@ -2,16 +2,15 @@
 
 @section('content')
 
-{{-- {{ dd($product) }} --}}
-
 {{-- variable --}}
-<div class="d-none">
+{{-- <div class="d-none">
   {{ $list = count($products) }}
   @if ( empty($getPage) == 1)
     {{ $getPage = 0 }}
   @endif
-</div>
+</div> --}}
 
+{{-- {{ auth()->check() }} --}}
 
 {{-- SLIDE CAROUSEL --}}
 @if ($products->currentPage() == 1 and request('search') == '')
@@ -32,7 +31,6 @@
 </div>
 
 @include('pagination.default', ['paginator' => $products])
-
 
 @endsection
 

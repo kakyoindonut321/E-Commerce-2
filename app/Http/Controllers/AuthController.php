@@ -5,12 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
 
 class AuthController extends Controller
 {
+    public function user(User $user) {
+        $userdata = [
+            'title' => 'Profile',
+            'orderCount' => $this->orderCount
+        ];
+        return view('user.user', $userdata);
+    }
+
+
     public function login() {
         return view('user.login');
     }
@@ -57,9 +67,6 @@ class AuthController extends Controller
         return view('product.listing');
     }
 
-    public function user(User $user) {
-        return view('user.user');
-    }
 
     public function logout() {
         auth()->logout();

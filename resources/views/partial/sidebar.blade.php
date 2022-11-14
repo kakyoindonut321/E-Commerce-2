@@ -12,23 +12,30 @@
             <ul class="nav-list-sb">
                 <li>
                     <a href="/product">
-                        <i class='bx bx-grid-alt'></i>
+                        <i class='bx bx-grid-alt fa-rotate-by'></i>
                         <span class="links_name-sb">Product</span>
                     </a>
                     {{-- <span class="tooltip-sb">Product</span> --}}
                 </li>
                 <li>
                     <a href="/order">
-                        <i class='bx bx-cart-alt'></i>
+                        <i class='bx bx-cart-alt fa-rotate-by'></i>
                         <span class="links_name-sb">Order</span>
                     </a>
                     {{-- <span class="tooltip-sb">Order</span> --}}
+                </li>
+                <li>
+                    <a href="/history">
+                        <i class="fa-solid fa-clock-rotate-left fa-rotate-by"></i>
+                        <span class="links_name-sb">History</span>
+                    </a>
+                    {{-- <span class="tooltip-sb">Product</span> --}}
                 </li>
                 @auth
                 @if (auth()->user()->privilege == "admin")
                 <li>
                     <a href="/report">
-                        <i class='bx bx-pie-chart-alt-2'></i>
+                        <i class='bx bx-pie-chart-alt-2 fa-rotate-by'></i>
                         <span class="links_name-sb">Report</span>
                     </a>
                     {{-- <span class="tooltip-sb">Report</span> --}}

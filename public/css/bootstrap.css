@@ -18,6 +18,39 @@
         font-weight: 600;
     }
     
+    .navdesc {
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        /* left: calc(100% + 15px); */
+        z-index: 50;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 400;
+        opacity: 0;
+        white-space: nowrap;
+        pointer-events: none;
+        transition: 0.4s;
+    }
+    /* .home-nav:hover {
+        padding: 10%;
+    } */
+    
+    .home-nav:hover .navdesc {
+        opacity: 1;
+        pointer-events: auto;
+        transition: all 0.4s ease;
+        top: 60px;
+        transform: translateY(-50%);
+    }
+    
+    .navbutton:hover {
+        cursor: pointer;
+    }
+    
     .navsearch {
         display: flex;
         height: 40px;
@@ -8284,6 +8317,10 @@
     .w-ads {
         width: 50%;
         position: relative;
+    }
+    
+    .down-side {
+        color: lightgray;
     }
     
     @media (min-width: 576px) {

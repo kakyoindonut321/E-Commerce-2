@@ -63,17 +63,22 @@ Route::middleware("AlreadyLogged")->group(function () {
 
 Route::middleware("isAdmin")->group(function () {
     Route::get('/report', [productController::class, 'report']);
-
-});
-
-
-Route::middleware("isSellerAndAdmin")->group(function () {
     Route::get('/input-product', [productController::class, 'input']);
     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
     Route::delete('/product/{product}', [productController::class, 'delete']);
     Route::put('/product/{product}', [productController::class, 'update']);
     Route::get('/product/{product}/edit', [productController::class, 'edit']);
-  });
+
+});
+
+
+// Route::middleware("isSellerAndAdmin")->group(function () {
+//     Route::get('/input-product', [productController::class, 'input']);
+//     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
+//     Route::delete('/product/{product}', [productController::class, 'delete']);
+//     Route::put('/product/{product}', [productController::class, 'update']);
+//     Route::get('/product/{product}/edit', [productController::class, 'edit']);
+//   });
 
 Route::get('/image/produk/{path}', function ($path) {
     $path = storage_path('app/image/produk' . $path);

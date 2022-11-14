@@ -152,3 +152,11 @@ img {
     width: 130px;
     height: 130px;
 }
+
+
+/* @media screen and (max-width: 1200px) {
+    .wrapper {
+        width: 80%;
+        background-color: red;
+    }
+} */

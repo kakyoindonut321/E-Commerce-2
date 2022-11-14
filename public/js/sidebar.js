@@ -3,12 +3,15 @@ let dim = document.querySelector(".dim");
 let closeBtn = document.querySelector("#btn");
 let nav = document.querySelector(".search-nav-pos");
 let homeSection = document.querySelector(".home-section-sb");
-const x = window.matchMedia("(max-width: 1000px)");
-x.addEventListener('change', testFunction());
+const match = window.matchMedia("(max-width: 600px)");
+match.addEventListener('change', testFunction);
 
 function testFunction() {
     console.log(x.matches);
-
+    if (!match.matches) {
+        nav.classList.remove("open");
+        homeSection.classList.remove("open");
+    }
 }
 
 
