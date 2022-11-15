@@ -51,7 +51,7 @@
           .col img {
                 width: 200px;
             }
-                .container-detai {
+                .container-detail {
                     display: flex;
                     flex-wrap: wrap;
                 }

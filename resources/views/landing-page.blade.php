@@ -45,7 +45,9 @@
         <div class="flexing">
             @foreach($category as $cat)
             <div class="card" style="cursor: pointer;" onclick="window.location='/product?category={{$cat->id}}';">
-                <img src="{{ URL::to('/image/category/' . $cat->image ) }}" alt="">
+                <div class="img-cat">
+                    <img src="{{ URL::to('/image/category/' . $cat->image ) }}" alt="">
+                </div>
                 <h4>{{ $cat->category }}</h4>
             </div>
             @endforeach
