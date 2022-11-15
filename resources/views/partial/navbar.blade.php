@@ -44,7 +44,11 @@
           @else
           <a href="/login" class="navbar-user m-0">
             <span class="text-uppercase font-weight-bold navbar-user text-primary font-kita">LOGIN NOW</span>
+            @if (auth()->check()))
+            <img src="{{ asset('storage/profileImg/' . auth()->user()->profile_image) }}" width="45" alt="" class="d-inline-block align-middle ">
+            @else   
             <img src="{{ URL::to('/image/user.png') }}" width="45" alt="" class="d-inline-block align-middle ">
+            @endif
           </a>
           @endif
 

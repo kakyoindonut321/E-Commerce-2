@@ -122,7 +122,7 @@
 @endforeach
 <br><br><br>
 @else 
-<h1>anda belum menambahkan order</h1>
+<h3 class="text-center text-danger">anda belum membuat order</h3>
 @endunless
 <footer>
     <div class="checkout">

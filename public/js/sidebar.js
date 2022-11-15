@@ -7,7 +7,7 @@ const match = window.matchMedia("(max-width: 600px)");
 match.addEventListener('change', testFunction);
 
 function testFunction() {
-    console.log(x.matches);
+    console.log(match.matches);
     if (!match.matches) {
         nav.classList.remove("open");
         homeSection.classList.remove("open");

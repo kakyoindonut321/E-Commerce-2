@@ -1,7 +1,79 @@
 @extends('main')
 
 @section('css')
-    <link rel="stylesheet" href={{ URL::to('/css/detail.css') }}>
+    {{-- <link rel="stylesheet" href={{ URL::to('/css/detail.css') }}> --}}
+    <style>
+            .container-detail {
+            justify-content: space-between;
+              /* width: 1000px; height: 500px; borde r: 1px solid red; margin: auto; */
+                display: grid;
+                grid-template-columns: 33% 30% 33%;
+                grid-template-rows: auto;
+           }
+           .col {
+                 /* width: 100px;  */
+                 height: 90%;
+                 /* overflow-y: scroll;  */
+                 border: 0px solid #7ED957; 
+                 padding: 15px;
+                 /* margin: 10px; */
+           } 
+           
+           .button-detail {
+                color: rgb(255, 255, 255);
+                margin: 5px;
+                display: inline-block;
+                background-color: #7ED957;
+                border-radius: 40px;
+                border: 0px;
+                cursor: pointer;
+                width: 100%;
+
+           }
+
+           .col p {
+            overflow: hidden;
+           }
+
+           button:hover {
+            background-color:rgb(13, 196, 13);
+           }
+
+           button:active {
+            background-color:#7ED957;
+           }
+
+           .col img {
+            width: 100%;
+           }
+
+           @media only screen and (max-width: 900px) {
+          .col img {
+                width: 200px;
+            }
+                .container-detai {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                .col {
+                    width: 100%;
+                }
+            }
+            /* button {
+                border-radius: 30px;
+                border: 0;
+                font-size: 1.8rem;
+                font-weight: 10;
+                margin: 1rem ;
+                padding: 2rem 3rem;
+                text-transform: uppercase;
+                white-space: nowrap;
+
+
+
+            } */
+    </style>
 @endsection
 
 {{-- @if (session()->has('message-error'))
@@ -12,6 +84,50 @@
 
 
 @section('content')
+
+<div class="container-detail">
+  <div class="col">
+      <img src="{{ asset('storage/' . $product->image) }}" alt="" srcset="">
+
+  </div>
+  <div class="col"> 
+      <h1>{{ $product->name }}</h1>
+      <h2>price: Rp{{ $product->price }}</h2>
+      <h2>stock: {{ $product->stock }}</h2>
+      <h3>Description</h3>
+      <p>{{ $product->description }}</p>
+  </div>
+  <div class="col">
+      <div class="css-1q2nbwe" data-testid="quantityOrder">
+      {{-- <h3>Total: 3493498</h3> --}}
+
+      <form action="{{ route('create-order') }}" method="post">
+        @csrf
+        <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}">
+        @auth
+        <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}">
+        @endauth
+        <button type="submit" class="button-detail" >Add to order <i class = "fas fa-shopping-cart"></i></button>               
+        {{-- <button type="submit" class = "btn">Add to Order<i class = "fas fa-shopping-cart"></i></button> --}}
+      </form>
+      
+      <form action="{{ route('buy') }}" method="post">
+        @csrf
+        <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}">
+        @auth
+        <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}">
+        @endauth
+        {{-- <button type="submit" class = "btn">BUY</button> --}}
+        <button type="submit" class="button-detail">BUY</button>                
+      </form>
+  </div>
+  
+</div>
+
+
+@endsection
+
+@section('ignore')
 <div class = "carddd-wrapper">
   {{-- <p style="font-size: 12px; color: red;">@error('product_id') {{ $key }} @enderror</p> --}}
         <div class = "carddd">

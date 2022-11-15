@@ -47,8 +47,14 @@
         transform: translateY(-50%);
     }
     
-    .navbutton:hover {
+    .navbutton i {
         cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .navbutton:hover i {
+        /* cursor: pointer; */
+        font-size: 34px;
     }
     
     .navsearch {

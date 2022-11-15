@@ -49,6 +49,7 @@ class OrderController extends Controller
         // dd($request->table);
         foreach($request->table as $table) {
             $order = Order::with("product")->find($table)->product;
+            // dd(auth()->check());
             array_push($buy,$order);
         }
 

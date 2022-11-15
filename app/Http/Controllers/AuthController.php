@@ -7,8 +7,12 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
-use Hash;
 use Session;
+use Illuminate\Support\Facades\File as FacadesFile;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Response as FacadesResponse;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\File;
 
 class AuthController extends Controller
 {
@@ -27,6 +31,35 @@ class AuthController extends Controller
     
     public function registration() {
         return view('user.registration');
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            "name" => "required",
+            "imgProfile" => File::image()->max(2048)
+        ]);
+
+        $data = $request->all();
+
+        if ($request->file("imgProfile")) {
+            // dd($request->file("imgProfile")->hashName());
+            if (auth()->user()->profile_image) {
+                Storage::delete("profileImg/" . auth()->user()->profile_image);
+            }
+
+            $imgHashName = $request->file("imgProfile")->hashName();
+            $request->file("imgProfile")->storeAs("profileImg", $imgHashName, 'public');
+            $data["profile_image"] = $imgHashName;
+        }
+
+
+        // unset($data["_token"]);
+        unset($data["email"]);
+        unset($data["password"]);
+
+        User::find(auth()->id())->update($data);
+        return redirect()->back()->with("message-success", "Profile has been updated");
     }
 
     public function registerUser(Request $request) {

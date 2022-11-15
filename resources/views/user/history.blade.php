@@ -7,44 +7,83 @@
       border-collapse: collapse;
       width: 100%;
     }
+
+    td img {
+      height: 5rem; 
+      width: 5rem;
+    }
     
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
+    td, th{
+      border: 1px solid #dedede;
       padding: 8px;
     }
     
     tr:nth-child(even) {
-      background-color: #dddddd;
+      background-color: #dedede;
+    }
+    tr:nth-child(odd) {
+      background-color: #eeeeee;
+    }
+
+    @media screen and (max-width: 700px) {
+      table {
+        width: 100%;
+        font-size: 17px;
+      }
+
+      td img {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      table {
+        width: 100%;
+        font-size: 10px;
+      }
+
+      td img {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      table {
+        width: 100%;
+        font-size: 7px;
+      }
+
+      td img {
+        height: 1rem;
+        width: 1rem;
+      }
     }
     </style>
 @endsection
 
 @section('content')
-@if ($order->isEmpty() == 1)
-    <h3 class="text-center text-danger">anda belum membuat order</h3>
+@if ($history->isEmpty() == 1)
+    <h3 class="text-center text-danger">anda belum membeli apapun</h3>
 @else
-<table class="">
+<table class="border text-center">
     <tr>
+        <th>Image</th>
         <th>Product</th>
         <th>Price(IDR)</th>
         <th>Amount</th>
-        <th>Image</th>
-        <th>Total</th>
         <th>Date</th>
         <th>Payment</th>
-        <th>Status</th>
     </tr>
-    @foreach($order as $od)
+    @foreach($history as $od)
         <tr>
+            <td ><img style="" src="{{ asset('storage/' . $od->product->image) }}" ></td>
             <td>{{ $od->product->name }}</td>
             <td>{{ $od->product->price }}</td>
-            <td>1</td>
-            <td class="border "><img style="height: 5rem; width: 5rem;" src="{{ asset('storage/' . $od->product->image) }}" ></td>
-            <td>{{ $od->product->price }}</td>
-            <td>8 December 1980</td>
-            <td>E-Wallet-kelompok1</td>
-            <td>{{ $od->status }}</td>
+            <td>{{ $od->amount }}</td>
+            <td>{{ $od->created_at }}</td>
+            <td>{{ $od->payment }}</td>
         </tr>   
     @endforeach
 @endif
