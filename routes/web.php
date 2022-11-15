@@ -7,7 +7,8 @@ use App\Http\Controllers\productController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\OrderController;
-
+use App\Http\Controllers\historyController;
+use Database\Factories\HistoryFactory;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 
@@ -53,6 +54,8 @@ Route::middleware("auth")->group(function () {
     Route::get('/user/{user}', [AuthController::class, 'user']);
     Route::delete('/order/{order}', [OrderController::class, 'delete']);
     Route::get('/order', [OrderController::class, 'index']);
+    Route::get('/history', [historyController::class, 'index']);
+    Route::put("/profile", [AuthController::class, "update"]);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
 
@@ -63,17 +66,22 @@ Route::middleware("AlreadyLogged")->group(function () {
 
 Route::middleware("isAdmin")->group(function () {
     Route::get('/report', [productController::class, 'report']);
-
-});
-
-
-Route::middleware("isSellerAndAdmin")->group(function () {
     Route::get('/input-product', [productController::class, 'input']);
     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
     Route::delete('/product/{product}', [productController::class, 'delete']);
     Route::put('/product/{product}', [productController::class, 'update']);
     Route::get('/product/{product}/edit', [productController::class, 'edit']);
-  });
+
+});
+
+
+// Route::middleware("isSellerAndAdmin")->group(function () {
+//     Route::get('/input-product', [productController::class, 'input']);
+//     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
+//     Route::delete('/product/{product}', [productController::class, 'delete']);
+//     Route::put('/product/{product}', [productController::class, 'update']);
+//     Route::get('/product/{product}/edit', [productController::class, 'edit']);
+//   });
 
 Route::get('/image/produk/{path}', function ($path) {
     $path = storage_path('app/image/produk' . $path);

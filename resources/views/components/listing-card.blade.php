@@ -1,16 +1,16 @@
 @props(['product'])
 <a href="/product/{{ $product->id }}" class="text-decoration-none" >
-    <div class="product-card card  m-2" style="width: 14rem; height: 24rem;" id="card">
-      <div style="height: 14rem;">
-        <img style="height: 14rem; " src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ asset('storage/' . $product->image) }}" >
+    <div class="product-card card  m-2" id="card">
+      <div class="img-product-card">
+        <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top img-product-card" alt="{{ asset('storage/' . $product->image) }}" >
       </div>
       <div class="card-body">
         <p class="card-title text-dark">@if(strlen($product -> name) > 25) {{ substr( $product -> name, 0,20) . '.....' }} @else {{ $product -> name }} @endif</p>
-        <h5 class="card-text text-danger">harga: Rp{{ $product -> price }}</h5>
+        <h5 class="card-text text-danger">@if(strlen($product->price) > 8) Rp{{ substr( $product->price, 0,8) . '..' }} @else Rp{{ $product->price }} @endif</h5>
         <p class="card-text text-dark">stock: {{ $product -> stock }}</p>
         @auth
         @if (auth()->user()->privilege == "admin")
-        <div class="d-flex justify-content-evenly m-1">
+        <div class="d-flex justify-content-evenly admin-btn-div">
           <form action="/product/{{ $product->id }}" method="POST">
             @csrf
             @method('DELETE')

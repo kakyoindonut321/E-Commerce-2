@@ -16,15 +16,11 @@
                 <input type="number" name="stock" placeholder="stock" value="{{ $product->stock }}" required>
                 <div class="form-row">
                     <input type="number" name="price" placeholder="Price" value="{{ $product->price }}" required>
-                    <select id="category" name="category" placeholder="category">
+                    <select id="category" name="category_id" placeholder="category">
                         <option disabled selected hidden>Category</option>
-                        @foreach($category as $c)
-                        <option value="{{ $c->id }}">{{ $c->category }}</option>
+                        @foreach ($category as $item)
+                        <option value="{{ $item->id }}">{{ $item->category }}</option>
                         @endforeach
-                        {{-- <option value="baju">baju</option>
-                        <option value="hp">hp</option>
-                        <option value="jam">jam</option>
-                        <option value="celana">celana</option> --}}
                     </select>
                 </div>
                 <div class="fileinp-wrapper">

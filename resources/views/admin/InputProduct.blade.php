@@ -18,10 +18,9 @@
                     <input type="number" name="price" placeholder="Price" required>
                     <select id="category" name="category" placeholder="category">
                         <option disabled selected hidden>Category</option>
-                        <option value="baju">baju</option>
-                        <option value="hp">hp</option>
-                        <option value="jam">jam</option>
-                        <option value="celana">celana</option>
+                        @foreach ($category as $item)
+                        <option value="{{ $item->id }}">{{ $item->category }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="fileinp-wrapper">

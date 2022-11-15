@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Str;
 
@@ -14,7 +15,7 @@ class productController extends Controller
         $product = [
             "title" => "E-Commerce",
             "category" => Category::all(),
-            "products" => Product::with('category')->latest()->filter(request(['search']))->paginate(10)->withQueryString()
+            "products" => Product::with('category')->latest()->filter(request(['category', 'search']))->paginate(10)->withQueryString()
         ];
         return view('landing-page', $product);
     }
@@ -22,20 +23,25 @@ class productController extends Controller
     public function index(Request $request) {
         $product = [
             "title" => "Products",
-            "products" => Product::with('category')->latest()->filter(request(['search']))->paginate(10)->withQueryString()
+            "products" => Product::with('category')->latest()->filter(request(['category', 'search']))->paginate(10)->withQueryString(),
+            "orderCount" => $this->orderCount
+
         ];
         return view('/product/listing', $product);
     }
 
     public function report() {
         return view('admin.report', [
-            'title' => 'Report'
+            'title' => 'Report',
+            "orderCount" => $this->orderCount
         ]);
     }
 
     public function input() {
         return view('admin.InputProduct', [
-            'title' => 'Input Produk'
+            'title' => 'Input Produk',
+            'category' => Category::all(),
+            "orderCount" => $this->orderCount
         ]);
     }
 
@@ -43,7 +49,8 @@ class productController extends Controller
         return view('admin.EditProduct', [
             'title' => 'Input Produk',
             'product' => $product,
-            'category' => Category::all()
+            'category' => Category::all(),
+            "orderCount" => $this->orderCount
         ]);
     }
 
@@ -60,7 +67,7 @@ class productController extends Controller
         $input->description = $request-> description;
         $input->stock = $request-> stock;
         $input->price = $request-> price;
-        $input->category_id = 1;
+        $input->category_id = $request->category;
         $input->user = $request-> user;
         
 
@@ -82,7 +89,8 @@ class productController extends Controller
     public function show(Product $product) {
         return view('product.detail', [
             'title' => $product->name,
-            'product' => $product
+            'product' => $product,
+            "orderCount" => $this->orderCount
         ]);
     }
 
@@ -93,8 +101,10 @@ class productController extends Controller
             'description' => 'required',
             'stock' => 'required',
             'price' => 'required',
-            // 'cover_image' => 'required'
+            'category_id' => 'required'
         ]);
+
+        // dd($formUpdate);
 
         if ($request->hasFile('cover_image')) {
             $product->image = $request->file('cover_image')->store('image/produk', 'public');
@@ -104,12 +114,12 @@ class productController extends Controller
             $product->name == $request->name and
             $product->description == $request->description and 
             $product->stock == $request->stock and 
-            $product->price == $request->price
+            $product->price == $request->price and
+            $product->category_id == $request->category_id
             ) 
         {
             return redirect()->to("/product")->with('message-warning', 'data produk tidak berubah');
         }
-
         $product->update($formUpdate);
         return redirect()->to("/product")->with('message-success', 'produk berhasil di update');
     }

@@ -11,14 +11,15 @@ class OrderController extends Controller
     public function index() {
         return view('user.order', [
             'title' => 'Order',
-            'orders' => Order::with('product', 'user')->where('user_id', auth()->user()->id)->get()    
+            'orders' => Order::with('product', 'user')->where('user_id', auth()->user()->id)->get(),
+            "orderCount" => $this->orderCount
         ]);
     }
 
     public function create(Request $request) {
-        // $orderan = $request->validate([
-        //     'product_id' => 'required|unique:orders'
-        // ]);
+        $orderan = $request->validate([
+            'product_id' => 'required|unique:orders'
+        ]);
         ORDER::insert(
             array(
                    'id'     =>   null, 
@@ -35,22 +36,30 @@ class OrderController extends Controller
     }
 
     public function buy(Request $request) {
-        // dd($request->order);
+        $request->validate([
+            'table' => 'required'
+        ]);
+        // dd($request);
         foreach($request->jumlah as $a) {
             if ($a == null) {
                 $a = 1;
             }
         }
         $buy = array(); 
+        // dd($request->table);
         foreach($request->table as $table) {
-            array_push($buy, Product::find($table));
+            $order = Order::with("product")->find($table)->product;
+            // dd(auth()->check());
+            array_push($buy,$order);
         }
 
-        app('App\Http\Controllers\TransactionController')->orderTransaction($buy, $request->jumlah);
-        // foreach($request->order as $ord) {
-        //     $delete = Order::find($ord)>delete();
 
-        // }
+        app('App\Http\Controllers\TransactionController')->orderTransaction($buy, $request->jumlah);
+
+        foreach($request->table as $ord) {
+            Order::find($ord)->delete();
+        }
+
         return redirect()->to("/product")->with('message-success', 'barang berhasil dibeli');
         
     }

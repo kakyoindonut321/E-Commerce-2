@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\History;
 
 class TransactionController extends Controller
 {
@@ -27,6 +28,13 @@ class TransactionController extends Controller
                 $transaction[$x]->save();
                 return $orderError = true;
             }
+
+            $history = new History;
+            $history->user_id = auth()->user()->id;
+            $history->product_id = $transaction[$x]->id;
+            $history->payment = "debit";
+            $history->amount = $jumlah[$x];
+            $history->save();
 
             $transaction[$x]->stock -= $jumlah[$x];
             $transaction[$x]->save();

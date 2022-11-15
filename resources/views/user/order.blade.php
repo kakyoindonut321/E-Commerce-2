@@ -1,5 +1,7 @@
 @extends('main')
 
+@error('table') {{ session()->now('message-error', 'Pilih produk yang ingin dibeli') }} @enderror
+
 @section('css')
 <link rel="stylesheet" href={{ URL::to('/css/order.css') }}>
 <style>
@@ -16,6 +18,10 @@
     .form-control[type="number"]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
+    }
+
+    .fa-minus-sold, .fa-plus-sold {
+        color: lightgrey;
     }
 </style>
 @endsection
@@ -44,51 +50,64 @@
 
 
 
-
+{{-- <p style="color: red;">@error('table') Pilih produk yg ingin dibeli @enderror</p> --}}
 
 @foreach($orders as $order)
 <form action="/order/buy" id="orderForm" method="POST">@csrf</form>
 
-<div class="product">
+<div class="product @unless ($order->product->stock == 0) product-list @endunless" data-idproduct="{{ $order->id }}" style="@if ($order->product->stock == 0) color: lightgrey; @endif">
     <input type="hidden" name="order[]" value="{{ $order->id }}" form="orderForm">
+
     <div class="top-product">
-        <input type="checkbox" name="table[]" value="{{ $order->product->id }}" id="checkbox" style="display: inline;" form="orderForm" onchange onpropertychange onkeyuponpaste oninput="change()">
-        <h5 style="display: inline;">Toko {{ $order->product->user }}</h5>
+        @unless ($order->product->stock == 0) <input type="checkbox" name="table[]" value="{{ $order->id }}" id="checkbox" style="display: inline;" form="orderForm" onchange onpropertychange onkeyuponpaste oninput="change()">
+        <h5 style="display: inline;"> {{ $order->product->name }}</h5>
+        <span style=" float: right; padding-right: 10px;">Tersisa {{ $order->product->stock }} barang</p>
+        @else
+        <h6 style="display: inline;">-</h6>
+        <h5 style="display: inline;"> {{ $order->product->name }}</h5>
+        <span style="color: red; float: right; padding-right: 5px;">produk sudah habis</p>
+        @endunless
     </div>
-    <hr>
+    <hr style="color: #808080"> 
     <div class="product-table">
         <div class="pr1 inputs">
             <div class="img-product inputs" style="height: 200px;" >
-                <img src="{{ asset('storage/' . $order->product->image) }}" alt="" width="180" style="margin-top: 10px; height: 180px; width: 180px;">
-            </div>
+                <img class="img-order @if ($order->product->stock == 0) border-op @endif" src="{{ asset('storage/' . $order->product->image) }}" alt="" width="180">
+            </div>  
             <div class="title-product inputs">
-                <h6>{{ $order->product->name }}</h6>
+                <h6>{{ $order->product->description }}</h6>
             </div>
         </div>
 
         <div class="pr2 inputs">
             <div class="inputs">
-                <p id="harga">{{ $order->product->price }}</p>
+                <p @unless ($order->product->stock == 0) id="harga" @endunless>{{ $order->product->price }}</p>
             </div>
             
             <div class="inputs">
-                <div class="input-group inline-group">
-                    <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary btn-minus">
-                        <i class="fa fa-minus"></i>
+                <div class="input-group inline-group" style="@if ($order->product->stock == 0) pointer-events: none; @endif flex-wrap: nowrap;">
+                    <div class="input-group-prepend"> 
+                      <button class="btn btn-outline-secondary btn-minus" style="@if ($order->product->stock == 0) border: 1px solid lightgrey @endif">
+                        <i class="fa fa-minus @if ($order->product->stock == 0) fa-minus-sold @endif"></i>
                       </button>
                     </div>
-                    <input name="jumlah[]" type="number" min="1" max="{{ $order->product->stock }}" placeholder="1"  id="jumlah" form="orderForm" onchange onpropertychange onkeyuponpaste oninput="change()" >
+                    <input name="jumlah[]" type="number" min="1" value="1" max="{{ $order->product->stock }}"  
+                    @unless ($order->product->stock == 0) id="jumlah" @endunless 
+                    form="orderForm" class="jumlah"
+                    placeholder="1"
+                    onchange onpropertychange onkeyuponpaste oninput="change()" 
+                    style="@if ($order->product->stock == 0) color: lightgrey; border: 1px solid lightgrey; @endif"
+                    @disabled($order->product->stock == 0)>
                     <div class="input-group-append">
-                      <button class="btn btn-outline-secondary btn-plus">
-                        <i class="fa fa-plus"></i>
+                      <button class="btn btn-outline-secondary btn-plus" style="@if ($order->product->stock == 0) border: 1px solid lightgrey @endif">
+                        <i class="fa fa-plus @if ($order->product->stock == 0) fa-plus-sold @endif"></i>
                       </button>
                     </div>
-                </div>            
+                </div>    
             </div>
 
             <div class="inputs total">
-                <p id="total"></p>
+                <p @unless ($order->product->stock == 0) id="total" @endunless></p>
             </div>
             <div class="inputs">
                 <form action="/order/{{ $order->id }}" id="orderDelete" method="POST">
@@ -103,7 +122,7 @@
 @endforeach
 <br><br><br>
 @else 
-<h1>anda belum menambahkan order</h1>
+<h3 class="text-center text-danger">anda belum membuat order</h3>
 @endunless
 <footer>
     <div class="checkout">
@@ -117,61 +136,51 @@
 
 @section('js')
     <script>
-        const jumlah = document.querySelectorAll('#jumlah');
-        const total = document.querySelectorAll('#total');
-        const harga = document.querySelectorAll('#harga');
-        const checkbox = document.querySelectorAll('#checkbox');
         const supertotal = document.getElementById('supertotal');
-        const  totality = [];
-        var very;
-        var contain = document.querySelectorAll('.product');
-        for (let i = 0; i < contain.length; i++) {
-                // document.getElementById('dog').innerHTML = document.getElementById('jumlah').value;
-                if (jumlah[i].value <= 50) {
+        const contain = document.querySelectorAll('.product-list');
+        let checked = []
 
+        setSuperTotal()
+        change()
+
+        contain.forEach(elm => {
+            let inpCheckbox = elm.querySelector("#checkbox")
+            let productId = elm.dataset.idproduct
+
+            inpCheckbox.addEventListener("change", e => {
+                inpCheckbox.checked && checked.push(productId)
+                if(!inpCheckbox.checked){
+                    checked = checked.filter(e => e != productId)
                 }
-                total[i].innerHTML = harga[i].innerHTML * jumlah[i].value;
-                // total[i].innerHTML += '.00';
-            }      
 
-        function change() {
-            // console.log(contain.length);
-            for (let i = 0; i < contain.length; i++) {
-                // document.getElementById('dog').innerHTML = document.getElementById('jumlah').value;
-                // if (jumlah[i].value <= 50) {
-                //     console.log(jumlah[i].value);
-                // }
-                total[i].innerHTML = harga[i].innerHTML * jumlah[i].value;
-                // total[i].innerHTML += '.00';
+                setSuperTotal()
+            })
+        })
 
-                // checkbox[i].addEventListener('change', (event) => {
-                //     if (event.currentTarget.checked) {
-                //         // if (totality.includes(total[i].innerHTML)) {
-                //         //     console.log(totality.includes(total[i].innerHTML));
-                //         //     return;
-                //         // }
-                //         // totality.push(total[i].innerHTML);
-                //         console.log(checkbox[i]);
-                //     } else {
-                //         console.log(checkbox[i]);
-                //         // supertotal.innerHTML -= totality;
-                //         // const index = totality.indexOf(total[i].innerHTML)
-                //         // totality.splice(index, 1);
-                //         // console.log(totality);
-                //     }
-                // })
-                if (checkbox[i].checked) {
-                    very = i
-                    console.log('damn');
-                } else {
-                    if (checkbox[i]) {
+        function setSuperTotal() {
+            let totalAll = 0;
+            checked.forEach(productId => {
+                let productEl = document.querySelector(`.product[data-idproduct='${productId}']`)
+                const valTotalProduct = parseInt(productEl.querySelector("#total").textContent)
 
-                    }
-                    console.log('it');
-                }
-            }
+                totalAll += valTotalProduct
+            })
+            supertotal.innerHTML = totalAll
         }
 
+
+        function change() {
+            contain.forEach(elm => {
+                const total = elm.querySelector('#total');
+                const harga = elm.querySelector('#harga');
+                const jumlah = elm.querySelector('#jumlah');
+                
+                total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value)
+            })
+            
+            setSuperTotal()
+
+        }
         $('.btn-plus, .btn-minus').on('click', function(e) {
             const isNegative = $(e.target).closest('.btn-minus').is('.btn-minus');
             const input = $(e.target).closest('.input-group').find('input');
