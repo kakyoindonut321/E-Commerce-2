@@ -43,7 +43,6 @@ class AuthController extends Controller
         $data = $request->all();
 
         if ($request->file("imgProfile")) {
-            // dd($request->file("imgProfile")->hashName());
             if (auth()->user()->profile_image) {
                 Storage::delete("profileImg/" . auth()->user()->profile_image);
             }
@@ -59,7 +58,7 @@ class AuthController extends Controller
         unset($data["password"]);
 
         User::find(auth()->id())->update($data);
-        return redirect()->back()->with("message-success", "Profile has been updated");
+        return redirect()->back()->with("message-success", "Profil telah di update");
     }
 
     public function registerUser(Request $request) {

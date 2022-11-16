@@ -15,9 +15,6 @@
             transition: all 0.2s ease;
         }
 
-        .user-image {
-            background-image:url('@avatar(auth()->user()->profile_image)');
-        }
     </style>
 @endsection
 
@@ -33,7 +30,7 @@
                         <div class="col-sm-4 bg-lime rounded-left user-profile">
                             <div class="card-block text-center text-white box-image">
                                 {{-- <img class="mt-5 user-image" src="{{ URL::to('/image/user.png') }}" alt="" width="200"> --}}
-                                <div class="mt-5 user-image" style=""></div>
+                                <div class="mt-5 user-image" style="background-image: url(@avatar(auth()->user()->profile_image))"></div>
                                 <h2 class="font-weight-bold mt-4">{{ auth()->user()->name }}</h2>
                                 <p>Ganti profile picture</p>
                                 <label for="file-profile" class="image-edit"><i class="far fa-edit fa-2x mb-4"></i></label>
@@ -64,8 +61,6 @@
             </div>
 </form>
 </div>
-
-<a href="@avatar(auth()->user()->profile_image)">ettststst</a>
 
 @endsection
 

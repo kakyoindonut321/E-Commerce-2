@@ -39,12 +39,12 @@
           @if(Auth::check())
           <a href="/user/{{ auth()->user()->id }}" class="navbar-user m-0">
             <span class="text-uppercase font-weight-bold text-dark navbar-user">{{ auth()->user()->name }}</span>
-            <img src="{{ asset('storage/profileImg/' . auth()->user()->profile_image) }}" alt="" class="d-inline-block align-middle" style="border: 2px solid #66b346;border-radius: 50%; width: 45px; height: 45px;">
+            <img src="@avatar(auth()->user()->profile_image)" alt="" class="d-inline-block align-middle" style="border: 2px solid #66b346;border-radius: 50%; width: 45px; height: 45px;">
           </a>
           @else
           <a href="/login" class="navbar-user m-0">
             <span class="text-uppercase font-weight-bold navbar-user text-primary font-kita">LOGIN NOW</span>
-            <img src="{{ URL::to('/image/user.png') }}" width="45" alt="" class="d-inline-block align-middle ">
+            <img src="{{ URL::to('/image/user.png') }}" width="45" alt="" class="d-inline-block align-middle " style="border: 2px solid #66b346;border-radius: 50%; width: 45px; height: 45px;">
           </a>
           @endif
 

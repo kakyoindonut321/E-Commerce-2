@@ -9,6 +9,7 @@ use App\Models\History;
 class TransactionController extends Controller
 {
     public function transaction(Request $request) {
+        dd($request);
         $product_dec = Product::find($request->product_id);
         if ($product_dec->stock < 1) {
             $product_dec->stock = 0;

@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('avatar', function ($expression) {
-            return "<?php echo $expression ? 'storage/profileImg/' . $expression : URL::to('/image/user.png'); ?>";
+            return "<?php echo $expression ? '/storage/profileImg/' . $expression : URL::to('/image/user.png'); ?>";
         });    
     }
 }
