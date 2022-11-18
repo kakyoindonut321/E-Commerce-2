@@ -19,7 +19,7 @@ class AuthController extends Controller
     public function user(User $user) {
         $userdata = [
             'title' => 'Profile',
-            'orderCount' => $this->orderCount
+            'cartCount' => $this->cartCount
         ];
         return view('user.user', $userdata);
     }
@@ -36,7 +36,7 @@ class AuthController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            "name" => "required",
+            "name" => "required|string|min:3|max:20",
             "imgProfile" => File::image()->max(2048)
         ]);
 
@@ -63,7 +63,7 @@ class AuthController extends Controller
 
     public function registerUser(Request $request) {
         $userForm = $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|min:3|max:20',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:5|max: 20',
             'privilege' => 'required',

@@ -10,7 +10,7 @@ class historyController extends Controller
         return view('user.history', [
             'title' => 'History',
             'history' => History::with('product', 'user')->where('user_id', auth()->user()->id)->get(),
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
         ]);
     }
 

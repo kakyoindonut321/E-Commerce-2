@@ -2,7 +2,7 @@
     width: 90%;
     /* margin: auto; */
     /* padding: 40px; */
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     /* gap: 100px; */
@@ -93,8 +93,8 @@
 }
 
 .user-image {
-    width: 100%;
-    /* height: 100%; */
+    width: 100px;
+    height: 100px;
     padding: 100px;
     box-sizing: border-box;
     border-radius: 100%;
@@ -107,7 +107,7 @@
     display: none;
 }
 
-@media screen and (max-width: 789px) {
+@media screen and (max-width: 1100px) {
     .user-profile {
         width: 100%;
         flex-direction: column;
@@ -117,5 +117,11 @@
     }
     .user-detail {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .user-title {
+        font-size: 14px;
     }
 }

@@ -20,7 +20,7 @@ class ProductFactory extends Factory
             'name' => '',
             'image' => '',
             'price' => fake()->numberBetween(20, 1000),
-            'description' => fake()->paragraph,
+            'description' => fake()->paragraph(10),
             'category_id' => 0,
             'stock' => fake()->numberBetween(1,200),
             'user' => 'febri'

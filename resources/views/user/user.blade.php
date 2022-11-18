@@ -18,6 +18,9 @@
     </style>
 @endsection
 
+
+@error('name') {{ session()->now('message-error', $message) }} @enderror 
+
 @section('content')
 {{-- {{ dd(auth()->id()); }} --}}
 <div class="container">
@@ -30,8 +33,8 @@
                         <div class="col-sm-4 bg-lime rounded-left user-profile">
                             <div class="card-block text-center text-white box-image">
                                 {{-- <img class="mt-5 user-image" src="{{ URL::to('/image/user.png') }}" alt="" width="200"> --}}
-                                <div class="mt-5 user-image" style="background-image: url(@avatar(auth()->user()->profile_image))"></div>
-                                <h2 class="font-weight-bold mt-4">{{ auth()->user()->name }}</h2>
+                                <div class="mt-5 user-image mx-auto" style="background-image: url(@avatar(auth()->user()->profile_image))"></div>
+                                <h2 class="font-weight-bold mt-4 user-title">{{ auth()->user()->name }}</h2>
                                 <p>Ganti profile picture</p>
                                 <label for="file-profile" class="image-edit"><i class="far fa-edit fa-2x mb-4"></i></label>
                                 <input type="file" name="imgProfile" id="file-profile">
@@ -70,7 +73,11 @@
         const boxName = document.querySelector('.user-name');
         const imgInp = document.getElementById("file-profile")
         const imgPrev = document.querySelector(".user-image")
-        const name = document.querySelector('.user-name input');
+        const nameTitle = document.querySelector('.user-title');
+
+        if (nameTitle.innerText.length > 8) {
+            nameTitle.style.fontSize = "20px";
+        }
 
         imgInp.onchange = evt => {
             const [file] = imgInp.files

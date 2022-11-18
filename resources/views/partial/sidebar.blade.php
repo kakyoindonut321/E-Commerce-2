@@ -18,19 +18,49 @@
                     {{-- <span class="tooltip-sb">Product</span> --}}
                 </li>
                 <li>
-                    <a href="/order">
-                        <i class='bx bx-cart-alt fa-rotate-by'></i>
-                        <span class="links_name-sb">Order</span>
-                    </a>
-                    {{-- <span class="tooltip-sb">Order</span> --}}
+                    @auth
+                        @if (auth()->user()->privilege == "admin")
+                            <a href="/user-order">
+                                <i class='bx bx-cart-alt fa-rotate-by'></i>
+                                <span class="links_name-sb">User Order</span>
+                            </a>
+                        @else
+                        <a href="/cart">
+                            <i class='bx bx-cart-alt fa-rotate-by'></i>
+                            <span class="links_name-sb">Cart</span>
+                        </a>
+                    @endauth
+                        @else
+                            <a href="/cart">
+                                <i class='bx bx-cart-alt fa-rotate-by'></i>
+                                <span class="links_name-sb">Cart</span>
+                            </a>
+                        @endif  
+
                 </li>
                 <li>
+
+                    @auth
+                    @if (auth()->user()->privilege == "admin")
+                    <a href="/user-history">
+                        <i class="fa-solid fa-clock-rotate-left fa-rotate-by"></i>
+                        <span class="links_name-sb">User History</span>
+                    </a>
+                    @else
                     <a href="/history">
                         <i class="fa-solid fa-clock-rotate-left fa-rotate-by"></i>
                         <span class="links_name-sb">History</span>
                     </a>
+                    @endauth
+                    @else
+                    <a href="/history">
+                        <i class="fa-solid fa-clock-rotate-left fa-rotate-by"></i>
+                        <span class="links_name-sb">History</span>
+                    </a>
+                    @endif  
                     {{-- <span class="tooltip-sb">Product</span> --}}
                 </li>
+
                 @auth
                 @if (auth()->user()->privilege == "admin")
                 <li>
@@ -42,6 +72,7 @@
                 </li>
                 @endif
                 @endauth
+                
                 @auth
                 <li class="profile">
                     <a href="/logout" class="a-profile">

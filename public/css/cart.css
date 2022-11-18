@@ -1,0 +1,146 @@
+.header-table {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    background-color: white;
+    margin: 10px;
+}
+
+.product-table {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    background-color: white;
+}
+
+.product {
+    background-color: white;
+    margin: 10px;
+}
+
+.top-product {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.img-product {
+    grid-column: 1 / span 2;
+    padding: 0;
+}
+
+.title-product {
+    grid-column: 3 / span 3;
+}
+
+.header-table div {
+    text-align: center;
+    /* border: 1px solid; */
+    font-size: 100%;
+    margin-top: 20px;
+}
+
+.product-table .inputs {
+    text-align: center;
+    /* border: 1px solid; */
+    font-size: 100%;
+    width: 500px;
+}
+
+.total {
+    max-width: 400px;
+    width: 400px;
+    overflow-x: hidden;
+}
+
+.header1 {
+    grid-column: 1 / span 5;
+}
+
+.checkout {
+    background-color: white;
+    border-top: 1px solid;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+.checkout button {
+    background-color: greenyellow;
+    border: none;
+    padding: 20px;
+    float: right;
+}
+
+.checkout h3 {
+    padding-top: 15px;
+    float: left;
+}
+
+.checkout button:hover {
+    background-color: #7ED957;
+    cursor: pointer;
+}
+
+.checkout button:active {
+    background-color: #74c452;
+}
+
+.pr1 {
+    display: grid;
+    display: flex;
+    flex-grow: 1;
+}
+
+.pr2 {
+    flex-grow: 1;
+    display: flex;
+}
+
+.pr2 div p {
+    margin-top: 50%;
+}
+
+.pr2 div .insideput {
+    margin-top: 25%;
+}
+
+.pr1 div h6 {}
+
+.input-group {
+    margin-top: 40%;
+    /* margin-left: 15%; */
+}
+
+.jumlah {
+    width: 50px;
+    align-items: center;
+    padding-left: 20px;
+    border: solid;
+    border-width: 1px;
+    border-color: grey;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.img-order {
+    /* margin-top: 10px; */
+    height: 180px;
+    width: 180px;
+}
+
+.border-op {
+    opacity: 0.5;
+}

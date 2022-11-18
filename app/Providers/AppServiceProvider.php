@@ -28,5 +28,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('avatar', function ($expression) {
             return "<?php echo $expression ? '/storage/profileImg/' . $expression : URL::to('/image/user.png'); ?>";
         });    
+        Blade::directive('money', function ($expression) {
+            return "<?php echo '<span id='js-the-number'>Rp' . $expression . '</span>'; ?>";
+        });
     }
 }

@@ -1,0 +1,41 @@
+@extends('main')
+
+
+@section('css')
+    <link rel="stylesheet" href="{{ URL::to('/css/order.css') }}">
+@endsection
+
+@section('content')
+@unless (count($orders) == 0)
+@foreach ($orders as $od)
+<div class="order-card">
+    <div class="item-card-order">
+        <p class="user-order">User</p>
+        <h3>{{ $od->user->name }}</h3>
+    </div>
+    <div class="item-card-order">
+        <p class="product-order">Product</p>
+        <h3>{{ $od->product->name }}</h3>
+    </div>
+    <div class="item-card-order action-order">
+        <div class="my-auto ">
+            <div class="button-list-gen-order">
+                <form class="d-flex justify-content-around" action="/order/{{ auth()->user()->id }}" method="POST">
+                    @csrf
+                    <button type="submit" name="approval" value="false" class="button-gen-order deny-button bg-danger">DENY</button>
+                    <button type="submit" name="approval" value="true" class="button-gen-order accept-button bg-primary">ACCEPT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+@else 
+<h1>belum ada yang memesan</h1>
+@endunless
+
+@endsection
+
+@section('js')
+    
+@endsection

@@ -92,6 +92,7 @@
         border: none;
         border-radius: 50px;
         cursor: pointer;
+        transition: all 0.5s ease;
     }
     
     .navsearch button:hover {

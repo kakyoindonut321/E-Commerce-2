@@ -24,7 +24,7 @@ class productController extends Controller
         $product = [
             "title" => "Products",
             "products" => Product::with('category')->latest()->filter(request(['category', 'search']))->paginate(10)->withQueryString(),
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
 
         ];
         return view('/product/listing', $product);
@@ -33,7 +33,7 @@ class productController extends Controller
     public function report() {
         return view('admin.report', [
             'title' => 'Report',
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -41,7 +41,7 @@ class productController extends Controller
         return view('admin.InputProduct', [
             'title' => 'Input Produk',
             'category' => Category::all(),
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -50,7 +50,7 @@ class productController extends Controller
             'title' => 'Input Produk',
             'product' => $product,
             'category' => Category::all(),
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -90,7 +90,7 @@ class productController extends Controller
         return view('product.detail', [
             'title' => $product->name,
             'product' => $product,
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
         ]);
     }
 
