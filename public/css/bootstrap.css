@@ -4902,8 +4902,7 @@
         bottom: 0px;
         width: 14rem;
         height: 24rem;
-        transition: all 0.2s ease;
-        transition: bottom 0.4s;
+        transition: all 0.3s ease;
     }
     
     .product-card:hover {
