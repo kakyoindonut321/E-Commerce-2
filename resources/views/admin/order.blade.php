@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+
 @unless (count($orders) == 0)
 @foreach ($orders as $od)
 <div class="order-card">
@@ -20,10 +21,10 @@
     <div class="item-card-order action-order">
         <div class="my-auto ">
             <div class="button-list-gen-order">
-                <form class="d-flex justify-content-around" action="/order/{{ auth()->user()->id }}" method="POST">
+                <form class="d-flex justify-content-around" action="/order/{{ $od->id }}" method="POST">
                     @csrf
-                    <button type="submit" name="approval" value="false" class="button-gen-order deny-button bg-danger">DENY</button>
-                    <button type="submit" name="approval" value="true" class="button-gen-order accept-button bg-primary">ACCEPT</button>
+                    <button type="submit" name="aproval" value="denied" class="button-gen-order deny-button bg-danger">DENY</button>
+                    <button type="submit" name="aproval" value="accepted" class="button-gen-order accept-button bg-primary">ACCEPT</button>
                 </form>
             </div>
         </div>
@@ -31,7 +32,7 @@
 </div>
 @endforeach
 @else 
-<h1>belum ada yang memesan</h1>
+<h3 class="text-center text-danger">Pesanan kosong</h3>
 @endunless
 
 @endsection

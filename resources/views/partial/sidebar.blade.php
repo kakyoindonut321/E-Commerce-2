@@ -21,7 +21,7 @@
                     @auth
                         @if (auth()->user()->privilege == "admin")
                             <a href="/user-order">
-                                <i class='bx bx-cart-alt fa-rotate-by'></i>
+                                <i class="fa-solid fa-list-check fa-rotate-by"></i>
                                 <span class="links_name-sb">User Order</span>
                             </a>
                         @else
@@ -62,15 +62,15 @@
                 </li>
 
                 @auth
-                @if (auth()->user()->privilege == "admin")
-                <li>
-                    <a href="/report">
-                        <i class='bx bx-pie-chart-alt-2 fa-rotate-by'></i>
-                        <span class="links_name-sb">Report</span>
-                    </a>
-                    {{-- <span class="tooltip-sb">Report</span> --}}
-                </li>
-                @endif
+                    @if (auth()->user()->privilege == "admin")
+                        <li>
+                            <a href="/report">
+                                <i class='bx bx-pie-chart-alt-2 fa-rotate-by'></i>
+                                <span class="links_name-sb">Report</span>
+                            </a>
+                            {{-- <span class="tooltip-sb">Report</span> --}}
+                        </li>
+                    @endif
                 @endauth
                 
                 @auth

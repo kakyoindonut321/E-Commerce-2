@@ -64,38 +64,23 @@
     </style>
 @endsection
 
+
 @section('content')
 @if ($history->isEmpty() == 1)
     <h3 class="text-center text-danger">anda belum membeli apapun</h3>
 @else
-{{-- <table class="border text-center">
-    <tr>
-        <th>Image</th>
-        <th>Product</th>
-        <th>Price(IDR)</th>
-        <th>Amount</th>
-        <th>Date</th>
-        <th>Payment</th>
-    </tr>
-    @foreach($history as $od)
-        <tr>
-            <td ><img style="" src="{{ asset('storage/' . $od->product->image) }}" ></td>
-            <td>{{ $od->product->name }}</td>
-            <td>{{ $od->product->price }}</td>
-            <td>{{ $od->amount }}</td>
-            <td>{{ $od->created_at }}</td>
-            <td>{{ $od->payment }}</td>
-        </tr>   
-    @endforeach --}}
     @foreach($history as $his)
     <div class="history-card">
       <div class="top-date">
+          @if (auth()->user()->privilege == "admin")
+            <span class="pt-1 text-primary">{{ $his->user->name }}</span>
+          @endif
         <span class="pt-1">{{ $his->created_at }}</span>
       </div>
       <div class="table-card">
         <div class="hbox hbox-one">
           <div class="himg">
-            <img src="{{ URL::to('/image/placeholder.jpg') }}" alt="" width="100">
+            <img src="{{ asset('storage/' . $his->product->image) }}" alt="" width="100">
           </div>
           <div class="hprodata">
             <h4 class="htitle">{{ $his->product->name }}</h4>

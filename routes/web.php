@@ -64,16 +64,26 @@ Route::middleware("AlreadyLogged")->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::get('/register', [AuthController::class, 'registration'])->name('register');
 });
-
+// adminIndex
 Route::middleware("isAdmin")->group(function () {
-    Route::get('/report', [productController::class, 'report']);
-    Route::get('/user-order', [OrderController::class, 'index']);
-    Route::post('/order/{order}', [OrderController::class, 'aproval']);
+
+// PRODUCK CUD
+    //create
     Route::get('/input-product', [productController::class, 'input']);
     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
-    Route::delete('/product/{product}', [productController::class, 'delete']);
+    // update
     Route::put('/product/{product}', [productController::class, 'update']);
     Route::get('/product/{product}/edit', [productController::class, 'edit']);
+    //delete
+    Route::delete('/product/{product}', [productController::class, 'delete']);
+
+// ORDER
+    Route::get('/user-order', [OrderController::class, 'index']);
+    Route::post('/order/{order}', [OrderController::class, 'aproval']);
+
+// REPORT AND USER HISTORY
+    Route::get('/report', [productController::class, 'report']);
+    Route::get('/user-history', [historyController::class, 'adminIndex']);
 
 });
 

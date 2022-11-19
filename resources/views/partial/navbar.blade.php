@@ -22,21 +22,30 @@
             <i class="fa-solid fa-house right-i d-inline"></i>
             {{-- <span class="navdesc">Listing</span> --}}
           </a>
+          @auth
+            @if (auth()->user()->privilege == "admin")
+              <a href="/user-order" class="navbar-box nav-box mw-auto" style="text-decoration: none;">
+                <i class="fa-solid fa-list-check right-i d-inline"></i>
+              </a>  
+            @else
+          @endauth
+
           @if (Auth::check())
-          <a href="/cart" class="navbar-box nav-box mw-auto" style="text-decoration: none;">
-            @if (isset($cartCount) && $cartCount > 0)
-              <p class="d-inline pp">@if(strlen($cartCount)> 2) {{ substr( $cartCount, 0,2) . '..' }} @else {{ $cartCount }} @endif</p>
+              <a href="/cart" class="navbar-box nav-box mw-auto" style="text-decoration: none;">
+                @if (isset($cartCount) && $cartCount > 0)
+                  <p class="d-inline pp">@if(strlen($cartCount)> 2) {{ substr( $cartCount, 0,2) . '..' }} @else {{ $cartCount }} @endif</p>
+                @endif
+                <i  class="fa-solid fa-cart-shopping right-i d-inline"></i>
+              </a>              
+            @else
+              <a href="/cart" class="navbar-box nav-box mw-auto" style="text-decoration: none;">
+                <i  class="fa-solid fa-cart-shopping right-i d-inline"></i>
+              </a>     
             @endif
-            <i  class="fa-solid fa-cart-shopping right-i d-inline"></i>
-          </a>              
-          @else
-          <a href="/cart" class="navbar-box nav-box mw-auto" style="text-decoration: none;">
-            <i  class="fa-solid fa-cart-shopping right-i d-inline"></i>
-          </a>     
           @endif
 
           {{-- NAMA USER DAN LOGO --}}
-          @if(Auth::check())
+          @auth
           <a href="/user/{{ auth()->user()->id }}" class="navbar-user m-0">
             <span class="text-uppercase font-weight-bold text-dark navbar-user">@if(strlen(auth()->user()->name)> 8) {{ substr( auth()->user()->name, 0,8) . '-' }} @else {{ auth()->user()->name }} @endif</span>
             <img src="@avatar(auth()->user()->profile_image)" alt="" class="d-inline-block align-middle" style="border: 2px solid #66b346;border-radius: 50%; width: 45px; height: 45px;">
@@ -46,7 +55,7 @@
             <span class="text-uppercase font-weight-bold navbar-user text-primary font-kita">LOGIN NOW</span>
             <img src="{{ URL::to('/image/user.png') }}" width="45" alt="" class="d-inline-block align-middle " style="border: 2px solid #66b346;border-radius: 50%; width: 45px; height: 45px;">
           </a>
-          @endif
+          @endauth
 
     </div>
     {{-- END NAVBAR --}}

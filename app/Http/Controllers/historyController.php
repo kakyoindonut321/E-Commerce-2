@@ -14,4 +14,12 @@ class historyController extends Controller
         ]);
     }
 
+    public function adminIndex() {
+        return view('user.history', [
+            'title' => 'History',
+            'history' => History::with('product', 'user')->get(),
+            "cartCount" => $this->cartCount
+        ]);
+    }
+
 }

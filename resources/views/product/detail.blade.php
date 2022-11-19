@@ -2,6 +2,16 @@
 
 @section('css') 
   <link rel="stylesheet" href={{ URL::to( '/css/detail.css') }}>
+  @if (auth()->user()->privilege == "admin")
+  <style>
+    .button-detail {
+      background-color: lightgrey;
+      pointer-events: none;
+
+    }
+
+  </style>
+  @endif
 @endsection 
 {{-- @if (session()->has('message-error')) @endif --}} 
 
@@ -46,19 +56,36 @@
            <p class="stocker" style="display:inline-block;">stock: <span id="stock">{{ $product->stock }}</span></p>
           </div>
 
-          <form action="{{ route('create-cart') }}" method="post">
+          @if (auth()->user()->privilege == "admin")
+            <form action="{{ route('create-cart') }}" method="post">
+              @csrf
+              <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
+              <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth
+              <button type="submit" class="button-detail" disabled>Add to Cart <i class = "fas fa-shopping-cart"></i></button> {{-- <button type="submit" class="btn">Add to Order<i class = "fas fa-shopping-cart"></i></button> --}}
+            </form>
+
+            <form action="{{ route('buy') }}" method="post" id="buy">
+                @csrf
+                <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
+                <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth {{-- <button type="submit" class="btn">BUY</button> --}}
+                <button type="submit" class="button-detail" disabled>BUY</button>
+            </form>
+          @else
+            <form action="{{ route('create-cart') }}" method="post">
               @csrf
               <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
               <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth
               <button type="submit" class="button-detail">Add to Cart <i class = "fas fa-shopping-cart"></i></button> {{-- <button type="submit" class="btn">Add to Order<i class = "fas fa-shopping-cart"></i></button> --}}
-          </form>
-  
-          <form action="{{ route('buy') }}" method="post" id="buy">
-              @csrf
-              <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
-              <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth {{-- <button type="submit" class="btn">BUY</button> --}}
-              <button type="submit" class="button-detail">BUY</button>
-          </form>
+            </form>
+
+            <form action="{{ route('buy') }}" method="post" id="buy">
+                @csrf
+                <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
+                <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth {{-- <button type="submit" class="btn">BUY</button> --}}
+                <button type="submit" class="button-detail">BUY</button>
+            </form>
+          @endif
+
 
           <div class = "social-links">
             <p>Share At: </p>

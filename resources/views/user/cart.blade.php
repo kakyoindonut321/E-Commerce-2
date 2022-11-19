@@ -113,7 +113,7 @@
                 <form action="/cart/{{ $cart->id }}" id="cartDelete" method="POST">
                     @csrf 
                     @method('DELETE')
-                    <button type="submit" class="btn bg-lime text-light" style="margin-top: 45%;">delete</button>
+                    <button type="submit" class="del-btn-cart" style="margin-top: 45%;">Delete</button>
                 </form>
             </div>
         </div>
@@ -122,7 +122,7 @@
 @endforeach
 <br><br><br>
 @else 
-<h3 class="text-center text-danger">anda belum menambah apapun ke keranjang</h3>
+<h3 class="text-center text-danger">Keranjang Kosong</h3>
 @endunless
 <footer>
     <div class="checkout">

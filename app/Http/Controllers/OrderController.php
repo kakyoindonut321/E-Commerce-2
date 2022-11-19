@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\History;
+use App\Models\tracking;
 use App\Models\Product;
 
 class OrderController extends Controller
@@ -11,13 +13,28 @@ class OrderController extends Controller
     public function index() {
         return view('admin.order', [
             'title' => 'Order',
-            'orders' => Order::with('product', 'user')->where('user_id', auth()->user()->id)->get(),
+            'orders' => Order::with('product', 'user')->get(),
             "cartCount" => $this->cartCount
         ]);
     }
 
     public function aproval(Order $order, Request $request) {
-        dd( $request);
+        $history = History::find($order->history_id);
+        $history->status = $request->aproval;
+        $history->update();
+        $order->delete();
+        
+        return redirect()->to("/user-order")->with('message-success', 'order diterima');
+
+        switch ($request->aproval) {
+            case "accepted":
+                return redirect()->to("/user-order")->with('message-success', 'order diterima');
+                break;
+            case "denied":
+                return redirect()->to("/user-order")->with('message-success', 'order ditolak');
+                break;
+            default:
+          }
     }
 
     public function create(Request $request) {

@@ -133,6 +133,7 @@
         background: white;
         border: none;
         border-radius: 50px;
+        transition: all 0.3s ease-in;
         cursor: pointer;
     }
     
@@ -4898,11 +4899,15 @@
     }
     
     .product-card {
+        bottom: 0px;
         width: 14rem;
         height: 24rem;
+        transition: all 0.2s ease;
+        transition: bottom 0.4s;
     }
     
     .product-card:hover {
+        bottom: 10px;
         border-color: #dc3545;
     }
     
