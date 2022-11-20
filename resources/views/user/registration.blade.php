@@ -23,12 +23,6 @@
         <h1>Sign Up</h1>
       </div>
       <form action="{{ route('register-user') }}" method="post">
-        @if(Session::has('sus'))
-          <h1>{{ Session::get('sus') }}</h1>
-        @endif
-        @if(Session::has('deez'))
-        <h1>{{ Session::get('deez') }}</h1>
-        @endif
         @csrf
         <div>
           <input type="text" name="name" placeholder="Full Name" value="{{ old('name') }}"/>
@@ -42,12 +36,12 @@
           <input type="password" name="password" placeholder="Password" value="{{ old('password') }}"/>
           <p style="font-size: 12px; color: red;">@error('password') {{ $message }} @enderror</p>
         </div>
-        <div>
+        {{-- <div>
           <select id="select" name="privilege">
             <option value="user">User</option>
             <option value="seller">Penjual</option>
           </select>
-        </div>
+        </div> --}}
 
         <div class="not-member">
           Already Signed up? <a href="/login"><b>Sign Up</b></a>

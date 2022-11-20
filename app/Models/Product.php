@@ -22,6 +22,15 @@ class Product extends Model
         }
     }
 
+    public function scopeProductTotal()
+    {
+        $totalProduct = $this->oldest()->get();
+
+        $Product = count($totalProduct);
+
+        return $Product;
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);

@@ -105,6 +105,9 @@
       </div>
     </div>
     @endforeach
+
+    @include('pagination.default', ['paginator' => $history])
+
 @endif
 
 @endsection

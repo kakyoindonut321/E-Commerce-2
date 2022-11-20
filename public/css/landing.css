@@ -142,7 +142,7 @@
     }
     
     nav form .search-data {
-        width: 100%;
+        width: 500px;
         height: 100%;
         padding: 0 10px;
         color: black;
@@ -223,6 +223,9 @@
             width: 60px;
             height: 60px;
         }
+        nav form .search-data {
+            width: 300px;
+        }
     }
     
     @media screen and (max-width: 400px) {
@@ -237,5 +240,8 @@
         .card img {
             width: 55px;
             height: 55px;
+        }
+        nav form .search-data {
+            width: 200px;
         }
     }

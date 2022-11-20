@@ -33,6 +33,7 @@ class productController extends Controller
     public function report() {
         return view('admin.report', [
             'title' => 'Report',
+            'testtotal' => Product::ProductTotal(),
             "cartCount" => $this->cartCount
         ]);
     }
@@ -58,17 +59,19 @@ class productController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'stock' => 'required',
-            'price' => 'required',
-            // 'cover_image' => 'required'
+            'stock' => 'required|max:7',
+            'price' => 'required|max:15',
+            'cover_image' => 'required',
+            'category' => 'required'
         ]);
         $input = new Product;
         $input->name = $request-> name;
         $input->description = $request-> description;
         $input->stock = $request-> stock;
+        $input->sold = 0;
         $input->price = $request-> price;
         $input->category_id = $request->category;
-        $input->user = $request-> user;
+        $input->user = 'kjjo';
         
 
         if ($request->hasFile('cover_image')) {

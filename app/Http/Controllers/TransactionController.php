@@ -46,7 +46,8 @@ class TransactionController extends Controller
         $order->save();
 
         //TRANSACTION
-        --$product_dec->stock;
+        $product_dec->stock -= $request->jumlah;
+        $product_dec->sold += $request->jumlah;
         $product_dec->save();
         return redirect()->to("/product")->with('message-success', 'barang berhasil dibeli');
     }
@@ -78,6 +79,7 @@ class TransactionController extends Controller
             
             //TRANSACTION
             $transaction[$x]->stock -= $jumlah[$x];
+            $transaction[$x]->sold += $jumlah[$x];
             $transaction[$x]->save();
         }
     }

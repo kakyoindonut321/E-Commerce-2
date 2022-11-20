@@ -58,6 +58,8 @@
     }
     
     .navsearch {
+        transition-duration: 200ms;
+        /* transition: all 1s ease; */
         display: flex;
         height: 40px;
         padding: 2px;
@@ -4899,6 +4901,7 @@
     }
     
     .product-card {
+        transition-duration: 200ms;
         bottom: 0px;
         width: 14rem;
         height: 24rem;

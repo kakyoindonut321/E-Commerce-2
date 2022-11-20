@@ -66,7 +66,7 @@ class AuthController extends Controller
             'name' => 'required|string|min:3|max:20',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:5|max: 20',
-            'privilege' => 'required',
+            // 'privilege' => 'required',
         ]);
         $userForm['password'] = Hash::make($request->password);
 

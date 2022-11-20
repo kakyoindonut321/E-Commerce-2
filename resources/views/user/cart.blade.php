@@ -71,11 +71,11 @@
     <hr style="color: #808080"> 
     <div class="product-table">
         <div class="pr1 inputs">
-            <div class="img-product inputs" style="height: 200px;" >
+            <div class="img-product " >
                 <img class="img-cart @if ($cart->product->stock == 0) bcart-op @endif" src="{{ asset('storage/' . $cart->product->image) }}" alt="" width="180">
             </div>  
-            <div class="title-product inputs">
-                <h6>{{ $cart->product->description }}</h6>
+            <div class="title-product ">
+                <h6 class="desc-cart">@if(strlen($cart->product->description)> 200) {{ substr( $cart->product->description, 0,200) . '...' }} @else {{ $cart->product->description }} @endif</h6>
             </div>
         </div>
 
@@ -120,6 +120,8 @@
     </div>
 </div>
 @endforeach
+@include('pagination.default', ['paginator' => $carts])
+
 <br><br><br>
 @else 
 <h3 class="text-center text-danger">Keranjang Kosong</h3>

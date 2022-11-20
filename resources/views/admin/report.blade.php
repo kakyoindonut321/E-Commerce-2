@@ -8,6 +8,8 @@
         <canvas id="myChart" ></canvas>
     </div>
 </div>
+
+{{ dd($testtotal); }}
 @endsection
 
 @section('js')

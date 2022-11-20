@@ -27,7 +27,7 @@
                     <input type="file" accept="image/png, image/jpeg" name="cover_image" id="imgInp">
                     <img src="" id="imgWrappper" width="200" alt="">
                 </div>
-                <button type="submit"><b>Submit</b></button>
+                <button type="submit" ondblclick="this.disabled=true;"><b>Submit</b></button>
             </form>
         </div>
     </div>

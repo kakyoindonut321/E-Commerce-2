@@ -9,9 +9,17 @@
       pointer-events: none;
 
     }
-
   </style>
   @endif
+
+  @if ($product->stock == 0)
+  <style>
+    .buy {
+      background-color: lightgrey; 
+      pointer-events: none;
+    }
+  </style>
+  @endif 
 @endsection 
 {{-- @if (session()->has('message-error')) @endif --}} 
 
@@ -29,7 +37,8 @@
             <h1 class="">{{ $product->name }}</h1>
             {{-- <hr class=""> --}}
           </div>
-          <h3>price: Rp<span id="harga">{{ $product->price }}</span></h3>
+          <h3>Harga: Rp<span id="harga">{{ $product->price }}</span></h3>
+          <h5>Terjual: <span>{{ $product->sold }}</span></h5>
           <hr>
           <div class="description">
             <p>{{ $product->description }}</p>
@@ -55,6 +64,9 @@
            </div>
            <p class="stocker" style="display:inline-block;">stock: <span id="stock">{{ $product->stock }}</span></p>
           </div>
+          @if ($product->stock == 0)
+            <span style="color: red">produk sudah habis</span> 
+          @endif
 
           @if (auth()->user()->privilege == "admin")
             <form action="{{ route('create-cart') }}" method="post">
@@ -82,7 +94,7 @@
                 @csrf
                 <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
                 <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth {{-- <button type="submit" class="btn">BUY</button> --}}
-                <button type="submit" class="button-detail">BUY</button>
+                <button type="submit" class="button-detail buy" @disabled($product->stock == 0)>BUY</button>
             </form>
           @endif
 

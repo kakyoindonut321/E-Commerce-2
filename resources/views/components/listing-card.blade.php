@@ -7,7 +7,7 @@
       <div class="card-body">
         <p class="card-title text-dark">@if(strlen($product -> name) > 25) {{ substr( $product -> name, 0,20) . '.....' }} @else {{ $product -> name }} @endif</p>
         <h5 class="card-text text-danger">@if(strlen($product->price) > 8) Rp{{ substr( $product->price, 0,8) . '..' }} @else Rp{{ $product->price }} @endif</h5>
-        <p class="card-text text-dark">stock: {{ $product -> stock }}</p>
+        <p class="card-text text-dark">Terjual: {{ $product->sold }}</p>
         @auth
         @if (auth()->user()->privilege == "admin")
         <div class="d-flex justify-content-evenly admin-btn-div">

@@ -13,25 +13,28 @@ class OrderController extends Controller
     public function index() {
         return view('admin.order', [
             'title' => 'Order',
-            'orders' => Order::with('product', 'user')->get(),
+            'orders' => Order::with('product', 'user')->paginate(10),
             "cartCount" => $this->cartCount
         ]);
     }
 
     public function aproval(Order $order, Request $request) {
         $history = History::find($order->history_id);
+        $item = product::find($order->product_id);
         $history->status = $request->aproval;
         $history->update();
         $order->delete();
         
-        return redirect()->to("/user-order")->with('message-success', 'order diterima');
 
         switch ($request->aproval) {
             case "accepted":
-                return redirect()->to("/user-order")->with('message-success', 'order diterima');
+                return redirect()->back()->with('message-success', 'order diterima');
                 break;
-            case "denied":
-                return redirect()->to("/user-order")->with('message-success', 'order ditolak');
+            case "declined":
+                $item->stock += $history->amount;
+                $item->sold -= $history->amount;
+                $item->update();
+                return redirect()->back()->with('message-success', 'order ditolak');
                 break;
             default:
           }

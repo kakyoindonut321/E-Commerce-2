@@ -112,6 +112,7 @@ input[type=number] {
     margin-top: 10px;
     display: inline-block;
     background-color: #7ED957;
+    transition: all 0.3s ease;
     border-radius: 40px;
     border: 0px;
     cursor: pointer;

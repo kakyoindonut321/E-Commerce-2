@@ -40,7 +40,7 @@
         ::-webkit-scrollbar-thumb:hover {
           background: #888; 
         }
-        .fa-instagram {
+        .fa-instagram-main {
             background: linear-gradient(45deg,yellow, red, magenta);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;

@@ -23,7 +23,7 @@
             <div class="button-list-gen-order">
                 <form class="d-flex justify-content-around" action="/order/{{ $od->id }}" method="POST">
                     @csrf
-                    <button type="submit" name="aproval" value="denied" class="button-gen-order deny-button bg-danger">DENY</button>
+                    <button type="submit" name="aproval" value="declined" class="button-gen-order deny-button bg-danger">DECLINE</button>
                     <button type="submit" name="aproval" value="accepted" class="button-gen-order accept-button bg-primary">ACCEPT</button>
                 </form>
             </div>
