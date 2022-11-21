@@ -18,8 +18,10 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $username = explode(" ", fake()->name());
+
         return [
-            'name' => fake()->name(),
+            'name' => $username[0],
             'email' => fake()->unique()->safeEmail(),
             'privilege' => '',
             'profile_image' => '',

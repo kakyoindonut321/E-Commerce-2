@@ -84,7 +84,7 @@
           </div>
           <div class="hprodata">
             <h4 class="htitle">{{ $his->product->name }}</h4>
-            <h4 class="hharga">Rp{{ $his->price }}</h4>
+            <h4 class="hharga">Rp <span class="autoamount">{{ $his->price }}</span></h4>
           </div>
 
         </div>
@@ -92,7 +92,7 @@
           <div class="htotalboxdata">
             <p>jumlah: <span>{{ $his->amount }}</span></p>
             <h4>total:</h4>
-            <h6>{{ $his->total }}</h6>
+            <h6>Rp <span class="autoamount">{{ $his->total }}</span></h6>
           </div>
           <div class="status-box">
             <h5>status</h5>

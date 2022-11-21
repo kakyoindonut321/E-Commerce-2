@@ -102,8 +102,8 @@ class productController extends Controller
         $formUpdate =  $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'stock' => 'required',
-            'price' => 'required',
+            'stock' => 'required|max:7',
+            'price' => 'required|max:15',
             'category_id' => 'required'
         ]);
 

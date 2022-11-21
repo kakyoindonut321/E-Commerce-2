@@ -37,8 +37,10 @@
     </div>
     {{-- END BODY DALEM --}}
 
+    {{-- FOOTER --}}
     @include('partial.footer')
-    
+    {{-- END FOOTER --}}
+
     <x-message />
     @yield('js')
     @include('partial.js')

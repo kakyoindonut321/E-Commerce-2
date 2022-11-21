@@ -81,7 +81,8 @@
 
         <div class="pr2 inputs">
             <div class="inputs">
-                <p @unless ($cart->product->stock == 0) id="harga" @endunless>{{ $cart->product->price }}</p>
+                <span style="display: none" @unless ($cart->product->stock == 0) id="harga" @endunless>{{ $cart->product->price }}</span>
+                <p>Rp<span class="autoamount">{{ $cart->product->price }}</span></p>
             </div>
             
             <div class="inputs">
@@ -107,7 +108,7 @@
             </div>
 
             <div class="inputs total">
-                <p @unless ($cart->product->stock == 0) id="total" @endunless></p>
+                <p>Rp<span  @unless ($cart->product->stock == 0) id="total" @endunless class="autoamount"></span></p>
             </div>
             <div class="inputs">
                 <form action="/cart/{{ $cart->id }}" id="cartDelete" method="POST">
@@ -167,7 +168,7 @@
 
                 totalAll += valTotalProduct
             })
-            supertotal.innerHTML = totalAll
+            supertotal.innerHTML = totalAll;
         }
 
 
@@ -177,10 +178,11 @@
                 const harga = elm.querySelector('#harga');
                 const jumlah = elm.querySelector('#jumlah');
                 
-                total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value)
+                total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value);
             })
             
-            setSuperTotal()
+            setSuperTotal();
+            // new AutoNumeric.multiple('.total', option);
 
         }
         $('.btn-plus, .btn-minus').on('click', function(e) {

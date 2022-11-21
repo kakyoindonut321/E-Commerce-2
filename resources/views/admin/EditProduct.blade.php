@@ -1,5 +1,10 @@
 @extends('main')
 
+@error('category') {{ session()->now('message-error', $message) }} @enderror
+@error('cover_image') {{ session()->now('message-error', $message) }} @enderror
+@error('stock') {{ session()->now('message-error', $message) }} @enderror
+@error('price') {{ session()->now('message-error', $message) }} @enderror
+
 @section('css')
 <link rel="stylesheet" href={{ URL::to('/css/input-product.css') }}>
 @endsection

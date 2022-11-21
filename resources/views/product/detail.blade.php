@@ -37,7 +37,7 @@
             <h1 class="">{{ $product->name }}</h1>
             {{-- <hr class=""> --}}
           </div>
-          <h3>Harga: Rp<span id="harga">{{ $product->price }}</span></h3>
+          <h3>Harga: Rp<span id="harga" class="autoamount">{{ $product->price }}</span></h3>
           <h5>Terjual: <span>{{ $product->sold }}</span></h5>
           <hr>
           <div class="description">
@@ -47,7 +47,7 @@
 
       <div class="col-detail-action mx-auto">
         <div class="action-detail">
-          <h3>Total: <span id="total"></span></h3>
+          <h3>Total: <span id="total" class="autoamount"></span></h3>
           <div class="d-flex justify-content-start">
             <div class="input-group inline-group" style="@if ($product->stock == 0) pointer-events: none; @endif flex-wrap: nowrap;">
               <div class="input-group-prepend">
@@ -125,19 +125,6 @@
   
   
   @section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/4.6.0/autoNumeric.min.js"
-    integrity="sha512-6j+LxzZ7EO1Kr7H5yfJ8VYCVZufCBMNFhSMMzb2JRhlwQ/Ri7Zv8VfJ7YI//cg9H5uXT2lQpb14YMvqUAdGlcg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script>
-    new AutoNumeric('#amount', {
-        digitGroupSeparator: '.',
-        decimalCharacter: ',',
-        maximumValue: 1000000000,
-        minimumValue: 0
-    });
-    </script>
-  
   <script>
       const supertotal = document.getElementById('supertotal');
       const contain = document.querySelectorAll('.product-list');

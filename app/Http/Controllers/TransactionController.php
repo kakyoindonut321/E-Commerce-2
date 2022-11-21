@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\History;
 use App\Models\Order;
+use Carbon\Carbon;
 use App\Models\tracking;
 
 class TransactionController extends Controller
@@ -33,9 +34,9 @@ class TransactionController extends Controller
         $history->user_id = $request->user;
         $history->price = $product_dec->price;
         $history->product_id = $request->product_id;
-        $history->payment = "debit";
         $history->amount = $request->jumlah;
         $history->total = $request->jumlah * $product_dec->price;
+        $history->date = now();
         $history->save();
 
         // ORDER
@@ -64,9 +65,9 @@ class TransactionController extends Controller
             $history->user_id = auth()->user()->id;
             $history->price = $transaction[$x]->price;
             $history->product_id = $transaction[$x]->id;
-            $history->payment = "debit";
             $history->total = $jumlah[$x] * $transaction[$x]->price;
             $history->amount = $jumlah[$x];
+            $history->date = now();
             $history->save();
 
 

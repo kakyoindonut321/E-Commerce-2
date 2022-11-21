@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId("user_id")->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId("product_id")->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('payment');
+            // $table->string('payment');
             $table->decimal('price', $precision = 12, $scale = 2);
             $table->decimal('total', $precision = 12, $scale = 2);
             $table->integer('amount');
+            $table->date('date');
             $table->string('status')->default('pending');
             $table->timestamps();
         });
