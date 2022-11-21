@@ -28,7 +28,7 @@ class HistoryFactory extends Factory
             'price' => $price,
             'total' => $total,
             'amount' => $amount,
-            'date' => fake()->dateTimeBetween(Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()),
+            "date" => fake()->dateTimeBetween(Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()),
             'status' => 'accepted',
         ];
     }

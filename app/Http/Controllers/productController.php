@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\History;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\User;
@@ -33,7 +34,9 @@ class productController extends Controller
     public function report() {
         return view('admin.report', [
             'title' => 'Report',
-            'testtotal' => Product::ProductTotal(),
+            'totalproduct' => Product::ProductTotal(),
+            'history' => History::HistoryWeek(),
+            'users' => User::latest()->paginate(50),
             "cartCount" => $this->cartCount
         ]);
     }

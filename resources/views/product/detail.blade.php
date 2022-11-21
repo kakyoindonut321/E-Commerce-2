@@ -75,16 +75,15 @@
               @csrf
               <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
               <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth
-              <button type="submit" class="button-detail" disabled>Add to Cart <i class = "fas fa-shopping-cart"></i></button> {{-- <button type="submit" class="btn">Add to Order<i class = "fas fa-shopping-cart"></i></button> --}}
+              <button type="submit" class="button-detail" disabled>Add to Cart <i class = "fas fa-shopping-cart"></i></button>
             </form>
 
             <form action="{{ route('buy') }}" method="post" id="buy">
                 @csrf
                 <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
-                <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth {{-- <button type="submit" class="btn">BUY</button> --}}
+                <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth 
                 <button type="submit" class="button-detail" disabled>BUY</button>
             </form>
-            @endauth
           @else
             <form action="{{ route('create-cart') }}" method="post">
               @csrf
@@ -100,6 +99,23 @@
                 <button type="submit" class="button-detail buy" @disabled($product->stock == 0)>BUY</button>
             </form>
           @endif
+
+          @else 
+          <form action="{{ route('create-cart') }}" method="post">
+            @csrf
+            <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
+            <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth
+            <button type="submit" class="button-detail">Add to Cart <i class = "fas fa-shopping-cart"></i></button> {{-- <button type="submit" class="btn">Add to Order<i class = "fas fa-shopping-cart"></i></button> --}}
+          </form>
+
+          <form action="{{ route('buy') }}" method="post" id="buy">
+              @csrf
+              <input type="hidden" id="produk" name="product_id" value="{{ $product->id }}"> @auth
+              <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth {{-- <button type="submit" class="btn">BUY</button> --}}
+              <button type="submit" class="button-detail buy" @disabled($product->stock == 0)>BUY</button>
+          </form>
+          @endauth
+
  
 
           <div class = "social-links">

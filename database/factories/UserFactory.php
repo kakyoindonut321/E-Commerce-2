@@ -21,7 +21,7 @@ class UserFactory extends Factory
         $username = explode(" ", fake()->name());
 
         return [
-            'name' => $username[0],
+            'name' => $username[0] . ' ' . $username[1] ,
             'email' => fake()->unique()->safeEmail(),
             'privilege' => '',
             'profile_image' => '',

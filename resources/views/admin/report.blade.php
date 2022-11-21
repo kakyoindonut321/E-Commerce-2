@@ -9,7 +9,21 @@
     </div>
 </div>
 
-{{ dd($testtotal); }}
+<div class="d-flex border">
+    <div>
+        <div class="border">
+            <ol>
+                @foreach ($users as $user)
+                    <li>{{ $user->name }}</li>
+                @endforeach
+            </ol>
+        </div>
+    </div>
+    <div>
+
+    </div>
+</div>
+
 @endsection
 
 @section('js')
@@ -27,26 +41,31 @@
             var b = Math.floor(Math.random() * 255);
             return "rgb(" + r + "," + g + "," + b + ")";
         };
+        const history = {!! $history !!}
+        let historyLabel = Object.keys(history.history)
+        let historyamount = Object.values(history.history)
+
+        console.log();
 
         const ctx = document.getElementById('myChart');
         const myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                labels: historyLabel,
                 datasets: [{
-                        label: 'Expense',
-                        data: [12, 19, 3, 5, 2, 3, 69],
-                        backgroundColor: "#de0a26",
-                        borderColor: "#de0a26",
+                        label: 'Pembelian',
+                        data: historyamount,
+                        backgroundColor: "green",
+                        borderColor: "green",
                         borderWidth: 3
                     },
-                    {
-                        label: 'Income',
-                        data: [16, 14, 25, 7, 6, 1, 57],
-                        backgroundColor: "#03ac13",
-                        borderColor: "#03ac13",
-                        borderWidth: 3
-                    }
+                    // {
+                    //     label: 'Income',
+                    //     data: dataWeekIncome,
+                    //     backgroundColor: "#03ac13",
+                    //     borderColor: "#03ac13",
+                    //     borderWidth: 3
+                    // }
                 ]
             },
             responsive: true,
@@ -59,7 +78,6 @@
                 }
             }
         });
-
         
     </script>
 @endsection
