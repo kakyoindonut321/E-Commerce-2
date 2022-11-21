@@ -84,6 +84,7 @@
                 <input type="hidden" id="user" name="user" value="{{ auth()->user()->id }}"> @endauth {{-- <button type="submit" class="btn">BUY</button> --}}
                 <button type="submit" class="button-detail" disabled>BUY</button>
             </form>
+            @endauth
           @else
             <form action="{{ route('create-cart') }}" method="post">
               @csrf
@@ -99,7 +100,7 @@
                 <button type="submit" class="button-detail buy" @disabled($product->stock == 0)>BUY</button>
             </form>
           @endif
-          @endauth
+ 
 
           <div class = "social-links">
             <p>Share At: </p>

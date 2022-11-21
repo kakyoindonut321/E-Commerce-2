@@ -1,5 +1,5 @@
 @props(['product'])
-<a href="/product/{{ $product->id }}" class="text-decoration-none" >
+<a href="/product/{{ $product->id }}" class="text-decoration-none open-sauce-one" >
     <div class="product-card card  m-2" id="card">
       <div class="img-product-card">
         <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top img-product-card" alt="{{ asset('storage/' . $product->image) }}" >

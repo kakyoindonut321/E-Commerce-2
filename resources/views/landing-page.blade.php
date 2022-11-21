@@ -24,12 +24,12 @@
             <button type="submit" class="fas fa-search"></button>
          </form>
          <ul class="navbar">
-                <div class="start-now">
-                    <li><a href="/product"><b>START NOW</b></a></li>
+                <div class="start-now ">
+                    <li><a href="/product" class="open-sauce-one"><b>START NOW</b></a></li>
                 </div>
                 @if (!auth()->check())
                 <div class="login">
-                    <li><a href="/login"><b>LOGIN</b></a></li>
+                    <li><a href="/login" class="open-sauce-one"><b>LOGIN</b></a></li>
                 </div>      
                 @endif
             </ul>
