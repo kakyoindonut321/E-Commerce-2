@@ -2,7 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransactionController;
@@ -36,6 +36,7 @@ use Illuminate\Support\Facades\Response;
 
 
 Route::get('/', [productController::class, 'main']);
+Route::get('/about', [Controller::class, 'about']);
 
 
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');

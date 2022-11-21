@@ -25,8 +25,11 @@ class Controller extends BaseController
             }
             return $next($request);
         });
-            
-        
+ 
+    }
+
+    public function about() {
+        return view('admin.about');
     }
 
     // public function cartCount($idSession) {

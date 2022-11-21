@@ -72,8 +72,16 @@
                         </li>
                     @endif
                 @endauth
+
+                <li>
+                    <a href="/about">
+                        <i class="fa-solid fa-circle-info fa-rotate-by"></i>
+                        <span class="links_name-sb">About Us</span>
+                    </a>
+                    {{-- <span class="tooltip-sb">About</span> --}}
+                </li>
                 
-                @auth
+                @auth   
                 <li class="profile">
                     <a href="/logout" class="a-profile">
                         <div>LOGOUT<i class='bx bx-log-out' id="log_out" ></i></div>
