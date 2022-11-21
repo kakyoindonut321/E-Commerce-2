@@ -2,17 +2,19 @@
 
 @section('css') 
   <link rel="stylesheet" href={{ URL::to( '/css/detail.css') }}>
-  @if (auth()->user()->privilege == "admin")
-  <style>
-    .button-detail {
-      background-color: lightgrey;
-      pointer-events: none;
+  @auth
+    @if (auth()->user()->privilege == "admin")
+    <style>
+      .button-detail {
+        background-color: lightgrey;
+        pointer-events: none;
 
-    }
-  </style>
-  @endif
+      }
+    </style>
+    @endif
+  @endauth
 
-  @if ($product->stock == 0)
+  @if ($product->stock == 0) 
   <style>
     .buy {
       background-color: lightgrey; 
@@ -67,7 +69,7 @@
           @if ($product->stock == 0)
             <span style="color: red">produk sudah habis</span> 
           @endif
-
+          @auth
           @if (auth()->user()->privilege == "admin")
             <form action="{{ route('create-cart') }}" method="post">
               @csrf
@@ -97,7 +99,7 @@
                 <button type="submit" class="button-detail buy" @disabled($product->stock == 0)>BUY</button>
             </form>
           @endif
-
+          @endauth
 
           <div class = "social-links">
             <p>Share At: </p>
