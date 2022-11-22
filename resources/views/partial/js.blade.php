@@ -18,3 +18,5 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     };
     new AutoNumeric.multiple('.autoamount', option);
 </script>
+
+

@@ -29,7 +29,7 @@ class Controller extends BaseController
     }
 
     public function about() {
-        return view('admin.about');
+        return view('admin.about', ['title' => 'About Us']);
     }
 
     // public function cartCount($idSession) {

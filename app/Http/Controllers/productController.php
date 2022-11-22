@@ -36,7 +36,8 @@ class productController extends Controller
             'title' => 'Report',
             'totalproduct' => Product::ProductTotal(),
             'history' => History::HistoryWeek(),
-            'users' => User::latest()->paginate(50),
+            'users' => User::oldest()->paginate(50),
+            'category' => Product::CategoryCount(),
             "cartCount" => $this->cartCount
         ]);
     }

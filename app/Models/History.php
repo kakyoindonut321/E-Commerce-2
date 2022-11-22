@@ -9,7 +9,7 @@ class History extends Model
 {
     use HasFactory;
 
-    private function getOnlyExpense()
+    private function getOnlyAccepted()
     {
         return $this->where('status', 'accepted');
     }
@@ -18,13 +18,13 @@ class History extends Model
     {
         $firstDay = Carbon::now()->startOfWeek();
         $thisWeekHistory = [
-            "Monday" => $this->getOnlyExpense()->where("date", $firstDay)->get()->sum("amount"),
-            "Tuesday" => $this->getOnlyExpense()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
-            "Wednesday" => $this->getOnlyExpense()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
-            "Thursday" => $this->getOnlyExpense()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
-            "Friday" => $this->getOnlyExpense()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
-            "Saturday" => $this->getOnlyExpense()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
-            "Sunday" => $this->getOnlyExpense()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
+            "Monday" => $this->getOnlyAccepted()->where("date", $firstDay)->get()->sum("amount"),
+            "Tuesday" => $this->getOnlyAccepted()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
+            "Wednesday" => $this->getOnlyAccepted()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
+            "Thursday" => $this->getOnlyAccepted()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
+            "Friday" => $this->getOnlyAccepted()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
+            "Saturday" => $this->getOnlyAccepted()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
+            "Sunday" => $this->getOnlyAccepted()->where("date", $firstDay->addDays(1))->get()->sum("amount"),
         ];
 
         return collect(["history" => $thisWeekHistory])->toJson();

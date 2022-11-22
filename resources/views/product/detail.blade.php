@@ -39,7 +39,8 @@
             <h1 class="">{{ $product->name }}</h1>
             {{-- <hr class=""> --}}
           </div>
-          <h3>Harga: Rp<span id="harga" class="autoamount">{{ $product->price }}</span></h3>
+          <div style="display: none;" id="harga">{{ $product->price }}</div>
+          <h3>Harga: Rp<span  class="autoamount">{{ $product->price }}</span></h3>
           <h5>Terjual: <span>{{ $product->sold }}</span></h5>
           <hr>
           <div class="description">
@@ -185,6 +186,7 @@
           const jumlah = document.querySelector('#jumlah');
           console.log(total.innerHTML);
           total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value)
+          
               // })
   
           // setSuperTotal()

@@ -1,0 +1,42 @@
+.userlist-box {
+    width: 260px;
+}
+
+.userlist {
+    background-color: white;
+    border: 1px solid grey;
+    height: 270px;
+    overflow-y: scroll;
+}
+
+.flex-item-rpt {
+    width: 100%;
+}
+
+.linechart1 {
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.a-input {
+    text-decoration: none;
+}
+
+.input-produk {
+    color: white;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: #7ED957;
+}
+
+.input-produk:hover {
+    background-color: #66b346;
+}
+
+.input-produk:active {
+    background-color: #7ED957;
+}
+
+.inp-rop {
+    margin: 10px;
+}

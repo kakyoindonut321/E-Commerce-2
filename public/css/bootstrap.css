@@ -14,9 +14,13 @@
         background-color: #7ED957;
     }
     
-    .open-sauce-one {
+    .open-sauce-one-bold {
         font-family: 'Open Sauce One', sans-serif !important;
         font-weight: bold;
+    }
+    
+    .open-sauce-one {
+        font-family: 'Open Sauce One', sans-serif !important;
     }
     
     .font-kita {

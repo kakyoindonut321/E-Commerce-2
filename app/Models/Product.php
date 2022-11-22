@@ -22,6 +22,24 @@ class Product extends Model
         }
     }
 
+    public function scopeCategoryCount()
+    {
+        $category = Category::get();
+        $countCat = count($category);
+        $catlist = [];
+        foreach ($category as $ccc) {
+            $catcount = count($this->where('category_id', $ccc->id)->get());
+            $catlist = array_merge($catlist, [$ccc->category => $catcount]);
+        }
+
+        // $CategoryCount = array_count_values($category);
+        return collect([
+            "categorycount" => $countCat,
+            "categoryname" => $catlist
+        ])->toJson();
+    }
+
+
     public function scopeProductTotal()
     {
         $totalProduct = $this->oldest()->get();

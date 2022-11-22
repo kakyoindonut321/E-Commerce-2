@@ -1,26 +1,38 @@
 @extends('main')
 
-@section('content')
-<a href="/input-product">input product</a>
+@section('css')
+    <link rel="stylesheet" href={{ URL::to('/css/report.css') }}>
+@endsection
 
-<div class="linechart1" style="margin-left: 200px; margin-right: 200px;" >
+{{-- {{ dd($category) }} --}}
+
+@section('content')
+<div class="inp-rop">
+    <a href="/input-product" class="a-input"><div class="input-produk text-center open-sauce-one-bold">input product</div></a>
+</div>
+<div class="linechart1" >
     <div class="line-chart">
-        <canvas id="myChart" ></canvas>
+        <canvas id="linechart"></canvas>
     </div>
 </div>
 
-<div class="d-flex border">
-    <div>
-        <div class="border">
-            <ol>
-                @foreach ($users as $user)
-                    <li>{{ $user->name }}</li>
-                @endforeach
-            </ol>
+<div class="d-flex">
+    <div class="flex-item-rpt">
+        <div class="userlist-box mx-auto mt-2">
+            <h4 class="text-center">User List</h4>
+            <div class="userlist">
+                <ul>
+                    @foreach ($users as $user)
+                        <li><span>{{ $user->name }}</span></li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
-    <div>
-
+    <div class="flex-item-rpt">
+        <div class="">
+            <canvas id="bar-chart" width="400" height="225"></canvas>
+        </div>
     </div>
 </div>
 
@@ -47,16 +59,16 @@
 
         console.log();
 
-        const ctx = document.getElementById('myChart');
-        const myChart = new Chart(ctx, {
+        const ctx = document.getElementById('linechart');
+        const linechart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: historyLabel,
                 datasets: [{
                         label: 'Pembelian',
                         data: historyamount,
-                        backgroundColor: "green",
-                        borderColor: "green",
+                        backgroundColor: "#7ED957",
+                        borderColor: "#7ED957",
                         borderWidth: 3
                     },
                     // {
@@ -78,6 +90,34 @@
                 }
             }
         });
+
+        // BAR
+        const categore = {!! $category !!}
+        let catlabel = Object.keys(categore.categoryname)
+        let catamount = Object.values(categore.categoryname)
+        // console.log(categore);
+
+        const barc = document.getElementById("bar-chart");
+        new Chart(barc, {
+        type: 'bar',
+        data: {
+        labels: catlabel,
+        datasets: [
+            {
+            label: "Banyaknya produk di kategori",
+            backgroundColor: '#7ED957',
+            data: catamount
+            }
+        ]
+        },
+        options: {
+        legend: { display: false },
+        // title: {
+        //     display: true,
+        //     text: 'Predicted world population (millions) in 2050'
+        // }
+        }
+    });
         
     </script>
 @endsection
