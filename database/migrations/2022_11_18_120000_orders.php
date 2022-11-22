@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('histories', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId("product_id")->constrained()->onUpdate('cascade')->onDelete('cascade');
-            // $table->string('payment');
-            $table->decimal('price', $precision = 12, $scale = 2);
-            $table->decimal('total', $precision = 12, $scale = 2);
-            $table->integer('amount');
-            $table->date('date');
-            $table->string('status')->default('pending');
+            $table->foreignId("history_id")->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
+            // ->onUpdate('cascade')->onDelete('cascade')
         });
     }
 
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('histories');
+        Schema::dropIfExists('orders');
     }
 };

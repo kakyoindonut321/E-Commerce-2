@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(class: ProductSeeder::class);
         $this->call(class: Category::class);
+        \App\Models\User::factory(50)->create();
 
         // \App\Models\User::factory(10)->create();
 
@@ -45,5 +46,8 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'profile_image' => ''
         ]);
+
+        \App\Models\History::factory(20)->create();
+
     }
 }

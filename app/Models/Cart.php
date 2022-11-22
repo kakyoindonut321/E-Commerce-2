@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Cart extends Model
 {
+    use HasFactory;
+
     protected $guarded = ['id'];
     use HasFactory;
 
@@ -18,10 +20,5 @@ class Order extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
-    }   
-
-    public function history()
-    {
-        return $this->belongsTo(History::class);
     }   
 }

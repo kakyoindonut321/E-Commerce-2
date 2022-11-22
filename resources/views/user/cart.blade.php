@@ -3,7 +3,7 @@
 @error('table') {{ session()->now('message-error', 'Pilih produk yang ingin dibeli') }} @enderror
 
 @section('css')
-<link rel="stylesheet" href={{ URL::to('/css/order.css') }}>
+<link rel="stylesheet" href={{ URL::to('/css/cart.css') }}>
 <style>
     .inline-group {
         max-width: 15rem;
@@ -27,7 +27,7 @@
 @endsection
 
 @section('content')
-@unless(count($orders) == 0)
+@unless(count($carts) == 0)
 <div class="header-table">
   <div class="header1" style="text-align: left; padding-left: 10px;">
       <p>Produk</p>
@@ -52,82 +52,85 @@
 
 {{-- <p style="color: red;">@error('table') Pilih produk yg ingin dibeli @enderror</p> --}}
 
-@foreach($orders as $order)
-<form action="/order/buy" id="orderForm" method="POST">@csrf</form>
+@foreach($carts as $cart)
+<form action="/cart/buy" id="cartForm" method="POST">@csrf</form>
 
-<div class="product @unless ($order->product->stock == 0) product-list @endunless" data-idproduct="{{ $order->id }}" style="@if ($order->product->stock == 0) color: lightgrey; @endif">
-    <input type="hidden" name="order[]" value="{{ $order->id }}" form="orderForm">
+<div class="product @unless ($cart->product->stock == 0) product-list @endunless" data-idproduct="{{ $cart->id }}" style="@if ($cart->product->stock == 0) color: lightgrey; @endif">
+    <input type="hidden" name="cart[]" value="{{ $cart->id }}" form="cartForm">
 
     <div class="top-product">
-        @unless ($order->product->stock == 0) <input type="checkbox" name="table[]" value="{{ $order->id }}" id="checkbox" style="display: inline;" form="orderForm" onchange onpropertychange onkeyuponpaste oninput="change()">
-        <h5 style="display: inline;"> {{ $order->product->name }}</h5>
-        <span style=" float: right; padding-right: 10px;">Tersisa {{ $order->product->stock }} barang</p>
+        @unless ($cart->product->stock == 0) <input type="checkbox" name="table[]" value="{{ $cart->id }}" id="checkbox" style="display: inline;" form="cartForm" onchange onpropertychange onkeyuponpaste oninput="change()">
+        <h5 style="display: inline;"> {{ $cart->product->name }}</h5>
+        <span style=" float: right; padding-right: 10px;">Tersisa {{ $cart->product->stock }} barang</p>
         @else
         <h6 style="display: inline;">-</h6>
-        <h5 style="display: inline;"> {{ $order->product->name }}</h5>
+        <h5 style="display: inline;"> {{ $cart->product->name }}</h5>
         <span style="color: red; float: right; padding-right: 5px;">produk sudah habis</p>
         @endunless
     </div>
     <hr style="color: #808080"> 
     <div class="product-table">
         <div class="pr1 inputs">
-            <div class="img-product inputs" style="height: 200px;" >
-                <img class="img-order @if ($order->product->stock == 0) border-op @endif" src="{{ asset('storage/' . $order->product->image) }}" alt="" width="180">
+            <div class="img-product " >
+                <img class="img-cart @if ($cart->product->stock == 0) bcart-op @endif" src="{{ asset('storage/' . $cart->product->image) }}" alt="" width="180">
             </div>  
-            <div class="title-product inputs">
-                <h6>{{ $order->product->description }}</h6>
+            <div class="title-product ">
+                <h6 class="desc-cart">@if(strlen($cart->product->description)> 200) {{ substr( $cart->product->description, 0,200) . '...' }} @else {{ $cart->product->description }} @endif</h6>
             </div>
         </div>
 
         <div class="pr2 inputs">
             <div class="inputs">
-                <p @unless ($order->product->stock == 0) id="harga" @endunless>{{ $order->product->price }}</p>
+                <span style="display: none" @unless ($cart->product->stock == 0) id="harga" @endunless>{{ $cart->product->price }}</span>
+                <p>Rp<span class="autoamount">{{ $cart->product->price }}</span></p>
             </div>
             
             <div class="inputs">
-                <div class="input-group inline-group" style="@if ($order->product->stock == 0) pointer-events: none; @endif flex-wrap: nowrap;">
+                <div class="input-group inline-group" style="@if ($cart->product->stock == 0) pointer-events: none; @endif flex-wrap: nowrap;">
                     <div class="input-group-prepend"> 
-                      <button class="btn btn-outline-secondary btn-minus" style="@if ($order->product->stock == 0) border: 1px solid lightgrey @endif">
-                        <i class="fa fa-minus @if ($order->product->stock == 0) fa-minus-sold @endif"></i>
+                      <button class="btn btn-outline-secondary btn-minus" style="@if ($cart->product->stock == 0) bcart: 1px solid lightgrey @endif">
+                        <i class="fa fa-minus @if ($cart->product->stock == 0) fa-minus-sold @endif"></i>
                       </button>
                     </div>
-                    <input name="jumlah[]" type="number" min="1" value="1" max="{{ $order->product->stock }}"  
-                    @unless ($order->product->stock == 0) id="jumlah" @endunless 
-                    form="orderForm" class="jumlah"
+                    <input name="jumlah[]" type="number" min="1" value="1" max="{{ $cart->product->stock }}"  
+                    @unless ($cart->product->stock == 0) id="jumlah" @endunless 
+                    form="cartForm" class="jumlah"
                     placeholder="1"
                     onchange onpropertychange onkeyuponpaste oninput="change()" 
-                    style="@if ($order->product->stock == 0) color: lightgrey; border: 1px solid lightgrey; @endif"
-                    @disabled($order->product->stock == 0)>
+                    style="@if ($cart->product->stock == 0) color: lightgrey; bcart: 1px solid lightgrey; @endif"
+                    @disabled($cart->product->stock == 0)>
                     <div class="input-group-append">
-                      <button class="btn btn-outline-secondary btn-plus" style="@if ($order->product->stock == 0) border: 1px solid lightgrey @endif">
-                        <i class="fa fa-plus @if ($order->product->stock == 0) fa-plus-sold @endif"></i>
+                      <button class="btn btn-outline-secondary btn-plus" style="@if ($cart->product->stock == 0) bcart: 1px solid lightgrey @endif">
+                        <i class="fa fa-plus @if ($cart->product->stock == 0) fa-plus-sold @endif"></i>
                       </button>
                     </div>
                 </div>    
             </div>
 
             <div class="inputs total">
-                <p @unless ($order->product->stock == 0) id="total" @endunless></p>
+                <p>Rp<span  @unless ($cart->product->stock == 0) id="total" @endunless class="autoamount"></span></p>
             </div>
             <div class="inputs">
-                <form action="/order/{{ $order->id }}" id="orderDelete" method="POST">
+                <form action="/cart/{{ $cart->id }}" id="cartDelete" method="POST">
                     @csrf 
                     @method('DELETE')
-                    <button type="submit" class="btn bg-lime text-light" style="margin-top: 45%;">delete</button>
+                    <button type="submit" class="del-btn-cart" style="margin-top: 45%;">Delete</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 @endforeach
+@include('pagination.default', ['paginator' => $carts])
+
 <br><br><br>
 @else 
-<h3 class="text-center text-danger">anda belum membuat order</h3>
+<h3 class="text-center text-danger">Keranjang Kosong</h3>
 @endunless
 <footer>
     <div class="checkout">
         <h3 >TOTAL: <span id="supertotal"></span></h3>
-        <button type="submit" form="orderForm">CHECKOUT</button>
+        <button type="submit" form="cartForm">CHECKOUT</button>
     </div>
 </footer>
 
@@ -165,7 +168,7 @@
 
                 totalAll += valTotalProduct
             })
-            supertotal.innerHTML = totalAll
+            supertotal.innerHTML = totalAll;
         }
 
 
@@ -175,10 +178,11 @@
                 const harga = elm.querySelector('#harga');
                 const jumlah = elm.querySelector('#jumlah');
                 
-                total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value)
+                total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value);
             })
             
-            setSuperTotal()
+            setSuperTotal();
+            // new AutoNumeric.multiple('.total', option);
 
         }
         $('.btn-plus, .btn-minus').on('click', function(e) {

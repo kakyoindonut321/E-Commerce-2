@@ -1,0 +1,62 @@
+.theflex {
+    display: flex;
+}
+
+.flexbbb {
+    margin: 5px;
+    padding: 5px;
+    width: 100%;
+    background-color: white;
+    /* background: linear-gradient(90deg, #FFC0CB 50%, #00FFFF 50%); */
+    border-radius: 10px;
+}
+
+.manager h3 {
+    text-align: center;
+}
+
+.flexbbb h3 {
+    text-align: center;
+}
+
+.itemmos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profiler {
+    margin: 5px;
+    text-align: center;
+}
+
+.manager {
+    /* background-color: white; */
+    background-color: white;
+    border: 2px solid rgb(181, 27, 27);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.profimg {
+    border: 2px solid lightgrey;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+
+.ui {
+    border: 2px solid rgb(223, 89, 223);
+}
+
+.frontend {
+    border: 2px solid rgb(198, 146, 48);
+}
+
+.backend {
+    border: 2px solid rgb(17, 132, 126);
+}
+
+.tester {
+    border: 2px solid rgb(110, 38, 38);
+}

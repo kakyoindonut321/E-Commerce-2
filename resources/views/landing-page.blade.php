@@ -24,12 +24,12 @@
             <button type="submit" class="fas fa-search"></button>
          </form>
          <ul class="navbar">
-                <div class="start-now">
-                    <li><a href="/product"><b>START NOW</b></a></li>
+                <div class="start-now ">
+                    <li><a href="/product" class="open-sauce-one"><b>START NOW</b></a></li>
                 </div>
                 @if (!auth()->check())
                 <div class="login">
-                    <li><a href="/login"><b>LOGIN</b></a></li>
+                    <li><a href="/login" class="open-sauce-one"><b>LOGIN</b></a></li>
                 </div>      
                 @endif
             </ul>
@@ -45,7 +45,9 @@
         <div class="flexing">
             @foreach($category as $cat)
             <div class="card" style="cursor: pointer;" onclick="window.location='/product?category={{$cat->id}}';">
-                <img src="{{ URL::to('/image/category/' . $cat->image ) }}" alt="">
+                <div class="img-cat">
+                    <img src="{{ URL::to('/image/category/' . $cat->image ) }}" alt="">
+                </div>
                 <h4>{{ $cat->category }}</h4>
             </div>
             @endforeach

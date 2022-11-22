@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\History;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\User;
@@ -24,7 +25,7 @@ class productController extends Controller
         $product = [
             "title" => "Products",
             "products" => Product::with('category')->latest()->filter(request(['category', 'search']))->paginate(10)->withQueryString(),
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
 
         ];
         return view('/product/listing', $product);
@@ -33,7 +34,11 @@ class productController extends Controller
     public function report() {
         return view('admin.report', [
             'title' => 'Report',
-            "orderCount" => $this->orderCount
+            'totalproduct' => Product::ProductTotal(),
+            'history' => History::HistoryWeek(),
+            'users' => User::oldest()->paginate(50),
+            'category' => Product::CategoryCount(),
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -41,7 +46,7 @@ class productController extends Controller
         return view('admin.InputProduct', [
             'title' => 'Input Produk',
             'category' => Category::all(),
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -50,7 +55,7 @@ class productController extends Controller
             'title' => 'Input Produk',
             'product' => $product,
             'category' => Category::all(),
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -58,17 +63,19 @@ class productController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'stock' => 'required',
-            'price' => 'required',
-            // 'cover_image' => 'required'
+            'stock' => 'required|max:7',
+            'price' => 'required|max:15',
+            'cover_image' => 'required',
+            'category' => 'required'
         ]);
         $input = new Product;
         $input->name = $request-> name;
         $input->description = $request-> description;
         $input->stock = $request-> stock;
+        $input->sold = 0;
         $input->price = $request-> price;
         $input->category_id = $request->category;
-        $input->user = $request-> user;
+        $input->user = 'kjjo';
         
 
         if ($request->hasFile('cover_image')) {
@@ -90,7 +97,7 @@ class productController extends Controller
         return view('product.detail', [
             'title' => $product->name,
             'product' => $product,
-            "orderCount" => $this->orderCount
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -99,8 +106,8 @@ class productController extends Controller
         $formUpdate =  $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'stock' => 'required',
-            'price' => 'required',
+            'stock' => 'required|max:7',
+            'price' => 'required|max:15',
             'category_id' => 'required'
         ]);
 

@@ -1,5 +1,11 @@
 @extends('main')
 
+@error('category') {{ session()->now('message-error', $message) }} @enderror
+@error('cover_image') {{ session()->now('message-error', $message) }} @enderror
+@error('stock') {{ session()->now('message-error', $message) }} @enderror
+@error('price') {{ session()->now('message-error', $message) }} @enderror
+
+
 @section('css')
 <link rel="stylesheet" href={{ URL::to('/css/input-product.css') }}>
 @endsection
@@ -10,7 +16,7 @@
             <h3>Input Product</h3>
             <form action="{{ route('create-product') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="user" value="{{ auth()->user()->name }}">
+                {{-- <input type="hidden" name="user" value="{{ auth()->user()->name }}"> --}}
                 <input type="text" name="name" placeholder="Product Name" required>
                 <input type="text" name="description" placeholder="Description Product" required>
                 <input type="number" name="stock" placeholder="stock" required>
@@ -27,7 +33,7 @@
                     <input type="file" accept="image/png, image/jpeg" name="cover_image" id="imgInp">
                     <img src="" id="imgWrappper" width="200" alt="">
                 </div>
-                <button type="submit"><b>Submit</b></button>
+                <button type="submit" ondblclick="this.disabled=true;"><b>Submit</b></button>
             </form>
         </div>
     </div>

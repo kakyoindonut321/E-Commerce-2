@@ -1,8 +1,9 @@
 @extends('main')
 
 @section('css')
+<link rel="stylesheet" href="{{ URL::to('/css/history.css') }}">
 <style>
-    table {
+    /* table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
@@ -59,33 +60,54 @@
         height: 1rem;
         width: 1rem;
       }
-    }
+    } */
     </style>
 @endsection
+
 
 @section('content')
 @if ($history->isEmpty() == 1)
     <h3 class="text-center text-danger">anda belum membeli apapun</h3>
 @else
-<table class="border text-center">
-    <tr>
-        <th>Image</th>
-        <th>Product</th>
-        <th>Price(IDR)</th>
-        <th>Amount</th>
-        <th>Date</th>
-        <th>Payment</th>
-    </tr>
-    @foreach($history as $od)
-        <tr>
-            <td ><img style="" src="{{ asset('storage/' . $od->product->image) }}" ></td>
-            <td>{{ $od->product->name }}</td>
-            <td>{{ $od->product->price }}</td>
-            <td>{{ $od->amount }}</td>
-            <td>{{ $od->created_at }}</td>
-            <td>{{ $od->payment }}</td>
-        </tr>   
+    @foreach($history as $his)
+    <div class="history-card">
+      <div class="top-date">
+          @if (auth()->user()->privilege == "admin")
+            <span class="pt-1 text-primary">{{ $his->user->name }}</span>
+          @endif
+        <span class="pt-1">{{ $his->created_at }}</span>
+      </div>
+      <div class="table-card">
+        <div class="hbox hbox-one">
+          <div class="himg">
+            <img src="{{ asset('storage/' . $his->product->image) }}" alt="" width="100">
+          </div>
+          <div class="hprodata">
+            <h4 class="htitle">{{ $his->product->name }}</h4>
+            <h4 class="hharga">Rp <span class="autoamount">{{ $his->price }}</span></h4>
+          </div>
+
+        </div>
+        <div class="hbox hbox-two">
+          <div class="htotalboxdata">
+            <p>jumlah: <span>{{ $his->amount }}</span></p>
+            <h4>total:</h4>
+            <h6>Rp <span class="autoamount">{{ $his->total }}</span></h6>
+          </div>
+          <div class="status-box">
+            <h5>status</h5>
+            <h4
+            style="color:@switch($his->status)@case('accepted') green @break @case('denied') red @break @default grey @endswitch ;">
+            {{ $his->status }}  
+          </h4>
+          </div>
+        </div>
+      </div>
+    </div>
     @endforeach
+
+    @include('pagination.default', ['paginator' => $history])
+
 @endif
 
 @endsection

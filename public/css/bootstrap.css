@@ -9,6 +9,20 @@
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Roboto:300');
+    @import url('https://fonts.cdnfonts.com/css/open-sauce-one');
+    html {
+        background-color: #7ED957;
+    }
+    
+    .open-sauce-one-bold {
+        font-family: 'Open Sauce One', sans-serif !important;
+        font-weight: bold;
+    }
+    
+    .open-sauce-one {
+        font-family: 'Open Sauce One', sans-serif !important;
+    }
+    
     .font-kita {
         font-family: ABeeZee;
     }
@@ -58,6 +72,8 @@
     }
     
     .navsearch {
+        transition-duration: 200ms;
+        /* transition: all 1s ease; */
         display: flex;
         height: 40px;
         padding: 2px;
@@ -92,6 +108,7 @@
         border: none;
         border-radius: 50px;
         cursor: pointer;
+        transition: all 0.5s ease;
     }
     
     .navsearch button:hover {
@@ -132,6 +149,7 @@
         background: white;
         border: none;
         border-radius: 50px;
+        transition: all 0.3s ease-in;
         cursor: pointer;
     }
     
@@ -4897,11 +4915,15 @@
     }
     
     .product-card {
+        transition-duration: 200ms;
+        bottom: 0px;
         width: 14rem;
         height: 24rem;
+        transition: all 0.3s ease;
     }
     
     .product-card:hover {
+        bottom: 10px;
         border-color: #dc3545;
     }
     
