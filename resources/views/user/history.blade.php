@@ -75,7 +75,7 @@
           @if (auth()->user()->privilege == "admin")
             <span class="pt-1 text-primary">{{ $his->user->name }}</span>
           @endif
-        <span class="pt-1">{{ $his->created_at }}</span>
+        <span class="pt-1">{{ \Carbon\Carbon::parse($his->created_at)->format('l d, m, Y h:i A')}}</span>
       </div>
       <div class="table-card">
         <div class="hbox hbox-one">
@@ -97,7 +97,7 @@
           <div class="status-box">
             <h5>status</h5>
             <h4
-            style="color:@switch($his->status)@case('accepted') green @break @case('denied') red @break @default grey @endswitch ;">
+            style="color:@switch($his->status)@case('accepted') green @break @case('declined') red @break @default grey @endswitch ;">
             {{ $his->status }}  
           </h4>
           </div>
