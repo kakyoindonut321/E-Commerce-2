@@ -50,7 +50,7 @@
 
       <div class="col-detail-action mx-auto">
         <div class="action-detail">
-          <h3>Total: <span id="total" class="autoamount"></span></h3>
+          <h3>Total: Rp<span id="total" class="autoamount"></span></h3>
           <div class="d-flex justify-content-start">
             <div class="input-group inline-group" style="@if ($product->stock == 0) pointer-events: none; @endif flex-wrap: nowrap;">
               <div class="input-group-prepend">
@@ -184,8 +184,9 @@
           const total = document.querySelector('#total');
           const harga = document.querySelector('#harga');
           const jumlah = document.querySelector('#jumlah');
-          console.log(total.innerHTML);
+          // console.log(total.innerHTML);
           total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value)
+          new AutoNumeric.multiple('.autoamount', option);
           
               // })
   

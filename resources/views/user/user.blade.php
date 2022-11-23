@@ -1,7 +1,6 @@
 @extends('main')
 
 @section('css')
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ URL::to('/css/profile.css') }}">
 
     <style>
@@ -30,7 +29,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-10 mt-0 pt-5">
                     <div class="row z-depth-3">
-                        <div class="col bg-lime rounded-left user-profile">
+                        <div class="col-sm-4 bg-lime rounded-left user-profile">
                             <div class="card-block text-center text-white box-image">
                                 {{-- <img class="mt-5 user-image" src="{{ URL::to('/image/user.png') }}" alt="" width="200"> --}}
                                 <div class="mt-5 user-image mx-auto" style="background-image: url(@avatar(auth()->user()->profile_image))"></div>

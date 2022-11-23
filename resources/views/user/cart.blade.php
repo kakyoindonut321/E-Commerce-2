@@ -108,7 +108,8 @@
             </div>
 
             <div class="inputs total">
-                <p>Rp<span  @unless ($cart->product->stock == 0) id="total" @endunless class="autoamount"></span></p>
+                <div style="display: none;" @unless ($cart->product->stock == 0) id="total" @endunless></div>
+                <p>Rp<span id="realtotal" class="autoamount"></span></p>
             </div>
             <div class="inputs">
                 <form action="/cart/{{ $cart->id }}" id="cartDelete" method="POST">
@@ -129,7 +130,7 @@
 @endunless
 <footer>
     <div class="checkout">
-        <h3 >TOTAL: <span id="supertotal"></span></h3>
+        <h3 >TOTAL: Rp<span id="supertotal" class="autoamount"></span></h3>
         <button type="submit" form="cartForm">CHECKOUT</button>
     </div>
 </footer>
@@ -169,16 +170,21 @@
                 totalAll += valTotalProduct
             })
             supertotal.innerHTML = totalAll;
+            new AutoNumeric.multiple('.autoamount', option);
+
         }
 
 
         function change() {
             contain.forEach(elm => {
                 const total = elm.querySelector('#total');
+                const realtotal = elm.querySelector('#realtotal');
                 const harga = elm.querySelector('#harga');
                 const jumlah = elm.querySelector('#jumlah');
-                
                 total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value);
+                realtotal.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value);
+                new AutoNumeric.multiple('.autoamount', option);
+
             })
             
             setSuperTotal();
