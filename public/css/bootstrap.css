@@ -10,6 +10,10 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Roboto:300');
     @import url('https://fonts.cdnfonts.com/css/open-sauce-one');
+    .font-poppin {
+        font-family: "Poppins", sans-serif;
+    }
+    
     html {
         background-color: #7ED957;
     }
@@ -26,11 +30,10 @@
     .font-kita {
         font-family: ABeeZee;
     }
-    
-    .font-poppin {
+    /* .font-poppin {
         font-family: "Poppins", sans-serif;
         font-weight: 600;
-    }
+    } */
     
     .navdesc {
         text-align: center;
@@ -1272,7 +1275,7 @@
         }
         .col-sm-4 {
             flex: 0 0 auto;
-            width: 300px;
+            width: 33.33333333%;
         }
         .col-sm-5 {
             flex: 0 0 auto;
@@ -1288,7 +1291,7 @@
         }
         .col-sm-8 {
             flex: 0 0 auto;
-            width: 600px;
+            width: 66.66666667%;
         }
         .col-sm-9 {
             flex: 0 0 auto;

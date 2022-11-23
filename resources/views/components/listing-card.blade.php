@@ -1,12 +1,12 @@
 @props(['product'])
-<a href="/product/{{ $product->id }}" class="text-decoration-none" >
+<a href="/product/{{ $product->id }}" class="text-decoration-none open-sauce-one" >
     <div class="product-card card  m-2" id="card">
       <div class="img-product-card">
         <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top img-product-card" alt="{{ asset('storage/' . $product->image) }}" >
       </div>
       <div class="card-body">
-        <p class="card-title text-dark">@if(strlen($product -> name) > 25) {{ substr( $product -> name, 0,20) . '.....' }} @else {{ $product -> name }} @endif</p>
-        <h5 class="card-text text-danger">Rp <span class="autoamount">{{ $product->price }}</span></h5>
+        <p class="card-title text-dark text-uppercase">@if(strlen($product -> name) > 25) {{ substr( $product -> name, 0,20) . '.....' }} @else {{ $product -> name }} @endif</p>
+        <h5 class="card-text text-dark open-sauce-one-bold">Rp<span class="autoamount">{{ $product->price }}</span></h5>
         <p class="card-text text-dark">Terjual: {{ $product->sold }}</p>
         @auth
         @if (auth()->user()->privilege == "admin")

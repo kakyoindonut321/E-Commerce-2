@@ -28,19 +28,19 @@
 @error('product_id') {{ session()->now('message-error', 'Barang telah dimasukan ke keranjang') }} @enderror 
 
 @section('content')
-  <div class="container-detail">
+  <div class="container-detail open-sauce-one">
       <div class="col-detail">
         <div class="img-div">
           <img src="{{ asset('storage/' . $product->image) }}" alt="" srcset="">
         </div>
       </div>
       <div class="col-detail">
-          <div class="">
-            <h1 class="">{{ $product->name }}</h1>
+          <div class="title-detail">
+            <h4 class="open-sauce-one-bold text-uppercase">{{ $product->name }}</h4>
             {{-- <hr class=""> --}}
           </div>
-          <div style="display: none;" id="harga">{{ $product->price }}</div>
-          <h3>Harga: Rp<span  class="autoamount">{{ $product->price }}</span></h3>
+          <div style="display: none;" id="harga" >{{ $product->price }}</div>
+          <h3 class="open-sauce-one-bold">Harga: Rp<span  class="autoamount">{{ $product->price }}</span></h3>
           <h5>Terjual: <span>{{ $product->sold }}</span></h5>
           <hr>
           <div class="description">

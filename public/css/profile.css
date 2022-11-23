@@ -1,3 +1,11 @@
+.image-edit-mb {
+    display: none;
+}
+
+.hid-input-img {
+    display: none;
+}
+
 .user-col-8 {
     flex: 0 0 auto;
     width: 66.66666667%;
@@ -10,7 +18,7 @@
 
 .user-profile {
     width: 100px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* margin: auto; */
     /* padding: 40px; */
     box-sizing: border-box;
@@ -99,18 +107,23 @@
 }
 
 .box-image {
-    height: 204px;
+    margin-top: 10%;
+    /* width: 204px; */
+    vertical-align: middle;
     position: relative;
+    /* border: 1px solid black; */
 }
 
 .user-image {
     width: 100px;
     height: 100px;
-    padding: 100px;
+    padding: 50%;
     box-sizing: border-box;
     border-radius: 100%;
     border: 3px solid #66b346;
     background-size: cover;
+    /* background-size: 100px; */
+    background-repeat: no-repeat;
     background-position: center;
 }
 
@@ -131,8 +144,39 @@
     }
 }
 
-@media screen and (max-width: 800px) {
-    .user-title {
+@media screen and (max-width: 900px) {
+    .user-h2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .user-pp {
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .user-info {
+        display: none;
+    }
+    .user-image {
+        padding: 150px;
+    }
+    .box-image .image-edit-mb {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+        position: absolute;
+        border-radius: 50%;
+        background-color: #66b346;
+        color: #ece9e9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 33px;
+        cursor: pointer;
+        z-index: 10;
     }
 }
