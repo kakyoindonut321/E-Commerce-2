@@ -40,7 +40,7 @@
             {{-- <hr class=""> --}}
           </div>
           <div style="display: none;" id="harga" >{{ $product->price }}</div>
-          <h3 class="open-sauce-one-bold">Harga: Rp<span  class="autoamount">{{ $product->price }}</span></h3>
+          <h3 class="open-sauce-one-bold">Rp<span  class="autoamount">{{ $product->price }}</span></h3>
           <h5>Terjual: <span>{{ $product->sold }}</span></h5>
           <hr>
           <div class="description">

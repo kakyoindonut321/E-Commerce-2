@@ -4,7 +4,7 @@ $link_limit = 5; // maximum number of links (a little bit inaccurate, but will b
 ?>
 
 @if ($paginator->lastPage() > 1)
-<div class="d-flex p-5" >
+<div class="d-flex p-5 open-sauce-one-bold" >
     <div class="mx-auto p-0 rounded  bg-lime pagination a" style="">
         @if ($paginator->currentPage() > 1)
         <a href="{{ $paginator->url(1) }}" style="display:inline-block;" class="btn btnh">< First</a>

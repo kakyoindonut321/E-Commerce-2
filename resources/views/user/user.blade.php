@@ -7,13 +7,11 @@
         #file-profile {
            display: none;
         }
-
         .fa-edit:hover {
             font-size: 35px;
             color: lightgrey;
             transition: all 0.2s ease;
         }
-
     </style>
 @endsection
 
@@ -32,19 +30,20 @@
                         <div class="col-sm-4 bg-lime rounded-left user-profile">
                             <div class="card-block text-center text-white box-image">
                                 {{-- <img class="mt-5 user-image mx-"auto src="@avatar(auth()->user()->profile_image)" alt="@avatar(auth()->user()->profile_image)" width="200"> --}}
-                                <div class="my-auto user-image mx-auto" style="background-image: url(@avatar(auth()->user()->profile_image))"></div>
+                                <div class="mt-5 user-image mx-auto" style="background-image: url(@avatar(auth()->user()->profile_image))"></div>
                                     {{--  --}}
-                                    {{-- <label for="file-profile" class="image-edit-mb"><i class='bx bxs-camera'></i></label> --}}
-                                    {{-- <input type="file" name="imgProfile" id="file-profile" class="hid-input-img"> --}}
+                                    <label for="file-profile" class="image-edit-mb"><i class='bx bxs-camera'></i></label> 
+                                    <input type="file" name="imgProfile" id="file-profile" class="hid-input-img">
                                     {{--  --}}
                                 <div class="user-info">
-                                    <h2 class="font-weight-bold mt-4 user-h2">{{ auth()->user()->name }}</h2>
-                                    <p class="font-weight-bold mt-4 user-pp">Ganti profile picture</p>
-                                    <label for="file-profile" class="image-edit"><i class="far fa-edit fa-2x mb-4"></i></label>
-                                    <input type="file" name="imgProfile" id="file-profile">
+                                    <h2 class="font-weight-bold mt-4 user-h2 user-title">{{ auth()->user()->name }}</h2>
+                                    <p class="font-weight-bold mt-4 user-pp ">Ganti profile picture</p>
+                                    <label for="file-profile" class="image-edit the-f-input"><i class="far fa-edit fa-2x mb-4"></i></label>
+                                    <input type="file" name="imgProfile" id="file-profile" class="the-f-input">
                                 </div>
                             </div>
                         </div> 
+
                         <div class="col-sm-8 bg-white rounded-right">
                             <h3 class="mt-3 text-center">Information</h3>
                             <hr class="badge-primary mt-0 w-100">
@@ -83,18 +82,22 @@
         const imgPrev = document.querySelector(".user-image")
         const nameTitle = document.querySelector('.user-title');
 
+        const match = window.matchMedia("(max-width: 575px)");
+        match.addEventListener('change', changeInput);
+
+        function changeInput() {
+            document.querySelector(".the-f-input").disabled = true;
+        }
+
+        
         if (nameTitle.innerText.length > 8) {
             nameTitle.style.fontSize = "20px";
         }
-
         imgInp.onchange = evt => {
             const [file] = imgInp.files
             if (file) {
                 imgPrev.style.backgroundImage = `url(${URL.createObjectURL(file)})`
             }
         }
-
-
-
 </script>
 @endsection

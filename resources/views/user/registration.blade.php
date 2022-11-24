@@ -16,11 +16,11 @@
     <div class="wrapper">
       <div class="logo-header">
         <img src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" alt="" srcset="" />
-        <h1>E-Commerce</h1>
+        <h1 class="text-uppercase">LightStore</h1>
       </div>
       <div class="user-logo">
         <img src="{{ URL::to('/image/user.png') }}" alt="" srcset="">
-        <h1>Sign Up</h1>
+        <h1  class="text-uppercase">Sign Up</h1>
       </div>
       <form action="{{ route('register-user') }}" method="post">
         @csrf
@@ -47,7 +47,7 @@
           Already Signed up? <a href="/login"><b>Sign Up</b></a>
         </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" class="open-sauce-one-bold">Sign Up</button>
       </form>
 
 

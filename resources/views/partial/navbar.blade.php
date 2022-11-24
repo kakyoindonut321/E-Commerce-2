@@ -6,7 +6,7 @@
           </div>
           <a href="/" class="navbar-brand me-auto">
             <img src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" width="45" alt="" class="d-inline-block align-middle mr-2 text-lime">
-            <span class="text-uppercase text-light open-sauce-one-bold title-nav">Taufikgantengstore</span>
+            <span class="text-uppercase text-light open-sauce-one-bold title-nav">LightStore</span>
           </a>
 
           <form action="{{ route('search') }}" class="navsearch me-auto my-auto">
