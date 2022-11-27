@@ -6,7 +6,7 @@
         <div class="border-sb">
             <div class="logo-details">
                 <img src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" alt="" style="padding-right: 7px;" width="55px" class='bx bxl-c-plus-plus icon'>
-                <div class="logo_name text-uppercase open-sauce-one-bold">LightStore</div>
+                <div class="logo_name open-sauce-one-bold">Green Bay</div>
                 <i class='bx bx-menu' id="btn" onclick="Toggle()"></i>
             </div>
             <ul class="nav-list-sb">

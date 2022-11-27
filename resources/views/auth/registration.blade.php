@@ -4,7 +4,7 @@
 <div class="wrapper">
   <div class="logo-header">
     <img src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" alt="" srcset="" />
-    <h1 class="text-uppercase">LightStore</h1>
+    <h1 class="">Green Bay</h1>
   </div>
   <div class="user-logo">
     <img src="{{ URL::to('/image/user.png') }}" alt="" srcset="">

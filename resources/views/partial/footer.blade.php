@@ -3,7 +3,7 @@
 <footer class="bg-lime m-0 p-0 open-sauce-one" style="border-top: 1px solid #66b346;">
     <div class="d-flex">
         <div class="flex-grow-1">
-            <h4 class="text-light text-uppercase">LightStore&trade;</h4>
+            <h4 class="text-light">Green Bay&trade;</h4>
             <div class="ml-2 copyright-footer">Copyright &copy; 2022, All Rights reserved</div>
             {{-- <div>&#9886; _ &#9887;</div> --}}
         </div>
