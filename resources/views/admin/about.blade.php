@@ -65,7 +65,7 @@
     </div>
 </div>
 <div>
-    <h1 class="text-center bold">About us</h1>
+    <h1 class="text-center bold">About Us</h1>
     <div class="paragraf text-center">
         <p>Ipsa incidunt aliquam optio modi commodi tenetur sed et. Iure quam sunt in qui doloribus consequatur numquam reiciendis. 
             Laborum minus nam velit asperiores sed sapiente. Ut rerum iure sit et dolorum velit qui. 
