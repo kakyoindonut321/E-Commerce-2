@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\Order;
+use App\Rules\PasswordIsSame;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Illuminate\Support\Facades\File as FacadesFile;
@@ -26,11 +27,11 @@ class AuthController extends Controller
 
 
     public function login() {
-        return view('user.login');
+        return view('auth.login');
     }
     
     public function registration() {
-        return view('user.registration');
+        return view('auth.registration');
     }
 
     public function update(Request $request)
@@ -94,6 +95,25 @@ class AuthController extends Controller
         }
 
         return back()->with("wrongAuth", "Email atau Password salah");
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            "current-password" => ["required", new PasswordIsSame],
+            "password" => "required|min:8|max:15",
+            "confirm-password" => "required|same:password"
+        ], [
+            "current-password.required" => "The current password field is required..",
+            "confirm-password.required" => "The confirm password field is required..",
+            "confirm-password.same" => "The confirm password must match."
+        ]);
+        $data = $request->except(["current-password", "confirm-password"]);
+        $data["password"] = Hash::make($data["password"]);
+
+        User::find(auth()->id())->update($data);
+
+        return redirect()->back()->with("message-success", "Password telah diganti");
     }
     
     public function product() {

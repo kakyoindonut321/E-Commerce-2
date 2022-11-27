@@ -17,7 +17,7 @@ class AuthCheck
     public function handle(Request $request, Closure $next)
     {
         if (!Session()->has('loginId')) {
-            return redirect('login')->with('deez', "login first");
+            return redirect('login')->with('message-error', "Login dulu");
         }
         return $next($request);
     }

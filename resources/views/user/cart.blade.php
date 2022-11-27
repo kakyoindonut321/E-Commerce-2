@@ -30,7 +30,7 @@
 @unless(count($carts) == 0)
 <div class="header-table">
   <div class="header1" style="text-align: left; padding-left: 10px;">
-      <input type="checkbox" style="display: inline;" form="cartForm" onchange onpropertychange onkeyuponpaste oninput="selects()">
+      <input type="checkbox" style="display: inline;" form="cartForm" onchange="selects(event)">
       <p  style="display: inline;" class="open-sauce-one">All</p>
   </div>
   <div>
@@ -137,7 +137,7 @@
 </footer>
 
 @endsection
-
+{{-- ching cheng hanji cheng chang cheng chong --}}
 
 @section('js')
     <script>
@@ -148,16 +148,43 @@
         setSuperTotal()
         change()
 
-        function selects(){  
-                var ele=document.querySelectorAll('.chk');  
-                for(var i=0; i<ele.length; i++){  
-                    if(ele[i].checked==false)  
-                        ele[i].checked=true;  
-                    else {
-                        ele[i].checked=false;  
-                    }
-                }  
+        function selects(e){  
+            console.log(e.target);
+            let checkAll = e.target;
+                // var ele=document.querySelectorAll('.chk');  
+                // for(var i=0; i<ele.length; i++){  
+                //     if(ele[i].checked==false)  
+                //         ele[i].checked=true;  
+                //     else {
+                //         ele[i].checked=false;  
+                //     }
+                    
+                // }  
+                contain.forEach(elm => {
+                    let inpCheckbox = elm.querySelector("#checkbox")
+                    let productId = elm.dataset.idproduct
 
+                    if(checkAll.checked == true) {
+                        inpCheckbox.checked=true;  
+                        checked.push(productId);
+                        setSuperTotal()
+                    } else {
+                        inpCheckbox.checked=false;  
+                        checked = checked.filter(e => e != productId);
+                        setSuperTotal()
+                    }
+                    // inpCheckbox.checked = true;
+
+                    // inpCheckbox.addEventListener("change", e => {
+                    //     inpCheckbox.checked && checked.push(productId)
+                    //     if(!inpCheckbox.checked){
+                    //         checked = checked.filter(e => e != productId)
+                    //     }
+
+                    //     setSuperTotal()
+                    // })
+                })
+                
             }  
 
         contain.forEach(elm => {
