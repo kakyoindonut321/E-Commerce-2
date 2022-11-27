@@ -30,7 +30,8 @@
 @unless(count($carts) == 0)
 <div class="header-table">
   <div class="header1" style="text-align: left; padding-left: 10px;">
-      <p>Produk</p>
+      <input type="checkbox" style="display: inline;" form="cartForm" onchange onpropertychange onkeyuponpaste oninput="selects()">
+      <p  style="display: inline;" class="open-sauce-one">All</p>
   </div>
   <div>
       <p>Harga</p>
@@ -59,7 +60,7 @@
     <input type="hidden" name="cart[]" value="{{ $cart->id }}" form="cartForm">
 
     <div class="top-product">
-        @unless ($cart->product->stock == 0) <input type="checkbox" name="table[]" value="{{ $cart->id }}" id="checkbox" style="display: inline;" form="cartForm" onchange onpropertychange onkeyuponpaste oninput="change()">
+        @unless ($cart->product->stock == 0) <input type="checkbox" name="table[]" value="{{ $cart->id }}" id="checkbox" class="chk" style="display: inline;" form="cartForm" onchange onpropertychange onkeyuponpaste oninput="change()">
         <h5 style="display: inline;"> {{ $cart->product->name }}</h5>
         <span style=" float: right; padding-right: 10px;">Tersisa {{ $cart->product->stock }} barang</p>
         @else
@@ -146,6 +147,18 @@
 
         setSuperTotal()
         change()
+
+        function selects(){  
+                var ele=document.querySelectorAll('.chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].checked==false)  
+                        ele[i].checked=true;  
+                    else {
+                        ele[i].checked=false;  
+                    }
+                }  
+
+            }  
 
         contain.forEach(elm => {
             let inpCheckbox = elm.querySelector("#checkbox")

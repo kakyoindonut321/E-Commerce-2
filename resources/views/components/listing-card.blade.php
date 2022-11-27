@@ -5,7 +5,7 @@
         <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top img-product-card" alt="{{ asset('storage/' . $product->image) }}" >
       </div>
       <div class="card-body">
-        <p class="card-title text-dark text-uppercase open-sauce-one">@if(strlen($product -> name) > 25) {{ substr( $product -> name, 0,20) . '.....' }} @else {{ $product -> name }} @endif</p>
+        <p class="card-title @if (strlen($product->name) >= 20) font-12 @elseif (strlen($product->name) > 16) font-14 @endif text-dark text-uppercase open-sauce-one">@if(strlen($product -> name) > 25) {{ substr( $product -> name, 0,20) . '.....' }} @else {{ $product -> name }} @endif</p>
         <h5 class="card-text text-dark open-sauce-one-bold">Rp<span class="autoamount">{{ $product->price }}</span></h5>
         <p class="card-text text-dark open-sauce-one">Terjual: {{ $product->sold }}</p>
         @auth

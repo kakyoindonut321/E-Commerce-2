@@ -35,7 +35,7 @@ class AuthController extends Controller
 
     public function update(Request $request)
     {
-        dd($request);
+        // dd($request);
         $request->validate([
             "name" => "required|string|min:3|max:20",
             "imgProfile" => File::image()->max(2048)

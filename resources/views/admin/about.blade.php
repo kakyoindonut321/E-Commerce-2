@@ -9,7 +9,7 @@
 <div class="manager">
     <h3>PROJECT MANAGER</h3>
     <div class="profiler">
-        <img class="profimg" src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+        <img class="profimg" src="{{ URL::to('/image/dev/hannan.jpeg') }}" alt="">
         <h5>Hannan</h5>
     </div>
 </div>
@@ -18,11 +18,11 @@
         <h3>UI & UX</h3>
         <div class="itemmos">
             <div class="profiler">
-                <img class="profimg" src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <img class="profimg" src="{{ URL::to('/image/dev/febri.png') }}" alt="">
                 <h5>Febri</h5>
             </div>
             <div class="profiler">
-                <img class="profimg" src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <img class="profimg" src="{{ URL::to('/image/dev/raka.jpeg') }}" alt="">
                 <h5>Raka</h5>
             </div>
         </div>
@@ -31,15 +31,15 @@
         <h3>FRONTEND</h3>
         <div class="itemmos">
             <div class="profiler">
-                <img class="profimg" src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <img class="profimg" src="{{ URL::to('/image/dev/natan.png') }}" alt="">
                 <h5>Natan</h5>
             </div>        
             <div class="profiler">
-                <img class="profimg" src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <img class="profimg" src="{{ URL::to('/image/dev/taufik.png') }}" alt="">
                 <h5>Taufik</h5>
             </div>
             <div class="profiler">
-                <img class="profimg" src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <img class="profimg" src="{{ URL::to('/image/dev/rifki.png') }}" alt="">
                 <h5>Rifki</h5>
             </div>    
         </div>
@@ -48,7 +48,7 @@
         <h3>BACKEND</h3>
         <div class="itemmos">
             <div class="profiler">
-                <img class="profimg" src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <img class="profimg" src="{{ URL::to('/image/dev/navis.png') }}" alt="">
                 <h5>Navis</h5>
             </div>    
         </div>
@@ -57,7 +57,7 @@
         <h3>TESTER</h3>
         <div class="itemmos">
             <div class="profiler">
-                <img class="profimg" src="{{ URL::to('/image/placeholder.jpg') }}" alt="">
+                <img class="profimg" src="{{ URL::to('/image/dev/fari.jpeg') }}" alt="">
                 <h5>Fari</h5>
             </div>   
         </div>
@@ -65,7 +65,7 @@
     </div>
 </div>
 <div>
-    <h1 class="text-center bold">TITLE</h1>
+    <h1 class="text-center bold">About us</h1>
     <div class="paragraf text-center">
         <p>Ipsa incidunt aliquam optio modi commodi tenetur sed et. Iure quam sunt in qui doloribus consequatur numquam reiciendis. 
             Laborum minus nam velit asperiores sed sapiente. Ut rerum iure sit et dolorum velit qui. 

@@ -1,6 +1,6 @@
 @unless ($title == 'Cart')
-<hr class="p-0 m-0">
-<footer class="bg-lime m-0 p-0 open-sauce-one">
+{{-- <hr class="p-1 m-0" > --}}
+<footer class="bg-lime m-0 p-0 open-sauce-one" style="border-top: 1px solid #66b346;">
     <div class="d-flex">
         <div class="flex-grow-1">
             <h4 class="text-light text-uppercase">LightStore&trade;</h4>

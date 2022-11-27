@@ -4,9 +4,9 @@ let closeBtn = document.querySelector("#btn");
 let nav = document.querySelector(".search-nav-pos");
 let homeSection = document.querySelector(".home-section-sb");
 const match = window.matchMedia("(max-width: 600px)");
-match.addEventListener('change', testFunction);
+match.addEventListener('change', changeup);
 
-function testFunction() {
+function changeup() {
     console.log(match.matches);
     if (!match.matches) {
         nav.classList.remove("open");

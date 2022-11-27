@@ -31,16 +31,13 @@
                             <div class="card-block text-center text-white box-image">
                                 {{-- <img class="mt-5 user-image mx-"auto src="@avatar(auth()->user()->profile_image)" alt="@avatar(auth()->user()->profile_image)" width="200"> --}}
                                 <div class="mt-5 user-image mx-auto" style="background-image: url(@avatar(auth()->user()->profile_image))"></div>
-                                    {{--  --}}
-                                    <label for="file-profile" class="image-edit-mb"><i class='bx bxs-camera'></i></label> 
-                                    <input type="file" name="imgProfile" id="file-profile" class="hid-input-img">
-                                    {{--  --}}
                                 <div class="user-info">
                                     <h2 class="font-weight-bold mt-4 user-h2 user-title">{{ auth()->user()->name }}</h2>
                                     <p class="font-weight-bold mt-4 user-pp ">Ganti profile picture</p>
-                                    <label for="file-profile" class="image-edit the-f-input"><i class="far fa-edit fa-2x mb-4"></i></label>
-                                    <input type="file" name="imgProfile" id="file-profile" class="the-f-input">
                                 </div>
+                                <label for="file-profile" class="image-edit the-f-input"><i class='bx bxs-camera'></i></label>
+                                <input type="file" name="imgProfile" id="file-profile" class="the-f-input">
+
                             </div>
                         </div> 
 
@@ -81,12 +78,24 @@
         const imgInp = document.getElementById("file-profile")
         const imgPrev = document.querySelector(".user-image")
         const nameTitle = document.querySelector('.user-title');
+        const toggleLabel = document.querySelector(".image-edit")
+        var widthout = window.innerWidth;
 
-        const match = window.matchMedia("(max-width: 575px)");
-        match.addEventListener('change', changeInput);
+
+        const matchIcon = window.matchMedia("(max-width: 575px)");
+        matchIcon.addEventListener('change', changeInput);
+        console.log(widthout);
+
+        if (widthout < 575) {
+            console.log('less');
+            toggleLabel.classList.add("open");
+        } else {
+            console.log('more');
+            toggleLabel.classList.remove("open");
+        }
 
         function changeInput() {
-            document.querySelector(".the-f-input").disabled = true;
+            toggleLabel.classList.toggle("open");
         }
 
         
