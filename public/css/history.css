@@ -1,0 +1,52 @@
+.history-card {
+    margin: 10px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+.top-date {
+    border-bottom: 1px solid lightgray;
+    padding: 2px;
+}
+
+.table-card {
+    display: flex;
+    padding: 5px;
+    /* flex-wrap: wrap; */
+}
+
+.himg img {
+    width: 100px;
+}
+
+.hbox-one {
+    display: flex;
+    width: 100%;
+}
+
+.hbox-two {
+    display: flex;
+    width: 100%;
+}
+
+.hprodata {
+    padding: 5px;
+}
+
+.htotalboxdata {
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 800px) {
+    .table-card {
+        /* display: flex; */
+        flex-wrap: wrap;
+    }
+}
+
+.status-box {
+    text-align: center;
+}
+
+.status-box h5 {}

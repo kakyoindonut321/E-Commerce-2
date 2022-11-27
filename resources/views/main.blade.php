@@ -14,6 +14,7 @@
 
 
 
+
 </head>
 <body>
     {{-- NAVBAR --}}
@@ -21,7 +22,7 @@
     {{-- END NAVBAR --}}
 
     {{-- BODY DALEM --}}
-    <div class="home-section-sb">
+    <div class="home-section-sb pb-1">
 
         {{-- SIDEBAR --}}
         @include('partial.sidebar')
@@ -35,10 +36,14 @@
 
     </div>
     {{-- END BODY DALEM --}}
-    <x-message />
 
-    @yield('js')
+    {{-- FOOTER --}}
+    @include('partial.footer')
+    {{-- END FOOTER --}}
+
+    <x-message />
     @include('partial.js')
+    @yield('js')
 
 </body>
 </html>

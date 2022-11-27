@@ -18,10 +18,13 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $username = explode(" ", fake()->name());
+
         return [
-            'name' => fake()->name(),
+            'name' => $username[0] . ' ' . $username[1] ,
             'email' => fake()->unique()->safeEmail(),
             'privilege' => '',
+            'profile_image' => '',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             // 'remember_token' => Str::random(10),
         ];

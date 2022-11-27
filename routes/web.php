@@ -2,12 +2,14 @@
 
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
-
+use App\Http\Controllers\historyController;
+use Database\Factories\HistoryFactory;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 
@@ -33,9 +35,8 @@ use Illuminate\Support\Facades\Response;
 // });
 
 
-Route::get('/', function () {
-    return view( 'landing-page');
-});
+Route::get('/', [productController::class, 'main']);
+Route::get('/about', [Controller::class, 'about']);
 
 
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
@@ -44,13 +45,19 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-us
 
 Route::get('/product', [productController::class, 'index']);
 Route::get('/product/{product}', [productController::class, 'show']);
+Route::get('/product', [productController::class, 'index'])->name('search');
 
 
 
 Route::middleware("auth")->group(function () {
     Route::post('/buy', [TransactionController::class, 'transaction'])->name('buy');
-    Route::post('/create-order', [OrderController::class, 'create'])->name('create-order');
-    Route::get('/order', [OrderController::class, 'index']);
+    Route::post('/create-cart', [CartController::class, 'create'])->name('create-cart');
+    Route::post('/cart/buy', [CartController::class, 'buy']);
+    Route::get('/user/{user}', [AuthController::class, 'user']);
+    Route::delete('/cart/{cart}', [CartController::class, 'delete']);
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::get('/history', [historyController::class, 'index']);
+    Route::put("/profile", [AuthController::class, "update"]);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
 
@@ -58,16 +65,37 @@ Route::middleware("AlreadyLogged")->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::get('/register', [AuthController::class, 'registration'])->name('register');
 });
-
-
-
+// adminIndex
 Route::middleware("isAdmin")->group(function () {
-    Route::get('/report', [productController::class, 'report']);
+
+// PRODUCK CUD
+    //create
     Route::get('/input-product', [productController::class, 'input']);
     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
+    // update
+    Route::put('/product/{product}', [productController::class, 'update']);
+    Route::get('/product/{product}/edit', [productController::class, 'edit']);
+    //delete
     Route::delete('/product/{product}', [productController::class, 'delete']);
+
+// ORDER
+    Route::get('/user-order', [OrderController::class, 'index']);
+    Route::post('/order/{order}', [OrderController::class, 'aproval']);
+
+// REPORT AND USER HISTORY
+    Route::get('/report', [productController::class, 'report']);
+    Route::get('/user-history', [historyController::class, 'adminIndex']);
+
 });
 
+
+// Route::middleware("isSellerAndAdmin")->group(function () {
+//     Route::get('/input-product', [productController::class, 'input']);
+//     Route::post('/create-product', [productController::class, 'store'])->name('create-product');
+//     Route::delete('/product/{product}', [productController::class, 'delete']);
+//     Route::put('/product/{product}', [productController::class, 'update']);
+//     Route::get('/product/{product}/edit', [productController::class, 'edit']);
+//   });
 
 Route::get('/image/produk/{path}', function ($path) {
     $path = storage_path('app/image/produk' . $path);
@@ -105,7 +133,7 @@ Route::get('/image/produk/{path}', function ($path) {
 
 
 
-
+// raka
 
 
 

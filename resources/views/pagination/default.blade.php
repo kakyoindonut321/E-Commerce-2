@@ -4,10 +4,10 @@ $link_limit = 5; // maximum number of links (a little bit inaccurate, but will b
 ?>
 
 @if ($paginator->lastPage() > 1)
-<div class="d-flex p-5" >
+<div class="d-flex p-5 open-sauce-one-bold" >
     <div class="mx-auto p-0 rounded  bg-lime pagination a" style="">
         @if ($paginator->currentPage() > 1)
-        <a href="{{ $paginator->url(1) }}" style="display:inline-block;" class="btn ">First ...</a>
+        <a href="{{ $paginator->url(1) }}" style="display:inline-block;" class="btn btnh">< First</a>
         @endif
         @for($i = 1; $i <= $paginator->lastPage(); $i++)
             <?php
@@ -22,12 +22,12 @@ $link_limit = 5; // maximum number of links (a little bit inaccurate, but will b
                 }
             ?>
             @if ($from < $i && $i < $to)
-                <a href="{{ $paginator->url($i) }}" style="display:inline-block;" class="btn  {{ ($paginator->currentPage() == $i) ? ' bg-darklime' : '' }}">{{ $i }}</a>
+                <a href="{{ $paginator->url($i) }}" style="display:inline-block;" class="btn btnh {{ ($paginator->currentPage() == $i) ? ' bg-darklime' : '' }}">{{ $i }}</a>
             @endif
         @endfor
 
         @if($paginator->currentPage() != $paginator->lastPage())
-        <a href="{{ $paginator->url($paginator->lastPage()) }}" style="display:inline-block;" class="btn ">... Last</a>
+        <a href="{{ $paginator->url($paginator->lastPage()) }}" style="display:inline-block;" class="btn btnh">Last ></a>
         @endif
       </div>  
     </div> 

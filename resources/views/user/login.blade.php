@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ URL::to('/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ URL::to('/css/register.css') }}" />
     <!-- Font Awesome Cdn Link -->
     <link
       rel="stylesheet"
@@ -14,11 +16,11 @@
     <div class="wrapper">
       <div class="logo-header">
         <img src="{{ URL::to('/image/KLMPK2 Shop logo green.png') }}" alt="" srcset="" />
-        <h1>E-Commerce</h1>
+        <h1 class="text-uppercase">LightStore</h1>
       </div>
       <div class="user-logo">
         <img src="{{ URL::to('/image/user.png') }}" alt="" srcset="">
-        <h1>Login</h1>
+        <h1  class="text-uppercase">Login</h1>
       </div>
       <div class="not-member">
         New to E-commerce? <a href="/register"><b>Sign Up</b></a>
@@ -43,7 +45,7 @@
         <p class="recover">
           <a href="#">Forgot Password ?</a>
         </p>
-        <button type="submit">Login</button>
+        <button type="submit" class="open-sauce-one-bold">Login</button>
       </form>
     </div>
   </body>

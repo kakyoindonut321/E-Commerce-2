@@ -1,0 +1,60 @@
+.order-card {
+    display: flex;
+    flex: 100%;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    /* border: 1px solid black; */
+    background-color: white;
+}
+
+.item-card-order {
+    width: 100%;
+    border: 1px solid lightgrey;
+}
+
+.item-card-order h3,
+.item-card-order p {
+    text-align: center;
+}
+
+.item-card-order p {
+    margin: 0;
+}
+
+.button-gen-order {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    color: white;
+}
+
+
+/* .button-gen-order:hover {
+    background-color: #0dcaf0;
+} */
+
+.deny-button:hover {
+    background-color: #be2d3b !important;
+}
+
+.accept-button:hover {
+    background-color: #0aa4c2 !important;
+}
+
+.button-list-gen-order {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+@media screen and (max-width: 700px) {
+    .order-card {
+        flex-wrap: wrap;
+    }
+    .item-card-order {
+        border: none;
+    }
+    .order-card {
+        border: 1px solid lightgrey;
+    }
+}

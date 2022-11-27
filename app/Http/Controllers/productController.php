@@ -4,34 +4,58 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\History;
+use App\Models\Category;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Str;
 
 class productController extends Controller
 {
+    public function main() {
+        $product = [
+            "title" => "E-Commerce",
+            "category" => Category::all(),
+            "products" => Product::with('category')->latest()->filter(request(['category', 'search']))->paginate(10)->withQueryString()
+        ];
+        return view('landing-page', $product);
+    }
+
     public function index(Request $request) {
         $product = [
             "title" => "Products",
-            "product" => Product::latest()->filter(request(['search']))->paginate(10)
+            "products" => Product::with('category')->latest()->filter(request(['category', 'search']))->paginate(10)->withQueryString(),
+            "cartCount" => $this->cartCount
+
         ];
         return view('/product/listing', $product);
     }
 
     public function report() {
         return view('admin.report', [
-            'title' => 'Report'
+            'title' => 'Report',
+            'totalproduct' => Product::ProductTotal(),
+            'history' => History::HistoryWeek(),
+            'users' => User::oldest()->paginate(50),
+            'category' => Product::CategoryCount(),
+            "cartCount" => $this->cartCount
         ]);
     }
 
     public function input() {
         return view('admin.InputProduct', [
-            'title' => 'Input Produk'
+            'title' => 'Input Produk',
+            'category' => Category::all(),
+            "cartCount" => $this->cartCount
         ]);
     }
 
-    public function edit() {
-        return view('admin.UpdateProduk', [
-            'title' => 'Input Produk'
+    public function edit(Product $product) {
+        return view('admin.EditProduct', [
+            'title' => 'Input Produk',
+            'product' => $product,
+            'category' => Category::all(),
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -39,16 +63,19 @@ class productController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'stock' => 'required',
-            'price' => 'required',
-            'cover_image' => 'required'
+            'stock' => 'required|max:7',
+            'price' => 'required|max:15',
+            'cover_image' => 'required',
+            'category' => 'required'
         ]);
         $input = new Product;
         $input->name = $request-> name;
         $input->description = $request-> description;
         $input->stock = $request-> stock;
+        $input->sold = 0;
         $input->price = $request-> price;
-        $input->category_id = 1;
+        $input->category_id = $request->category;
+        $input->user = '';
         
 
         if ($request->hasFile('cover_image')) {
@@ -69,7 +96,8 @@ class productController extends Controller
     public function show(Product $product) {
         return view('product.detail', [
             'title' => $product->name,
-            'product' => $product
+            'product' => $product,
+            "cartCount" => $this->cartCount
         ]);
     }
 
@@ -78,16 +106,28 @@ class productController extends Controller
         $formUpdate =  $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'stock' => 'required',
-            'price' => 'required',
-            'cover_image' => 'required'
+            'stock' => 'required|max:7',
+            'price' => 'required|max:15',
+            // 'category_id' => 'required'
         ]);
+
+
+        // dd($formUpdate);
 
         if ($request->hasFile('cover_image')) {
             $product->image = $request->file('cover_image')->store('image/produk', 'public');
         }
-
-
+        // dd($product->description);
+        if (
+            $product->name == $request->name and
+            $product->description == $request->description and 
+            $product->stock == $request->stock and 
+            $product->price == $request->price and
+            $product->category_id == null
+            )
+        {
+            return redirect()->to("/product")->with('message-warning', 'data produk tidak berubah');
+        }
         $product->update($formUpdate);
         return redirect()->to("/product")->with('message-success', 'produk berhasil di update');
     }
