@@ -32,20 +32,20 @@
 
 ## Prapetunjuk website kami
 <h3 >Landing Page</h3>
-<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/dashboard.jpg" width="370px">
+<img align="lower" src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-2/main/design/preview/landingpage.jpg" width="370px">
 
 <h3>Listing Produk</h3>
-<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/history.jpg" width="370px">
+<img align="lower" src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-2/main/design/preview/listing.jpg" width="370px">
 
 <h3>Detail Produk</h3>
-<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/transaction.jpg" width="370px">
+<img align="lower" src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-2/main/design/preview/detail.jpg" width="370px">
 
 <h3>Keranjang</h3>
-<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/dashboard.jpg" width="370px">
+<img align="lower" src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-2/main/design/preview/keranjang.jpg" width="370px">
 
 <h3>Profil</h3>
-<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/history.jpg" width="370px">
+<img align="lower" src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-2/main/design/preview/profil.jpg" width="370px">
 
 <h3>Insight</h3>
-<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/transaction.jpg" width="370px">
+<img align="lower" src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-2/main/design/preview/insight.jpg" width="370px">
 
