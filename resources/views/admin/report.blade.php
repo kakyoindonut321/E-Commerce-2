@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="d-flex">
+<div class="d-flex two-col-rp">
     <div class="flex-item-rpt">
         <div class="userlist-box mx-auto mt-2">
             <h4 class="text-center">User List</h4>

@@ -9,7 +9,7 @@ class historyController extends Controller
     public function index() {
         return view('user.history', [
             'title' => 'History',
-            'history' => History::with('product', 'user')->where('user_id', auth()->user()->id)->paginate(10),
+            'history' => History::with('product', 'user')->latest()->where('user_id', auth()->user()->id)->paginate(10),
             "cartCount" => $this->cartCount
         ]);
     }
@@ -17,7 +17,7 @@ class historyController extends Controller
     public function adminIndex() {
         return view('user.history', [
             'title' => 'History',
-            'history' => History::with('product', 'user')->paginate(10),
+            'history' => History::with('product', 'user')->latest()->paginate(10),
             "cartCount" => $this->cartCount
         ]);
     }

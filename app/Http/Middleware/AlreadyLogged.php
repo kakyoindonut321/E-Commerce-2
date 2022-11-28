@@ -17,7 +17,7 @@ class AlreadyLogged
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            return redirect()->to("/");
+            return redirect()->back()->with('message-error', 'anda sudah terautentikasi');
         }
         return $next($request);
     }

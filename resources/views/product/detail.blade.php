@@ -28,19 +28,19 @@
 @error('product_id') {{ session()->now('message-error', 'Barang telah dimasukan ke keranjang') }} @enderror 
 
 @section('content')
-  <div class="container-detail">
+  <div class="container-detail open-sauce-one">
       <div class="col-detail">
         <div class="img-div">
           <img src="{{ asset('storage/' . $product->image) }}" alt="" srcset="">
         </div>
       </div>
       <div class="col-detail">
-          <div class="">
-            <h1 class="">{{ $product->name }}</h1>
+          <div class="title-detail">
+            <h4 class="open-sauce-one-bold text-uppercase">{{ $product->name }}</h4>
             {{-- <hr class=""> --}}
           </div>
-          <div style="display: none;" id="harga">{{ $product->price }}</div>
-          <h3>Harga: Rp<span  class="autoamount">{{ $product->price }}</span></h3>
+          <div style="display: none;" id="harga" >{{ $product->price }}</div>
+          <h3 class="open-sauce-one-bold">Rp<span  class="autoamount">{{ $product->price }}</span></h3>
           <h5>Terjual: <span>{{ $product->sold }}</span></h5>
           <hr>
           <div class="description">
@@ -50,7 +50,7 @@
 
       <div class="col-detail-action mx-auto">
         <div class="action-detail">
-          <h3>Total: <span id="total" class="autoamount"></span></h3>
+          <h3>Total: Rp<span id="total" class="autoamount"></span></h3>
           <div class="d-flex justify-content-start">
             <div class="input-group inline-group" style="@if ($product->stock == 0) pointer-events: none; @endif flex-wrap: nowrap;">
               <div class="input-group-prepend">
@@ -184,8 +184,9 @@
           const total = document.querySelector('#total');
           const harga = document.querySelector('#harga');
           const jumlah = document.querySelector('#jumlah');
-          console.log(total.innerHTML);
+          // console.log(total.innerHTML);
           total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value)
+          new AutoNumeric.multiple('.autoamount', option);
           
               // })
   

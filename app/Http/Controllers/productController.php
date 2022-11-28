@@ -75,7 +75,7 @@ class productController extends Controller
         $input->sold = 0;
         $input->price = $request-> price;
         $input->category_id = $request->category;
-        $input->user = 'kjjo';
+        $input->user = '';
         
 
         if ($request->hasFile('cover_image')) {
@@ -108,22 +108,23 @@ class productController extends Controller
             'description' => 'required',
             'stock' => 'required|max:7',
             'price' => 'required|max:15',
-            'category_id' => 'required'
+            // 'category_id' => 'required'
         ]);
+
 
         // dd($formUpdate);
 
         if ($request->hasFile('cover_image')) {
             $product->image = $request->file('cover_image')->store('image/produk', 'public');
         }
-
+        // dd($product->description);
         if (
             $product->name == $request->name and
             $product->description == $request->description and 
             $product->stock == $request->stock and 
             $product->price == $request->price and
-            $product->category_id == $request->category_id
-            ) 
+            $product->category_id == null
+            )
         {
             return redirect()->to("/product")->with('message-warning', 'data produk tidak berubah');
         }

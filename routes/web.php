@@ -59,6 +59,7 @@ Route::middleware("auth")->group(function () {
     Route::get('/history', [historyController::class, 'index']);
     Route::put("/profile", [AuthController::class, "update"]);
     Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post("/changepassword", [AuthController::class, "changePassword"]);
 });
 
 Route::middleware("AlreadyLogged")->group(function () {

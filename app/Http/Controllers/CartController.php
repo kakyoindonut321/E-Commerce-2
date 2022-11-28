@@ -10,7 +10,7 @@ class CartController extends Controller
     public function index() {
         return view('user.cart', [
             'title' => 'Cart',
-            'carts' => Cart::with('product', 'user')->where('user_id', auth()->user()->id)->paginate(10),
+            'carts' => Cart::with('product', 'user')->where('user_id', auth()->user()->id)->latest()->paginate(10),
             "cartCount" => $this->cartCount
         ]);
     }
