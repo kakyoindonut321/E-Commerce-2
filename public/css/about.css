@@ -1,5 +1,6 @@
 .theflex {
     display: flex;
+    flex-wrap: nowrap;
 }
 
 .flexbbb {
@@ -20,6 +21,11 @@
 
 .flexbbb h3 {
     text-align: center;
+}
+
+.doubble {
+    width: 100%;
+    display: flex;
 }
 
 .itemmos {
@@ -122,6 +128,12 @@
     box-shadow: 0 0px 9px rgb(136, 62, 45);
 }
 
+@media screen and (max-width: 600px) {
+    .doubble {
+        flex-wrap: wrap;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .profimg {
         border: 2px solid lightgrey;
@@ -161,11 +173,11 @@
 @media screen and (max-width: 600px) {
     .profimg {
         border: 1px solid lightgrey;
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         border-radius: 100%;
     }
     .profiler h5 {
-        font-size: 7px;
+        font-size: 10px;
     }
 }
