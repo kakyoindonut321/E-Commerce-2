@@ -42,8 +42,8 @@
     {{-- END FOOTER --}}
 
     <x-message />
-    @yield('js')
     @include('partial.js')
+    @yield('js')
 
 </body>
 </html>

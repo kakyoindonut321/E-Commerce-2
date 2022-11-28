@@ -13,7 +13,7 @@ class OrderController extends Controller
     public function index() {
         return view('admin.order', [
             'title' => 'Order',
-            'orders' => Order::with('product', 'user')->paginate(10),
+            'orders' => Order::with('product', 'user')->latest()->paginate(10),
             "cartCount" => $this->cartCount
         ]);
     }

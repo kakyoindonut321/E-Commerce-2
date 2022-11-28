@@ -10,6 +10,10 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Roboto:300');
     @import url('https://fonts.cdnfonts.com/css/open-sauce-one');
+    .font-poppin {
+        font-family: "Poppins", sans-serif;
+    }
+    
     html {
         background-color: #7ED957;
     }
@@ -26,11 +30,10 @@
     .font-kita {
         font-family: ABeeZee;
     }
-    
-    .font-poppin {
+    /* .font-poppin {
         font-family: "Poppins", sans-serif;
         font-weight: 600;
-    }
+    } */
     
     .navdesc {
         text-align: center;
@@ -135,6 +138,14 @@
         border-radius: 50px;
         font-weight: 500;
         background: none;
+    }
+    
+    .font-14 {
+        font-size: 14px;
+    }
+    
+    .font-12 {
+        font-size: 12px;
     }
     
     textarea:focus,
@@ -10960,6 +10971,31 @@
         .img-product-card {
             /* width: 6rem; */
             height: 10rem;
+        }
+    }
+    
+    @media screen and (max-width: 350px) {
+        .product-card {
+            /* border: 1px solid black; */
+            width: 8rem;
+            height: 16rem;
+        }
+        .product-card div p {
+            font-size: 10px;
+        }
+        .product-card div h5 {
+            font-size: 12px;
+        }
+        .img-product-card {
+            /* width: 6rem; */
+            height: 8rem;
+        }
+        .btn {
+            font-size: 10px;
+            padding: 5px;
+        }
+        .admin-btn-div {
+            margin: 0;
         }
     }
     /*# sourceMappingURL=bootstrap.css.map */

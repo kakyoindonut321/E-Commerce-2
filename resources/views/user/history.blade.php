@@ -2,66 +2,6 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ URL::to('/css/history.css') }}">
-<style>
-    /* table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td img {
-      height: 5rem; 
-      width: 5rem;
-    }
-    
-    td, th{
-      border: 1px solid #dedede;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dedede;
-    }
-    tr:nth-child(odd) {
-      background-color: #eeeeee;
-    }
-
-    @media screen and (max-width: 700px) {
-      table {
-        width: 100%;
-        font-size: 17px;
-      }
-
-      td img {
-        height: 2rem;
-        width: 2rem;
-      }
-    }
-
-    @media screen and (max-width: 600px) {
-      table {
-        width: 100%;
-        font-size: 10px;
-      }
-
-      td img {
-        height: 2rem;
-        width: 2rem;
-      }
-    }
-
-    @media screen and (max-width: 400px) {
-      table {
-        width: 100%;
-        font-size: 7px;
-      }
-
-      td img {
-        height: 1rem;
-        width: 1rem;
-      }
-    } */
-    </style>
 @endsection
 
 
@@ -75,7 +15,7 @@
           @if (auth()->user()->privilege == "admin")
             <span class="pt-1 text-primary">{{ $his->user->name }}</span>
           @endif
-        <span class="pt-1">{{ $his->created_at }}</span>
+        <span class="pt-1">{{ \Carbon\Carbon::parse($his->created_at)->format('l d, m, Y h:i A')}}</span>
       </div>
       <div class="table-card">
         <div class="hbox hbox-one">
@@ -97,7 +37,7 @@
           <div class="status-box">
             <h5>status</h5>
             <h4
-            style="color:@switch($his->status)@case('accepted') green @break @case('denied') red @break @default grey @endswitch ;">
+            style="color:@switch($his->status)@case('accepted') green @break @case('declined') red @break @default grey @endswitch ;">
             {{ $his->status }}  
           </h4>
           </div>

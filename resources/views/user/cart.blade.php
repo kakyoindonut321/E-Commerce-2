@@ -30,7 +30,8 @@
 @unless(count($carts) == 0)
 <div class="header-table">
   <div class="header1" style="text-align: left; padding-left: 10px;">
-      <p>Produk</p>
+      <input type="checkbox" style="display: inline;" form="cartForm" onchange="selects(event)">
+      <p  style="display: inline;" class="open-sauce-one">All</p>
   </div>
   <div>
       <p>Harga</p>
@@ -59,7 +60,7 @@
     <input type="hidden" name="cart[]" value="{{ $cart->id }}" form="cartForm">
 
     <div class="top-product">
-        @unless ($cart->product->stock == 0) <input type="checkbox" name="table[]" value="{{ $cart->id }}" id="checkbox" style="display: inline;" form="cartForm" onchange onpropertychange onkeyuponpaste oninput="change()">
+        @unless ($cart->product->stock == 0) <input type="checkbox" name="table[]" value="{{ $cart->id }}" id="checkbox" class="chk" style="display: inline;" form="cartForm" onchange onpropertychange onkeyuponpaste oninput="change()">
         <h5 style="display: inline;"> {{ $cart->product->name }}</h5>
         <span style=" float: right; padding-right: 10px;">Tersisa {{ $cart->product->stock }} barang</p>
         @else
@@ -108,7 +109,8 @@
             </div>
 
             <div class="inputs total">
-                <p>Rp<span  @unless ($cart->product->stock == 0) id="total" @endunless class="autoamount"></span></p>
+                <div style="display: none;" @unless ($cart->product->stock == 0) id="total" @endunless></div>
+                <p>Rp<span id="realtotal" class="autoamount"></span></p>
             </div>
             <div class="inputs">
                 <form action="/cart/{{ $cart->id }}" id="cartDelete" method="POST">
@@ -129,13 +131,13 @@
 @endunless
 <footer>
     <div class="checkout">
-        <h3 >TOTAL: <span id="supertotal"></span></h3>
+        <h3 >TOTAL: Rp<span id="supertotal" class="autoamount"></span></h3>
         <button type="submit" form="cartForm">CHECKOUT</button>
     </div>
 </footer>
 
 @endsection
-
+{{-- ching cheng hanji cheng chang cheng chong --}}
 
 @section('js')
     <script>
@@ -145,6 +147,45 @@
 
         setSuperTotal()
         change()
+
+        function selects(e){  
+            console.log(e.target);
+            let checkAll = e.target;
+                // var ele=document.querySelectorAll('.chk');  
+                // for(var i=0; i<ele.length; i++){  
+                //     if(ele[i].checked==false)  
+                //         ele[i].checked=true;  
+                //     else {
+                //         ele[i].checked=false;  
+                //     }
+                    
+                // }  
+                contain.forEach(elm => {
+                    let inpCheckbox = elm.querySelector("#checkbox")
+                    let productId = elm.dataset.idproduct
+
+                    if(checkAll.checked == true) {
+                        inpCheckbox.checked=true;  
+                        checked.push(productId);
+                        setSuperTotal()
+                    } else {
+                        inpCheckbox.checked=false;  
+                        checked = checked.filter(e => e != productId);
+                        setSuperTotal()
+                    }
+                    // inpCheckbox.checked = true;
+
+                    // inpCheckbox.addEventListener("change", e => {
+                    //     inpCheckbox.checked && checked.push(productId)
+                    //     if(!inpCheckbox.checked){
+                    //         checked = checked.filter(e => e != productId)
+                    //     }
+
+                    //     setSuperTotal()
+                    // })
+                })
+                
+            }  
 
         contain.forEach(elm => {
             let inpCheckbox = elm.querySelector("#checkbox")
@@ -169,16 +210,21 @@
                 totalAll += valTotalProduct
             })
             supertotal.innerHTML = totalAll;
+            new AutoNumeric.multiple('.autoamount', option);
+
         }
 
 
         function change() {
             contain.forEach(elm => {
                 const total = elm.querySelector('#total');
+                const realtotal = elm.querySelector('#realtotal');
                 const harga = elm.querySelector('#harga');
                 const jumlah = elm.querySelector('#jumlah');
-                
                 total.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value);
+                realtotal.innerHTML = parseFloat(harga.innerHTML) * parseFloat(jumlah.value);
+                new AutoNumeric.multiple('.autoamount', option);
+
             })
             
             setSuperTotal();

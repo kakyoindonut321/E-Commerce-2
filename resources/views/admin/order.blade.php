@@ -31,6 +31,8 @@
     </div>
 </div>
 @endforeach
+@include('pagination.default', ['paginator' => $orders])
+
 @else 
 <h3 class="text-center text-danger">Pesanan kosong</h3>
 @endunless
