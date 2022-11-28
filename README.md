@@ -1,7 +1,7 @@
 <h1>Green Bay</h1>
 <img src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-KL2/main/design/KLMPK2%20Shop%20logo%20green.png" alt="Girl in a jacket" width="100">
 
-##Anggota
+## Anggota
 - Hannan: Project Manager
 - Febri: designer
 - Raka: designer
@@ -28,3 +28,24 @@
  
  - Fitur pembelian barang dan persetujuan
  #### user dapat membeli barang(virtual) dan admin dapat mengatur persetujuan 
+
+
+## Prapetunjuk website kami
+<h3>Landing Page</h3>
+<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/dashboard.jpg" width="370px">
+
+<h3>Listing Produk</h3>
+<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/history.jpg" width="370px">
+
+<h3>Detail Produk</h3>
+<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/transaction.jpg" width="370px">
+
+<h3>Keranjang</h3>
+<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/dashboard.jpg" width="370px">
+
+<h3>Profil</h3>
+<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/history.jpg" width="370px">
+
+<h3>Insight</h3>
+<img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/transaction.jpg" width="370px">
+
