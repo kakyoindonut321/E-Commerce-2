@@ -41,8 +41,22 @@
     margin: 10px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     .two-col-rp {
         flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .linechart1 {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .linechart1 {
+        margin-right: 0;
+        margin-left: 0;
     }
 }
