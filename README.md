@@ -12,4 +12,8 @@
 <p>Fari: Tester</p>
 
 
-Ini adalah project e-commerce yang dimana kita akan membuat website e-commerce menggunakan laravel
+###Ini adalah project e-commerce yang dimana kita akan membuat website e-commerce menggunakan laravel
+
+####Ini adalah Web E-Commerce yang kami kembangkan dan pembuatan website ini masih terbilang sederhana terutama dalam segi tampilan dan segi keamanan.
+
+####Dalam perancangan website ini,semoga konten yang didalamnya bisa bermanfaat untuk pengguna yang memakai layanan website kami. Perancangan website ini masih harus diriset sungguh-sungguh mengenai target yang dibidik serta apa yang ingin ditonjollkan dalam desain website tersebut.
