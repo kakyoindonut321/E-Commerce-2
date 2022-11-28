@@ -31,10 +31,10 @@
 
 
 ## Prapetunjuk website kami
-<h3 style="color:green">Landing Page</h3>
+<h3 >Landing Page</h3>
 <img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/dashboard.jpg" width="370px">
 
-<h3 style="color:green">Listing Produk</h3>
+<h3>Listing Produk</h3>
 <img align="lower" src="https://raw.githubusercontent.com/ahmadfahrurrozi24/1Wallet/main/public/img/history.jpg" width="370px">
 
 <h3>Detail Produk</h3>
