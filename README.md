@@ -1,7 +1,9 @@
 <h1>Green Bay</h1>
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/) [![GitHub commits](https://badgen.net/github/commits/Naereen/Strapdown.js)](https://github.com/kakyoindonut321/E-Commerce-2/commit/) [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/kakyoindonut321/E-Commerce-2/)
 <img src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-KL2/main/design/KLMPK2%20Shop%20logo%20green.png" alt="Girl in a jacket" width="100">
+
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/) [![GitHub commits](https://badgen.net/github/commits/Naereen/Strapdown.js)](https://github.com/kakyoindonut321/E-Commerce-2/commit/) [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/kakyoindonut321/E-Commerce-2/)
 
 ## Ini adalah project e-commerce yang dimana kita akan membuat website e-commerce menggunakan laravel
 
