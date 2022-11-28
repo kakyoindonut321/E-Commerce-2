@@ -18,7 +18,7 @@
  - Fitur pembelian barang dan persetujuan
  #### user dapat membeli barang(virtual) dan admin dapat mengatur persetujuan 
 
-<img align="right" src="https://img.freepik.com/premium-vector/person-shopping-online-tablet_160308-4544.jpg?w=2000" width="330px"
+<img align="right" src="https://img.freepik.com/premium-vector/person-shopping-online-tablet_160308-4544.jpg?w=2000" width="330px">
 ## Anggota
 - Hannan: Project Manager
 - Febri: designer
