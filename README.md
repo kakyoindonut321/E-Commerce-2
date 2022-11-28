@@ -1,17 +1,6 @@
 <h1>Green Bay</h1>
 <img src="https://raw.githubusercontent.com/kakyoindonut321/E-Commerce-KL2/main/design/KLMPK2%20Shop%20logo%20green.png" alt="Girl in a jacket" width="100">
 
-## Anggota
-- Hannan: Project Manager
-- Febri: designer
-- Raka: designer
-- Navis: Developer
-- Taufik: Developer
-- Natan: Developer
-- Rifki: Developer
-- Fari: Tester
-
-
 ## Ini adalah project e-commerce yang dimana kita akan membuat website e-commerce menggunakan laravel
 
 ### Ini adalah Web E-Commerce yang kami kembangkan dan pembuatan website ini masih terbilang sederhana terutama dalam segi tampilan dan segi keamanan.
@@ -29,6 +18,15 @@
  - Fitur pembelian barang dan persetujuan
  #### user dapat membeli barang(virtual) dan admin dapat mengatur persetujuan 
 
+## Anggota
+- Hannan: Project Manager
+- Febri: designer
+- Raka: designer
+- Navis: Developer
+- Taufik: Developer
+- Natan: Developer
+- Rifki: Developer
+- Fari: Tester
 
 ## Prapetunjuk website kami
 <h3 >Landing Page</h3>
